@@ -11,7 +11,7 @@ module.exports = [
         items: [
           { text: "HTML", link: "/pages/8309a5b876fc95e3/" },
           { text: "CSS", link: "/pages/e226e1/" },
-          { text: "JS", link: "/pages/4aa87d/" },
+          { text: "JavaScript", link: "/pages/38a70e/" },
           { text: "Vue", link: "/pages/14682d/" },
         ],
       },
@@ -23,21 +23,21 @@ module.exports = [
             link: "/pages/9c81a3/",
           },
           {
-            text: "TypeScript笔记",
-            link: "/pages/51afd6/",
+            text: "TypeScript学习笔记",
+            link: "/pages/b7ccdb/",
           },
           {
             text: "小程序笔记",
             link: "/note/wx-miniprogram/",
           },
           {
-            text: "JS设计模式笔记",
+            text: "JavaScript设计模式笔记",
             link: "/pages/4643cd/",
           },
         ],
       },
       {
-        text: "webpack",
+        text: "打包工具",
         link: "/pages/32a43d/",
       },
     ],
