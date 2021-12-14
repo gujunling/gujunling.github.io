@@ -21,9 +21,11 @@ else
   git config --global user.email "gujunq1998@163.com"
 fi
 git init
+git remote add origin git@github.com:gujunling/myweb-frontend.git
+git branch -M main
 git add -A
 git commit -m "${msg}"
-git push -f $githubUrl main:gh-pages # 推送到github
+git push -u $githubUrl main:gh-pages # 推送到github
 
 
 cd - # 退回开始所在目录
