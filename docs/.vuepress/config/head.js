@@ -11,7 +11,14 @@ module.exports = [
     },
   ],
   ["meta", { name: "theme-color", content: "#11a8cd" }], // 移动浏览器主题颜色
-  ["meta", { name: "baidu-site-verification", content: "code-oSHFZLG2FK" }], // 百度收录文章的HTML标签验证
+  ["meta", { name: "baidu-site-verification", content: "code-53yMawG36P" }], // 百度收录文章的HTML标签验证
+  [
+    "meta",
+    {
+      name: "google-site-verification",
+      content: "C6GIWT5zHwhVsd3ufgcZIlut2hsQwK6P4MSuHLz2SyA",
+    },
+  ], // 谷歌收录文章的HTML标签验证
   [
     "script",
     {
