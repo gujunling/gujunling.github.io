@@ -1,5 +1,5 @@
 {
-  "name": "myblog-frontend",
+  "name": "gujunling.github.io",
   "version": "1.0.0",
   "scripts": {
     "dev": "vuepress dev docs",
