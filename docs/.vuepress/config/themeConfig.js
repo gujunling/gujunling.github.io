@@ -4,7 +4,6 @@ const sidebar = require("./themeConfig/sidebar.js");
 
 // 主题配置
 module.exports = {
-  base: "/myweb-frontend/", // 设置站点根路径
   nav,
   sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
   // logo: '/img/EB-logo.png', // 导航栏logo
