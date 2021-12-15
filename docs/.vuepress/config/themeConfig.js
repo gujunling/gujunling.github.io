@@ -1,9 +1,10 @@
 const nav = require("./themeConfig/nav.js");
 const sidebar = require("./themeConfig/sidebar.js");
-const htmlModules = require("./themeConfig/htmlModules.js");
+// const htmlModules = require("./themeConfig/htmlModules.js");
 
 // 主题配置
 module.exports = {
+  base: "/myweb-frontend/", // 设置站点根路径
   nav,
   sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
   // logo: '/img/EB-logo.png', // 导航栏logo
@@ -80,7 +81,7 @@ module.exports = {
   footer: {
     // 页脚信息
     copyrightInfo:
-      '前端小记 版权所有 <div style="margin:0 auto; padding:20px 0;"><div style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://cdn.jsdelivr.net/gh/gujunling/PicGo-image/blog/beian-icon.png" /><p style="height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤公网安备 44040202001285号 | <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">豫ICP备2021003461号-2</a></p></div></div>', // 博客版权信息，支持a标签
+      '<div style="display:flex;text-decoration:none;height:20px;line-height:20px;"><img src="https://cdn.jsdelivr.net/gh/gujunling/PicGo-image/blog/beian-icon.png" /><p style="height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤公网安备 44040202001285号 | <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">豫ICP备2021003461号-2</a></p></div>', // 博客版权信息，支持a标签
     createYear: 2021, // 博客创建年份
   },
   // htmlModules // 插入hmtl(广告)模块

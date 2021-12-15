@@ -1,7 +1,7 @@
 // head
 module.exports = [
   // 注入到页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
-  ["link", { rel: "icon", href: "/img/favicon.ico" }], //favicons，资源放在public文件夹
+  ["link", { rel: "icon", href: "./img/favicon.ico" }], //favicons，资源放在public文件夹
   [
     "meta",
     {
@@ -19,12 +19,12 @@ module.exports = [
       content: "C6GIWT5zHwhVsd3ufgcZIlut2hsQwK6P4MSuHLz2SyA",
     },
   ], // 谷歌收录文章的HTML标签验证
-  [
-    "script",
-    {
-      "data-ad-client": "ca-pub-7828333725993554",
-      async: "async",
-      src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
-    },
-  ], // 网站关联Google AdSense 与 html格式广告支持
+  // [
+  //   "script",
+  //   {
+  //     "data-ad-client": "ca-pub-7828333725993554",
+  //     async: "async",
+  //     src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+  //   },
+  // ], // 网站关联Google AdSense 与 html格式广告支持
 ];

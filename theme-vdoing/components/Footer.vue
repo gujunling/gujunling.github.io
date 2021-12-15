@@ -1,9 +1,6 @@
 <template>
   <div class="footer">
-    <div
-      class="icons"
-      v-if="social && social.icons"
-    >
+    <div class="icons" v-if="social && social.icons">
       <a
         :href="item.link"
         :title="item.title"
@@ -15,39 +12,40 @@
     </div>
 
     <!--Vdoing主题遵循MIT协议，完全开源且免费。如果您对主题的修改并不大，希望您保留主题的链接。-->
-    Theme by
+    <!-- Theme by
     <a
       href="https://github.com/xugaoyi/vuepress-theme-vdoing"
       target="_blank"
       title="本站主题"
-    >Vdoing</a>
-    <template v-if="footer">
-      | Copyright © {{ footer.createYear }}-{{ new Date().getFullYear() }}
-      <span
-        v-html="footer.copyrightInfo"
-      ></span>
-    </template>
+    >Vdoing</a> -->
+    <div v-if="footer" style="display:flex;justify-content: center;">
+      前端小记 版权所有 | Copyright © {{ footer.createYear }}-{{
+        new Date().getFullYear()
+      }}
+      <span v-html="footer.copyrightInfo"></span>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   computed: {
-    social () {
-      return this.$themeConfig.social
+    social() {
+      return this.$themeConfig.social;
     },
-    footer () {
-      return this.$themeConfig.footer
-    }
-  }
-}
+    footer() {
+      return this.$themeConfig.footer;
+    },
+  },
+};
 </script>
 
-<style lang='stylus'>
+<style lang="stylus">
 // $mobileSidebarWidth = $sidebarWidth * 0.82
 .footer
   padding 5rem 1.5rem 2.5rem
   text-align center
+  background-color #252525
   color #666
   box-sizing border-box
   font-size 0.85rem
