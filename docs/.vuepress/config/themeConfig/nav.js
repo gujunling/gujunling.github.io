@@ -60,7 +60,7 @@ module.exports = [
     link: "/technology/",
     items: [
       { text: "技术文档", link: "/pages/9a7ee40fc232253e/" },
-      { text: "GitHub部署及推送", link: "/pages/78f44a/" },
+      { text: "GitHub部署及推送", link: "/pages/3a23a1/" },
       { text: "Nodejs", link: "/pages/117708e0af7f0bd9/" },
       { text: "博客搭建", link: "/pages/41f87d890d0a02af/" },
       { text: "Fullpage全屏轮播插件", link: "/pages/188fd0/" },

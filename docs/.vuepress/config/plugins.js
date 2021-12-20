@@ -33,7 +33,7 @@ module.exports = [
         },
         {
           title: "通过百度搜索本站的",
-          frontUrl: "https://www.baidu.com/s?wd=site%3Asweetheartjq.com%20",
+          frontUrl: "https://www.baidu.com/s?wd=site%3Asweetheartjq.cn%20",
         },
       ],
     },
@@ -88,10 +88,13 @@ module.exports = [
       options: {
         clientID: "97cc3800172983cd3344", //  gujunling.github.io
         clientSecret: "67a39c103de94fc00714a4573e01491dbf095297", //  gujunling.github.io
-        // 不同的域名需要更换不同的评论系统的id
-        // clientID: "1229f90ccdd99b9bea84",     //  sweetheartjq.cn
-        // clientSecret: "5d8699282be89aeded2b4cf41d29dda9c0fcd83f",  //  sweetheartjq.cn
-        repo: "gujunling.github.io", // GitHub 仓库
+        repo: "gujunling.github.io", // GitHub 仓库,github.io域名
+        // 不同的域名需要更换不同的评论系统的id及评论存在的仓库
+        /* 
+        clientID: "1229f90ccdd99b9bea84",     //  sweetheartjq.cn
+        clientSecret: "5d8699282be89aeded2b4cf41d29dda9c0fcd83f",  //  sweetheartjq.cn
+        repo: "myblog-gitalk-comment", // GitHub 仓库，sweetheartjq.cn域名 
+        */
         owner: "gujunling", // GitHub仓库所有者
         admin: ["gujunling"], // 对仓库有写权限的人
         // distractionFreeMode: true,
@@ -108,7 +111,7 @@ module.exports = [
     {
       transformer: (timestamp, lang) => {
         const dayjs = require("dayjs"); // https://day.js.org/
-        return dayjs(timestamp).format("YYYY/MM/DD, HH:mm:ss");
+        return dayjs(timestamp).format("YYYY-MM-DD HH:mm:ss");
       },
     },
   ],

@@ -1,7 +1,7 @@
 const head = require("./config/head.js");
 const plugins = require("./config/plugins.js");
 const themeConfig = require("./config/themeConfig.js");
-
+// const path = require("path");
 module.exports = {
   // theme: 'vdoing', // 使用依赖包主题
   theme: require.resolve("../../theme-vdoing"), // 使用本地主题
@@ -17,4 +17,19 @@ module.exports = {
   head,
   plugins,
   themeConfig,
+
+  /* 因为现在包含了github.io和sweetheartjq.cn这两个域名，在每次打包后生成的文件名不同，所以这样配置cdn加速不行，会导致cn的域名的找不到文件，后续只存在github.io的域名时可以使用这样cdn加速 */
+  /*  configureWebpack: () => {
+    return {
+      output: {
+        publicPath:
+          "https://cdn.jsdelivr.net/gh/gujunling/gujunling.github.io@gh-pages/",
+      },
+      resolve: {
+        alias: {
+          'assets': path.resolve(__dirname, "./assets"),
+        },
+      },
+    };
+  }, */
 };
