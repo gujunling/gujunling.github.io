@@ -6,7 +6,7 @@ const sidebar = require("./themeConfig/sidebar.js");
 module.exports = {
   nav,
   sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
-  // logo: '/img/EB-logo.png', // 导航栏logo
+  // logo: '/img/favicon.ico', // 导航栏logo
   repo: "gujunling", // 导航栏右侧生成Github链接
   searchMaxSuggestions: 10, // 搜索结果显示最大数
   lastUpdated: "上次更新", // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
@@ -52,7 +52,8 @@ module.exports = {
   },
   blogger: {
     // 博主信息，显示在首页侧边栏
-    avatar: "https://cdn.jsdelivr.net/gh/gujunling/PicGo-image/test/111.jpg",
+    avatar:
+      "https://gitee.com/gujunling/pic-go-image/raw/master/blog/20211221085456.png",
     name: "sweetheart",
     slogan: "前端小记",
   },
@@ -80,7 +81,7 @@ module.exports = {
   footer: {
     // 页脚信息
     copyrightInfo:
-      '<div style="display:flex;text-decoration:none;height:20px;line-height:20px;margin:0 5px;"><img src="https://cdn.jsdelivr.net/gh/gujunling/PicGo-image/blog/beian-icon.png" /><p style="height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤公网安备 44040202001285号 | <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">豫ICP备2021003461号-2</a></p></div>', // 博客版权信息，支持a标签
+      '<div style="display:flex;text-decoration:none;height:20px;line-height:20px;margin:0 5px;"><img src="/img/beian.png" /><p style="height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤公网安备 44040202001285号 | <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">豫ICP备2021003461号-2</a></p></div>', // 博客版权信息，支持a标签
     createYear: 2021, // 博客创建年份
   },
   // htmlModules // 插入hmtl(广告)模块
