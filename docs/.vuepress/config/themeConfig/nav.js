@@ -37,7 +37,7 @@ module.exports = [
         ],
       },
       {
-        text: "打包工具",
+        text: "工具",
         link: "/pages/32a43d/",
       },
     ],
