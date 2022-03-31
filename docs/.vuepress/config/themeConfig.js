@@ -53,7 +53,8 @@ module.exports = {
   blogger: {
     // 博主信息，显示在首页侧边栏
     avatar:
-      "https://gitee.com/gujunling/pic-go-image/raw/master/blog/20211221085456.png",
+      // "https://gitee.com/gujunling/pic-go-image/raw/master/blog/20211221085456.png",
+      "https://sweetheartjq.cn/images/e0509e6cd38d4f819e469be71bd4b2a6.png",
     name: "sweetheart",
     slogan: "前端小记",
   },

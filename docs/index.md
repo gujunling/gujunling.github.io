@@ -6,7 +6,10 @@ tagline: 胸藏文墨怀若谷。腹有诗书气自华！
 # actionText: 立刻进入 →
 # actionLink: /web/
 bannerBg:
-  https://gitee.com/gujunling/pic-go-image/raw/master/blog/20211221185348.jpg
+  # https://gitee.com/gujunling/pic-go-image/raw/master/blog/20211221185348.jpg
+  # ./img/bg.jpeg
+  # http://sweetheartjq.cn/images/b6ad628dbf44432c8ccb00ef077b80ec.jpeg
+  https://sweetheartjq.cn/images/3beb74e8d709410eb6a863b4106c8cb3.jpg
   # ./img/bg.jpeg # auto => 网格纹背景(有bodyBgImg时无背景)，默认 | none => 无 | '大图地址' | background: 自定义背景样式       提示：如发现文本颜色不适应你的背景时可以到palette.styl修改$bannerTextColor变量
 
   # 可选的
