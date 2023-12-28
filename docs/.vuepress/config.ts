@@ -345,9 +345,9 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           repo: "gujunling.github.io", // GitHub 仓库,github.io域名
         // 不同的域名需要更换不同的评论系统的id及评论存在的仓库
 
-        /*    clientID: "1229f90ccdd99b9bea84", //  sweetheartjq.cn
-        clientSecret: "5d8699282be89aeded2b4cf41d29dda9c0fcd83f", //  sweetheartjq.cn
-        repo: "myblog-gitalk-comment", // GitHub 仓库，sweetheartjq.cn域名 */
+          // clientID: "1229f90ccdd99b9bea84", //  sweetheartjq.cn
+          // clientSecret: "5d8699282be89aeded2b4cf41d29dda9c0fcd83f", //  sweetheartjq.cn
+          // repo: "myblog-gitalk-comment", // GitHub 仓库，sweetheartjq.cn域名
           owner: 'gujunling', // GitHub仓库所有者
           admin: ['gujunling'], // 对仓库有写权限的人
           // distractionFreeMode: true,
