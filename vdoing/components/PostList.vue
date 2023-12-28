@@ -68,6 +68,13 @@
                 >{{ t }}</router-link
               >
             </span>
+             <span
+              title="最后更新时间"
+              class="iconfont icon-riqi"
+              v-if="item.lastUpdated">
+              最后更新时间：
+              <span style="color: #42b983">{{ item.lastUpdated }}</span>
+            </span>
           </div>
         </div>
         <div class="excerpt-wrapper" v-if="item.excerpt">
