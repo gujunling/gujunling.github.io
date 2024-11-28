@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Java反射机制 | 前端小记</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/img/favicon.ico">
+    <meta name="description" content="web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown">
+    <meta name="baidu-site-verification" content="code-53yMawG36P">
+    <meta name="google-site-verification" content="C6GIWT5zHwhVsd3ufgcZIlut2hsQwK6P4MSuHLz2SyA">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/assets/css/0.styles.f4e18059.css" as="style"><link rel="preload" href="/assets/js/app.1265737e.js" as="script"><link rel="preload" href="/assets/js/2.6236b5eb.js" as="script"><link rel="preload" href="/assets/js/3.bb90c5fd.js" as="script"><link rel="preload" href="/assets/js/80.6caf4b0a.js" as="script"><link rel="prefetch" href="/assets/js/10.88c7173d.js"><link rel="prefetch" href="/assets/js/100.f628d507.js"><link rel="prefetch" href="/assets/js/101.219131b9.js"><link rel="prefetch" href="/assets/js/102.de091301.js"><link rel="prefetch" href="/assets/js/103.6627f136.js"><link rel="prefetch" href="/assets/js/104.74e65451.js"><link rel="prefetch" href="/assets/js/105.d9d0c4ee.js"><link rel="prefetch" href="/assets/js/106.90218201.js"><link rel="prefetch" href="/assets/js/107.809ac1aa.js"><link rel="prefetch" href="/assets/js/108.fcc755bf.js"><link rel="prefetch" href="/assets/js/109.b3412349.js"><link rel="prefetch" href="/assets/js/11.7049daa4.js"><link rel="prefetch" href="/assets/js/110.b34e0b63.js"><link rel="prefetch" href="/assets/js/111.04347e7a.js"><link rel="prefetch" href="/assets/js/112.4f636a02.js"><link rel="prefetch" href="/assets/js/113.d6bcf52e.js"><link rel="prefetch" href="/assets/js/114.f53ee42b.js"><link rel="prefetch" href="/assets/js/115.944cf157.js"><link rel="prefetch" href="/assets/js/116.ea250060.js"><link rel="prefetch" href="/assets/js/117.342ddae1.js"><link rel="prefetch" href="/assets/js/118.5bca91db.js"><link rel="prefetch" href="/assets/js/119.c9daff3a.js"><link rel="prefetch" href="/assets/js/12.67bcab6d.js"><link rel="prefetch" href="/assets/js/120.ec90e1c7.js"><link rel="prefetch" href="/assets/js/121.5b14ce7e.js"><link rel="prefetch" href="/assets/js/122.a3f55cb4.js"><link rel="prefetch" href="/assets/js/123.eca6230c.js"><link rel="prefetch" href="/assets/js/124.d580b10a.js"><link rel="prefetch" href="/assets/js/125.2b23a5f0.js"><link rel="prefetch" href="/assets/js/126.a371e191.js"><link rel="prefetch" href="/assets/js/127.962896e6.js"><link rel="prefetch" href="/assets/js/128.a349db06.js"><link rel="prefetch" href="/assets/js/129.2c1f0ded.js"><link rel="prefetch" href="/assets/js/13.f9dbc824.js"><link rel="prefetch" href="/assets/js/130.9b11c42b.js"><link rel="prefetch" href="/assets/js/131.86bb31b7.js"><link rel="prefetch" href="/assets/js/14.ca4065ea.js"><link rel="prefetch" href="/assets/js/15.6fffb72a.js"><link rel="prefetch" href="/assets/js/16.a1e54987.js"><link rel="prefetch" href="/assets/js/17.ef1dbbac.js"><link rel="prefetch" href="/assets/js/18.562b27d3.js"><link rel="prefetch" href="/assets/js/19.1b177474.js"><link rel="prefetch" href="/assets/js/20.ea3e9c87.js"><link rel="prefetch" href="/assets/js/21.974849f7.js"><link rel="prefetch" href="/assets/js/22.581440cb.js"><link rel="prefetch" href="/assets/js/23.f2f97d63.js"><link rel="prefetch" href="/assets/js/24.fd3e290e.js"><link rel="prefetch" href="/assets/js/25.1617923d.js"><link rel="prefetch" href="/assets/js/26.d747b29d.js"><link rel="prefetch" href="/assets/js/27.0eef2c97.js"><link rel="prefetch" href="/assets/js/28.eaeede0c.js"><link rel="prefetch" href="/assets/js/29.1bc8721a.js"><link rel="prefetch" href="/assets/js/30.bba73f1f.js"><link rel="prefetch" href="/assets/js/31.40728564.js"><link rel="prefetch" href="/assets/js/32.d4200e6d.js"><link rel="prefetch" href="/assets/js/33.97618873.js"><link rel="prefetch" href="/assets/js/34.936b4f12.js"><link rel="prefetch" href="/assets/js/35.83879179.js"><link rel="prefetch" href="/assets/js/36.632f9737.js"><link rel="prefetch" href="/assets/js/37.83db277a.js"><link rel="prefetch" href="/assets/js/38.e2ec7210.js"><link rel="prefetch" href="/assets/js/39.9cbda4cd.js"><link rel="prefetch" href="/assets/js/4.d239bcd5.js"><link rel="prefetch" href="/assets/js/40.4797bb72.js"><link rel="prefetch" href="/assets/js/41.cdfa5cf5.js"><link rel="prefetch" href="/assets/js/42.114036f7.js"><link rel="prefetch" href="/assets/js/43.3197428f.js"><link rel="prefetch" href="/assets/js/44.8b77c85d.js"><link rel="prefetch" href="/assets/js/45.1e0f76b2.js"><link rel="prefetch" href="/assets/js/46.6f5ff131.js"><link rel="prefetch" href="/assets/js/47.f8b98931.js"><link rel="prefetch" href="/assets/js/48.93cb2d55.js"><link rel="prefetch" href="/assets/js/49.8b706328.js"><link rel="prefetch" href="/assets/js/5.09e77b44.js"><link rel="prefetch" href="/assets/js/50.1e945126.js"><link rel="prefetch" href="/assets/js/51.80450411.js"><link rel="prefetch" href="/assets/js/52.cf5b13b8.js"><link rel="prefetch" href="/assets/js/53.913b0913.js"><link rel="prefetch" href="/assets/js/54.bfb9dd03.js"><link rel="prefetch" href="/assets/js/55.22bfe861.js"><link rel="prefetch" href="/assets/js/56.d008d0b0.js"><link rel="prefetch" href="/assets/js/57.ff4bfa59.js"><link rel="prefetch" href="/assets/js/58.44e4acc6.js"><link rel="prefetch" href="/assets/js/59.94e919b7.js"><link rel="prefetch" href="/assets/js/6.502a8d06.js"><link rel="prefetch" href="/assets/js/60.239a85cc.js"><link rel="prefetch" href="/assets/js/61.1d3e16a2.js"><link rel="prefetch" href="/assets/js/62.8aeb01da.js"><link rel="prefetch" href="/assets/js/63.26888f3b.js"><link rel="prefetch" href="/assets/js/64.b895c496.js"><link rel="prefetch" href="/assets/js/65.14ca213b.js"><link rel="prefetch" href="/assets/js/66.b3b72cf7.js"><link rel="prefetch" href="/assets/js/67.280942fe.js"><link rel="prefetch" href="/assets/js/68.ec896861.js"><link rel="prefetch" href="/assets/js/69.0ab230dc.js"><link rel="prefetch" href="/assets/js/7.f3e14624.js"><link rel="prefetch" href="/assets/js/70.6f4b7018.js"><link rel="prefetch" href="/assets/js/71.79d6f66a.js"><link rel="prefetch" href="/assets/js/72.37c8b669.js"><link rel="prefetch" href="/assets/js/73.ddf666bc.js"><link rel="prefetch" href="/assets/js/74.6b8d43e8.js"><link rel="prefetch" href="/assets/js/75.b1e6ee14.js"><link rel="prefetch" href="/assets/js/76.438c5bc7.js"><link rel="prefetch" href="/assets/js/77.4b5a1574.js"><link rel="prefetch" href="/assets/js/78.166eb31a.js"><link rel="prefetch" href="/assets/js/79.b7febe48.js"><link rel="prefetch" href="/assets/js/8.1d9bb765.js"><link rel="prefetch" href="/assets/js/81.82bca60a.js"><link rel="prefetch" href="/assets/js/82.e97ab62d.js"><link rel="prefetch" href="/assets/js/83.e29d7fa9.js"><link rel="prefetch" href="/assets/js/84.3e25d1a0.js"><link rel="prefetch" href="/assets/js/85.75739f0d.js"><link rel="prefetch" href="/assets/js/86.465c6dda.js"><link rel="prefetch" href="/assets/js/87.d02c8713.js"><link rel="prefetch" href="/assets/js/88.9df855a4.js"><link rel="prefetch" href="/assets/js/89.253ffaaf.js"><link rel="prefetch" href="/assets/js/9.4a4e5846.js"><link rel="prefetch" href="/assets/js/90.68332b85.js"><link rel="prefetch" href="/assets/js/91.9c4fe9e7.js"><link rel="prefetch" href="/assets/js/92.69901624.js"><link rel="prefetch" href="/assets/js/93.88c4cccc.js"><link rel="prefetch" href="/assets/js/94.fcd1b228.js"><link rel="prefetch" href="/assets/js/95.b1091e84.js"><link rel="prefetch" href="/assets/js/96.02bea6a9.js"><link rel="prefetch" href="/assets/js/97.430d783e.js"><link rel="prefetch" href="/assets/js/98.6101adeb.js"><link rel="prefetch" href="/assets/js/99.4141bdb1.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f4e18059.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/panda-waving.png" alt="前端小记" class="logo"> <span class="site-name can-hide">前端小记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/8309a5b876fc95e3/" class="nav-link">HTML</a></li><li class="dropdown-subitem"><a href="/pages/e226e1/" class="nav-link">CSS</a></li><li class="dropdown-subitem"><a href="/pages/38a70e/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/pages/14682d/" class="nav-link">Vue</a></li></ul></li><li class="dropdown-item"><h4>学习笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/9c81a3/" class="nav-link">《Vue》踩坑笔记</a></li><li class="dropdown-subitem"><a href="/pages/b7ccdb/" class="nav-link">TypeScript学习笔记</a></li><li class="dropdown-subitem"><a href="/note/wx-miniprogram/" class="nav-link">小程序笔记</a></li><li class="dropdown-subitem"><a href="/pages/4643cd/" class="nav-link">JavaScript设计模式笔记</a></li></ul></li><li class="dropdown-item"><!----> <a href="/pages/32a43d/" class="nav-link">工具</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><a href="/backend/" class="link-title">后端</a> <span class="title" style="display:none;">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/3cce56/" class="nav-link">CentOS</a></li><li class="dropdown-item"><!----> <a href="/pages/83ac6e/" class="nav-link">Java</a></li><li class="dropdown-item"><!----> <a href="/pages/5d483a/" class="nav-link">Docker</a></li><li class="dropdown-item"><!----> <a href="/pages/442a2f/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/pages/f6d635/" class="nav-link">Maven</a></li><li class="dropdown-item"><!----> <a href="/pages/b52295/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/pages/b8f905/" class="nav-link">其他</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术" class="dropdown-title"><a href="/technology/" class="link-title">技术</a> <span class="title" style="display:none;">技术</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/9a7ee40fc232253e/" class="nav-link">技术文档</a></li><li class="dropdown-item"><!----> <a href="/pages/cb910b/" class="nav-link">GitHub部署及推送</a></li><li class="dropdown-item"><!----> <a href="/pages/117708e0af7f0bd9/" class="nav-link">Nodejs</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">博客搭建</a></li><li class="dropdown-item"><!----> <a href="/pages/188fd0/" class="nav-link">Fullpage全屏轮播插件</a></li><li class="dropdown-item"><!----> <a href="/pages/d91022/" class="nav-link">svn</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><a href="/more/" class="link-title">其他</a> <span class="title" style="display:none;">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/c3f302a03c8daf79/" class="nav-link">学习</a></li><li class="dropdown-item"><!----> <a href="/pages/696f49/" class="nav-link">系统重装</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><div class="nav-item"><a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/gujunling/" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://gujunling.github.io/images/e0509e6cd38d4f819e469be71bd4b2a6.png"> <div class="blogger-info"><h3>sweetheart</h3> <span>前端小记</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/8309a5b876fc95e3/" class="nav-link">HTML</a></li><li class="dropdown-subitem"><a href="/pages/e226e1/" class="nav-link">CSS</a></li><li class="dropdown-subitem"><a href="/pages/38a70e/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/pages/14682d/" class="nav-link">Vue</a></li></ul></li><li class="dropdown-item"><h4>学习笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/9c81a3/" class="nav-link">《Vue》踩坑笔记</a></li><li class="dropdown-subitem"><a href="/pages/b7ccdb/" class="nav-link">TypeScript学习笔记</a></li><li class="dropdown-subitem"><a href="/note/wx-miniprogram/" class="nav-link">小程序笔记</a></li><li class="dropdown-subitem"><a href="/pages/4643cd/" class="nav-link">JavaScript设计模式笔记</a></li></ul></li><li class="dropdown-item"><!----> <a href="/pages/32a43d/" class="nav-link">工具</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><a href="/backend/" class="link-title">后端</a> <span class="title" style="display:none;">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/3cce56/" class="nav-link">CentOS</a></li><li class="dropdown-item"><!----> <a href="/pages/83ac6e/" class="nav-link">Java</a></li><li class="dropdown-item"><!----> <a href="/pages/5d483a/" class="nav-link">Docker</a></li><li class="dropdown-item"><!----> <a href="/pages/442a2f/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/pages/f6d635/" class="nav-link">Maven</a></li><li class="dropdown-item"><!----> <a href="/pages/b52295/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/pages/b8f905/" class="nav-link">其他</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术" class="dropdown-title"><a href="/technology/" class="link-title">技术</a> <span class="title" style="display:none;">技术</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/9a7ee40fc232253e/" class="nav-link">技术文档</a></li><li class="dropdown-item"><!----> <a href="/pages/cb910b/" class="nav-link">GitHub部署及推送</a></li><li class="dropdown-item"><!----> <a href="/pages/117708e0af7f0bd9/" class="nav-link">Nodejs</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">博客搭建</a></li><li class="dropdown-item"><!----> <a href="/pages/188fd0/" class="nav-link">Fullpage全屏轮播插件</a></li><li class="dropdown-item"><!----> <a href="/pages/d91022/" class="nav-link">svn</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><a href="/more/" class="link-title">其他</a> <span class="title" style="display:none;">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/c3f302a03c8daf79/" class="nav-link">学习</a></li><li class="dropdown-item"><!----> <a href="/pages/696f49/" class="nav-link">系统重装</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><div class="nav-item"><a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/gujunling/" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>centos</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>java</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/83ac6e/" class="sidebar-link">Java中日志框架的使用</a></li><li><a href="/pages/0972e7/" class="sidebar-link">idea上传代码到github的3种方式</a></li><li><a href="/pages/8c1267/" class="sidebar-link">idea快捷键失效问题解决</a></li><li><a href="/pages/c58a3f/" class="sidebar-link">解决Eclipse中spring的xml文件下方不显示NameSpaces标签的问题</a></li><li><a href="/pages/37361f/" class="sidebar-link">Java集合</a></li><li><a href="/pages/6f796c/" class="sidebar-link">Java中比较对象大小的两种实现方式</a></li><li><a href="/pages/62d482/" class="sidebar-link">String、StringBuffer、StringBuilder的对比</a></li><li><a href="/pages/1fae6b/" class="sidebar-link">Java泛型的使用</a></li><li><a href="/pages/ea111b/" aria-current="page" class="active sidebar-link">Java反射机制</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/pages/ea111b/#关于反射的理解" class="sidebar-link">关于反射的理解</a></li><li class="sidebar-sub-header level2"><a href="/pages/ea111b/#反射机制提供的功能" class="sidebar-link">反射机制提供的功能</a></li><li class="sidebar-sub-header level2"><a href="/pages/ea111b/#class-类的理解" class="sidebar-link">Class 类的理解</a></li><li class="sidebar-sub-header level2"><a href="/pages/ea111b/#class-实例可以是哪些结构的说明" class="sidebar-link">Class 实例可以是哪些结构的说明</a></li><li class="sidebar-sub-header level2"><a href="/pages/ea111b/#获取-class-实例的几种方式" class="sidebar-link">获取 Class 实例的几种方式</a></li><li class="sidebar-sub-header level2"><a href="/pages/ea111b/#类的加载器的使用" class="sidebar-link">类的加载器的使用</a></li><li class="sidebar-sub-header level2"><a href="/pages/ea111b/#使用-classloader-加载-src-目录下的配置文件" class="sidebar-link">使用 Classloader 加载 src 目录下的配置文件</a></li><li class="sidebar-sub-header level2"><a href="/pages/ea111b/#创建运行时类的对象" class="sidebar-link">创建运行时类的对象</a></li><li class="sidebar-sub-header level2"><a href="/pages/ea111b/#获取运行时类的完整结构" class="sidebar-link">获取运行时类的完整结构</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/ea111b/#获取属性" class="sidebar-link">获取属性</a></li><li class="sidebar-sub-header level3"><a href="/pages/ea111b/#获取方法" class="sidebar-link">获取方法</a></li><li class="sidebar-sub-header level3"><a href="/pages/ea111b/#其他相关的" class="sidebar-link">其他相关的</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/ea111b/#调用运行时类的指定结构" class="sidebar-link">调用运行时类的指定结构</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/ea111b/#调用指定的属性" class="sidebar-link">调用指定的属性</a></li><li class="sidebar-sub-header level3"><a href="/pages/ea111b/#调用指定的方法" class="sidebar-link">调用指定的方法</a></li><li class="sidebar-sub-header level3"><a href="/pages/ea111b/#调用指定的构造器" class="sidebar-link">调用指定的构造器</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/ea111b/#动态代理" class="sidebar-link">动态代理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/ea111b/#_1-代理模式的原理" class="sidebar-link">1.代理模式的原理</a></li><li class="sidebar-sub-header level3"><a href="/pages/ea111b/#_2-静态代理" class="sidebar-link">2.静态代理</a></li><li class="sidebar-sub-header level3"><a href="/pages/ea111b/#_3-动态代理的特点" class="sidebar-link">3 动态代理的特点</a></li></ul></li></ul></li><li><a href="/pages/da9415/" class="sidebar-link">Lambda表达式</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>docker</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>maven</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>MySQL</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>其他</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06970110><div class="articleInfo" data-v-06970110><ul class="breadcrumbs" data-v-06970110><li data-v-06970110><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-06970110></a></li> <li data-v-06970110><a href="/backend/#后端" data-v-06970110>后端</a></li><li data-v-06970110><a href="/backend/#java" data-v-06970110>java</a></li></ul> <div class="info" data-v-06970110><div title="作者" class="author iconfont icon-touxiang" data-v-06970110><a href="https://gujunling.github.io/" target="_blank" title="作者" class="beLink" data-v-06970110>sweetheart</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06970110><a href="javascript:;" data-v-06970110>2019-07-30</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">Java反射机制<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h1 id="java-反射机制"><a href="#java-反射机制" class="header-anchor">#</a> Java 反射机制</h1> <h2 id="关于反射的理解"><a href="#关于反射的理解" class="header-anchor">#</a> 关于反射的理解</h2> <p>Reflection（反射）是被视为<font color="red"> 动态语言</font>的关键，反射机制允许程序在执行期借助 Reflection API 取得任何类的内部信息，并能直接操作任意对象的内部属性及方法。<br>
+框架 = 反射 + 注解 + 设计模式 。</p> <h2 id="反射机制提供的功能"><a href="#反射机制提供的功能" class="header-anchor">#</a> 反射机制提供的功能</h2> <ul><li>1.在运行时判断任意一个对象所属的类。</li> <li>2.在运行时构造任意一个类的对象。</li> <li>3.在运行时判断任意一个类所具有的成员变量和方法。</li> <li>4.在运行时获取泛型信息。</li> <li>5.在运行时调用任意一个对象的成员变量和方法。</li> <li>6.在运行时处理注解。</li> <li>7.生成动态代理。</li></ul> <h2 id="class-类的理解"><a href="#class-类的理解" class="header-anchor">#</a> Class 类的理解</h2> <ul><li>1.类的加载过程：<br>
+程序经过 javac.exe 命令以后，会生成一个或多个字节码文件(.class 结尾)。接着我们使用 java.exe 命令对某个字节码文件进行解释运行。相当于将某个字节码文件加载到内存中。此过程就称为类的加载。加载到内存中的类，我们就称为运行时类，此运行时类，就作为 Class 的一个实例。</li> <li>2.换句话说，Class 的实例就对应着一个运行时类。</li> <li>3.加载到内存中的运行时类，会缓存一定的时间。在此时间之内，我们可以通过不同的方式来获取此运行时类。</li></ul> <h2 id="class-实例可以是哪些结构的说明"><a href="#class-实例可以是哪些结构的说明" class="header-anchor">#</a> Class 实例可以是哪些结构的说明</h2> <ul><li>class： 外部类，成员(成员内部类，静态内部类)，局部内部类，匿名内部类</li> <li>interface：接口</li> <li>[]：数组</li> <li>enum：枚举</li> <li>annotation：注解@interface</li> <li>primitive type：基本数据类型</li> <li>void</li></ul> <h2 id="获取-class-实例的几种方式"><a href="#获取-class-实例的几种方式" class="header-anchor">#</a> 获取 Class 实例的几种方式</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>     @Test
+    public void test3() throws ClassNotFoundException {
+        //方式一：调用运行时类的属性：.class
+        Class clazz1 = Person.class;
+         System.out.println(clazz1);
+
+        //方式二：通过运行时类的对象
+        Person p = new Person();
+        Class clazz2 = p.getClass();
+        System.out.println(clazz2);
+
+        //方式三：调用Class的静态方法：forName(String classPath)，使用的最多
+        Class  clazz3 = Class.forName(&quot;Demo.Person&quot;);
+        System.out.println(clazz3);
+
+        //判断clazz1、clazz2、clazz3是不是指向的是同一个对象，是不是同一个地址值。
+        //获取的是内存中的同一个运行时类
+        System.out.println(clazz1 == clazz2);
+        System.out.println(clazz1 == clazz3);
+
+        //方式四：使用类的加载器：Classloader
+        ClassLoader classLoader = ReflectionTest.class.getClassLoader();
+        Class clazz4 = classLoader.loadClass(&quot;Demo.Person&quot;);
+        System.out.println(clazz4);
+        System.out.println(clazz1 == clazz4);
+
+    }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><h2 id="类的加载器的使用"><a href="#类的加载器的使用" class="header-anchor">#</a> 类的加载器的使用</h2> <p>类加载的作用：将 class 文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构，然后在堆中生成一个代表这个类的 java.lang.Class 对象，作为方法区中类数据的访问入口。<br>
+类缓存作用：标准的 JavaSE 类加载器可以按要求查找类，但一旦某个类被加载到类加载器中，它将维持加载（缓存）一段时间。不过 JVM 垃圾回收机制可以回收这些 Class 对象。</p> <h2 id="使用-classloader-加载-src-目录下的配置文件"><a href="#使用-classloader-加载-src-目录下的配置文件" class="header-anchor">#</a> 使用 Classloader 加载 src 目录下的配置文件</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>      @Test
+    public void test2() throws IOException {
+        Properties pros = new Properties();
+        //此时的文件默认在当前的module下
+        //读取配置文件的方式一：
+        // FileInputStream fis = new FileInputStream(&quot;jdbc.properties&quot;);
+        // pros.load(fis);
+        //读取配置文件的方式二：
+        //此时的配置文件默认识别为idea当前module下的src下
+        ClassLoader classLoader = ClassLoadTest.class.getClassLoader();
+        InputStream is = classLoader.getResourceAsStream(&quot;jdbc11.properties&quot;);
+        pros.load(is);
+
+
+        String user = pros.getProperty(&quot;user&quot;);
+        String password = pros.getProperty(&quot;password&quot;);
+        System.out.println(&quot;user = &quot; + user +&quot;, password = &quot; + password);
+    }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h2 id="创建运行时类的对象"><a href="#创建运行时类的对象" class="header-anchor">#</a> 创建运行时类的对象</h2> <p>创建类的对象：调用 Class 对象的<font color="red">newInstance()</font>。<br>
+要想此方法正常的创建运行时类的对象，要求：<br>
+  1.运行时类必须提供空参的构造器。<br>
+  2.空参的构造器的访问权限需要满足条件，通常情况下设置为 public。</p> <p>在 Javabean 中要求提供一个 public 的空参构造器，原因：<br>
+   1.便于通过反射，创建运行时类的对象。<br>
+   2.便于子类继承此运行时类时，默认使用 super()时，保证父类有此构造器。</p> <h2 id="获取运行时类的完整结构"><a href="#获取运行时类的完整结构" class="header-anchor">#</a> 获取运行时类的完整结构</h2> <p>通过反射，可以获取对应的运行时类中所有的属性、方法、构造器、父类、接口、父类的泛型、包、注解、异常等。</p> <h3 id="获取属性"><a href="#获取属性" class="header-anchor">#</a> 获取属性</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>     @Test
+    public void test1(){
+
+        Class clazz = Person.class;
+
+        //获取属性结构
+        //getFields()：获取当前运行时类及其父类中声明为public访问权限的属性
+        Field[] fields = clazz.getFields();
+        for (Field f : fields){
+            System.out.println(f);
+        }
+
+        //getDeclaredFields():获取当前运行时类中声明的所有属性。（不包含父类中声明的属性）
+        Field[] declaredFields = clazz.getDeclaredFields();
+        for (Field f : declaredFields){
+            System.out.println(f);
+        }
+
+    }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h3 id="获取方法"><a href="#获取方法" class="header-anchor">#</a> 获取方法</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>     @Test
+    public void test1(){
+        Class clazz = Person.class;
+
+        //getMethods():获取当前运行时类及其所有父类中声明为public权限的方法
+        Method[] methods = clazz.getMethods();
+        for (Method m : methods){
+            System.out.println(m);
+        }
+        System.out.println(&quot;**************&quot;);
+        //getDeclaredMethods():获取当前运行时类中声明的所有方法。（不包含父类中声明的方法）
+        Method[] declaredMethods = clazz.getDeclaredMethods();
+        for (Method m : declaredMethods){
+            System.out.println(m);
+        }
+    }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h3 id="其他相关的"><a href="#其他相关的" class="header-anchor">#</a> 其他相关的</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>     /*
+     获取构造器结构
+     */
+    @Test
+    public void test1(){
+
+        Class clazz = Person.class;
+        //getConstructors()：获取当前运行时类的声明为public的构造器
+        Constructor[] constructors = clazz.getConstructors();
+        for (Constructor c : constructors){
+            System.out.println(c);
+        }
+
+        System.out.println();
+        //getDeclaredConstructors()：获取当前运行时类中声明的所有的构造器
+        Constructor[] declaredConstructors = clazz.getDeclaredConstructors();
+        for (Constructor c : declaredConstructors){
+            System.out.println(c);
+        }
+    }
+
+    /*
+     获取当前运行时类的父类
+     */
+    @Test
+    public void test2(){
+    Class clazz = Person.class;
+        Class superclass = clazz.getSuperclass();
+        System.out.println(superclass);
+
+    }
+
+    /*
+     获取当前运行时类的带泛型的父类
+     */
+    @Test
+    public void test3(){
+        Class clazz = Person.class;
+        Type genericSuperclass = clazz.getGenericSuperclass();
+        System.out.println(genericSuperclass);
+
+    }
+
+     /*
+     获取当前运行时类的带泛型的父类的泛型(可能用到)
+     */
+    @Test
+    public void test4(){
+        Class clazz = Person.class;
+        Type genericSuperclass = clazz.getGenericSuperclass();
+        ParameterizedType paramType = (ParameterizedType) genericSuperclass;
+        //获取泛型类型
+        Type[] actualTypeArguments = paramType.getActualTypeArguments();
+
+       // System.out.println(actualTypeArguments[0].getTypeName());
+        System.out.println(((Class)actualTypeArguments[0]).getName());
+
+    }
+
+    /*
+    获取运行时类实现的接口(动态代理中可能用到)
+     */
+    @Test
+    public void test5(){
+        Class clazz = Person.class;
+        Class[] interfaces = clazz.getInterfaces();
+        for (Class c : interfaces){
+            System.out.println(c);
+        }
+        System.out.println();
+
+        //获取运行时类的父类实现的接口
+        Class[] interfaces1 = clazz.getSuperclass().getInterfaces();
+        for (Class c : interfaces1){
+            System.out.println(c);
+        }
+    }
+
+    /*
+    获取当前运行时类所在的包
+     */
+    @Test
+    public void test6(){
+        Class clazz = Person.class;
+        Package pack = clazz.getPackage();
+        System.out.println(pack);
+
+    }
+
+    /*
+     获取运行时类声明的注解
+     */
+    @Test
+    public void test7(){
+        Class clazz = Person.class;
+        Annotation[] annotations = clazz.getAnnotations();
+        for (Annotation a : annotations){
+            System.out.println(a);
+        }
+
+    }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br></div></div><h2 id="调用运行时类的指定结构"><a href="#调用运行时类的指定结构" class="header-anchor">#</a> 调用运行时类的指定结构</h2> <h3 id="调用指定的属性"><a href="#调用指定的属性" class="header-anchor">#</a> 调用指定的属性</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>     @Test
+    public void test2() throws Exception {
+        Class clazz = Person.class;
+
+        //创建运行时类的对象
+        Person p = (Person) clazz.newInstance();
+
+        //1.getDeclaredField():获取运行时类中指定变量名的属性
+        Field name = clazz.getDeclaredField(&quot;name&quot;);
+
+        //2.保证当前属性是可访问的
+        name.setAccessible(true);
+        //3.根据实际需求获取、设置指定对象的此属性值
+        name.set(p,&quot;haha&quot;);
+
+        System.out.println(name.get(p));
+
+    }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h3 id="调用指定的方法"><a href="#调用指定的方法" class="header-anchor">#</a> 调用指定的方法</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>    @Test
+    public void test3() throws Exception {
+
+        Class clazz = Person.class;
+
+        //创建运行时类的对象
+        Person p = (Person) clazz.newInstance();
+
+        /*
+        1.获取指定的某个方法
+        getDeclaredMethod()：参数1：指明获取的方法的名称  参数2：指明获取的方法的形参列表
+         */
+
+        Method show = clazz.getDeclaredMethod(&quot;show&quot;, String.class);
+
+        //2.保证当前方法是可访问的
+        show.setAccessible(true);
+        /*
+        3.调用方法的invoke()：参数1：方法的调用者 参数2：给方法形参赋值的实参
+           invoke()的返回值即为对应类中调用的方法的返回值
+         */
+        Object rerurnValue = show.invoke(p,&quot;china&quot;);
+        System.out.println(rerurnValue);
+
+        System.out.println(&quot;******************如何调用静态方法***********************&quot;);
+
+        Method showDesc = clazz.getDeclaredMethod(&quot;showDesc&quot;);
+        showDesc.setAccessible(true);
+
+        //如果调用的运行时类中的方法没有返回值，则此invoke()返回值为null
+        Object returnVal = showDesc.invoke(Person.class);
+        System.out.println(returnVal);
+
+    }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><h3 id="调用指定的构造器"><a href="#调用指定的构造器" class="header-anchor">#</a> 调用指定的构造器</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>    @Test
+    public void test4() throws Exception {
+        Class clazz = Person.class;
+
+      /*
+      1.获取指定的构造器
+      getDeclaredConstructor():参数：指明构造器的参数列表
+       */
+        Constructor constructor = clazz.getDeclaredConstructor(String.class);
+      //2.保证此构造器是可访问的
+        constructor.setAccessible(true);
+
+      //3.调用此构造器创建运行时类的对象
+        Person instance = (Person) constructor.newInstance(&quot;heihei&quot;);
+        System.out.println(instance);
+
+    }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="动态代理"><a href="#动态代理" class="header-anchor">#</a> 动态代理</h2> <h3 id="_1-代理模式的原理"><a href="#_1-代理模式的原理" class="header-anchor">#</a> 1.代理模式的原理</h3> <p>使用一个代理（代理对象）将对象（被代理对象）包装起来, 然后用该代理对象取代原始对象（被代理对象）。任何对原始对象的调用都要通过代理。代理对象决定是否以及何时将方法调用转到原始对象上。</p> <h3 id="_2-静态代理"><a href="#_2-静态代理" class="header-anchor">#</a> 2.静态代理</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>    interface ClothFactory{
+        void produceCloth();
+    }
+
+    //代理类
+    class  ProxyClothFactory implements ClothFactory{
+
+        private  ClothFactory factory;//用被代理类对象进行实例化
+
+        public ProxyClothFactory(ClothFactory factory) {
+            this.factory = factory;
+        }
+
+        @Override
+        public void produceCloth() {
+            System.out.println(&quot;代理工厂做一些准备工作&quot;);
+            factory.produceCloth();
+            System.out.println(&quot;代理工厂做一些后续的工作&quot;);
+        }
+    }
+
+    //被代理类
+    class NikeClothFactory implements ClothFactory{
+
+        @Override
+        public void produceCloth() {
+            System.out.println(&quot;Nike工厂生产一批商品&quot;);
+        }
+    }
+
+    //进行测试
+    public class StaticProxyTest {
+        public static void main(String[] args) {
+            //创建被代理类对象
+            NikeClothFactory nike = new NikeClothFactory();
+            //创建代理类对象
+            ProxyClothFactory proxyClothFactory = new ProxyClothFactory(nike);
+
+            proxyClothFactory.produceCloth();
+
+        }
+    }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br></div></div><h3 id="_3-动态代理的特点"><a href="#_3-动态代理的特点" class="header-anchor">#</a> 3 动态代理的特点</h3> <p>动态代理是指客户通过代理类来调用其它对象的方法，并且是在程序运行时根据需要动态创建目标类的代理对象。<br>
+动态代理使用场合:<br>
+  调试<br>
+  远程方法调用<br>
+动态代理相比于静态代理的优点：<br>
+抽象角色中（接口）声明的所有方法都被转移到调用处理器一个集中的方法中 处理，这样，我们可以更加灵活和统一的处理众多的方法。</p> <p>代码举例如下:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    interface  Human{
+        String getBelief();
+        void eat(String food);
+    }
+
+    //被代理类
+    class  SuperMan implements Human{
+
+        @Override
+        public String getBelief() {
+            return &quot;I believe I can fly&quot;;
+        }
+
+        @Override
+        public void eat(String food) {
+            System.out.println(&quot;我喜欢吃 &quot; + food);
+        }
+    }
+
+    class HumanUtil{
+        public void method1(){
+            System.out.println(&quot;*******方法一*******&quot;);
+        }
+        public void method2(){
+            System.out.println(&quot;******方法二********&quot;);
+        }
+    }
+
+    class ProxyFactory{
+
+        //调用此方法，返回一个被代理类的对象。
+        public static Object getProxyInstance(Object obj){ //obj：被代理类的对象
+            MyInvocationHandler handler = new MyInvocationHandler();
+
+            handler.bind(obj);
+
+            return  Proxy.newProxyInstance(obj.getClass().getClassLoader(),obj.getClass().getInterfaces(),handler);
+        }
+    }
+
+
+    class MyInvocationHandler implements InvocationHandler{
+
+        private Object obj;//需要使用被代理类对象进行赋值
+
+        public void bind(Object obj){
+            this.obj = obj;
+    }
+
+    //当我们通过代理类的对象，调用方法a时，就会自动的调用如下的方法：invoke()
+    //将被代理类要执行的方法a的功能就声明在invoke()中
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+
+            HumanUtil util = new HumanUtil();
+            util.method1();
+
+            //method:即为代理类对象调用的方法，此方法也就作为了被代理类对象要调用的方法
+            //obj:被代理类的对象
+            Object returnValue = method.invoke(obj, args);
+
+            util.method2();
+
+            //上述方法（代理类对象或被代理类对象调用的方法）的返回值就作为当前类中的invoke()的返回值
+            return  returnValue;
+        }
+    }
+
+    public class ProxyTest {
+        public static void main(String[] args) {
+
+            SuperMan superMan = new SuperMan();
+            //proxyInstance:代理类的对象
+            Human proxyInstance = (Human) ProxyFactory.getProxyInstance(superMan);
+            //当通过代理类对象调用方法时，会自动的调用被代理类中同名的方法
+            String belief = proxyInstance.getBelief();
+            System.out.println(belief);
+            proxyInstance.eat(&quot;汉堡包&quot;);
+
+            System.out.println(&quot;********************&quot;);
+
+
+            NikeClothFactory nikeClothFactory = new NikeClothFactory();
+
+            ClothFactory proxyClothFatory = (ClothFactory) ProxyFactory.getProxyInstance(nikeClothFactory);
+
+            proxyClothFatory.produceCloth();
+
+        }
+
+    }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br></div></div><p><strong>Java 的反射机制主要体现在其动态性上</strong></p></div></div> <!----> <div class="page-edit"><div class="edit-link"><a href="https://github.com/gujunling/edit/master/docs/02.后端/02.java/09.java反射机制.md" target="_blank" rel="noopener noreferrer">完善页面</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2024-11-28 17:23:47</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/1fae6b/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">Java泛型的使用</div></a> <a href="/pages/da9415/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">Lambda表达式</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/1fae6b/" class="prev">Java泛型的使用</a></span> <span class="next"><a href="/pages/da9415/">Lambda表达式</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/cb910b/"><div>
+            git常用操作手册
+            <!----></div></a> <span class="date">12-26</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/e9d25f/"><div>
+            常用的前端工具库
+            <!----></div></a> <span class="date">12-19</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/ab345e/"><div>
+            前端构建工具
+            <!----></div></a> <span class="date">12-19</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:gujunq1998@163.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/gujunling" title="GitHub" target="_blank" class="iconfont icon-github"></a></div> <div style="display:flex;justify-content: center;">
+    前端小记 版权所有 | Copyright © 2021-2024
+    <span></span></div></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"><div></div></div></div>
+    <script src="/assets/js/app.1265737e.js" defer></script><script src="/assets/js/2.6236b5eb.js" defer></script><script src="/assets/js/3.bb90c5fd.js" defer></script><script src="/assets/js/80.6caf4b0a.js" defer></script>
+  </body>
+</html>

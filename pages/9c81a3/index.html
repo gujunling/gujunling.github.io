@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>《Vue》踩坑笔记 | 前端小记</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/img/favicon.ico">
+    <meta name="description" content="web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown">
+    <meta name="baidu-site-verification" content="code-53yMawG36P">
+    <meta name="google-site-verification" content="C6GIWT5zHwhVsd3ufgcZIlut2hsQwK6P4MSuHLz2SyA">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/assets/css/0.styles.f4e18059.css" as="style"><link rel="preload" href="/assets/js/app.1265737e.js" as="script"><link rel="preload" href="/assets/js/2.6236b5eb.js" as="script"><link rel="preload" href="/assets/js/3.bb90c5fd.js" as="script"><link rel="preload" href="/assets/js/53.913b0913.js" as="script"><link rel="prefetch" href="/assets/js/10.88c7173d.js"><link rel="prefetch" href="/assets/js/100.f628d507.js"><link rel="prefetch" href="/assets/js/101.219131b9.js"><link rel="prefetch" href="/assets/js/102.de091301.js"><link rel="prefetch" href="/assets/js/103.6627f136.js"><link rel="prefetch" href="/assets/js/104.74e65451.js"><link rel="prefetch" href="/assets/js/105.d9d0c4ee.js"><link rel="prefetch" href="/assets/js/106.90218201.js"><link rel="prefetch" href="/assets/js/107.809ac1aa.js"><link rel="prefetch" href="/assets/js/108.fcc755bf.js"><link rel="prefetch" href="/assets/js/109.b3412349.js"><link rel="prefetch" href="/assets/js/11.7049daa4.js"><link rel="prefetch" href="/assets/js/110.b34e0b63.js"><link rel="prefetch" href="/assets/js/111.04347e7a.js"><link rel="prefetch" href="/assets/js/112.4f636a02.js"><link rel="prefetch" href="/assets/js/113.d6bcf52e.js"><link rel="prefetch" href="/assets/js/114.f53ee42b.js"><link rel="prefetch" href="/assets/js/115.944cf157.js"><link rel="prefetch" href="/assets/js/116.ea250060.js"><link rel="prefetch" href="/assets/js/117.342ddae1.js"><link rel="prefetch" href="/assets/js/118.5bca91db.js"><link rel="prefetch" href="/assets/js/119.c9daff3a.js"><link rel="prefetch" href="/assets/js/12.67bcab6d.js"><link rel="prefetch" href="/assets/js/120.ec90e1c7.js"><link rel="prefetch" href="/assets/js/121.5b14ce7e.js"><link rel="prefetch" href="/assets/js/122.a3f55cb4.js"><link rel="prefetch" href="/assets/js/123.eca6230c.js"><link rel="prefetch" href="/assets/js/124.d580b10a.js"><link rel="prefetch" href="/assets/js/125.2b23a5f0.js"><link rel="prefetch" href="/assets/js/126.a371e191.js"><link rel="prefetch" href="/assets/js/127.962896e6.js"><link rel="prefetch" href="/assets/js/128.a349db06.js"><link rel="prefetch" href="/assets/js/129.2c1f0ded.js"><link rel="prefetch" href="/assets/js/13.f9dbc824.js"><link rel="prefetch" href="/assets/js/130.9b11c42b.js"><link rel="prefetch" href="/assets/js/131.86bb31b7.js"><link rel="prefetch" href="/assets/js/14.ca4065ea.js"><link rel="prefetch" href="/assets/js/15.6fffb72a.js"><link rel="prefetch" href="/assets/js/16.a1e54987.js"><link rel="prefetch" href="/assets/js/17.ef1dbbac.js"><link rel="prefetch" href="/assets/js/18.562b27d3.js"><link rel="prefetch" href="/assets/js/19.1b177474.js"><link rel="prefetch" href="/assets/js/20.ea3e9c87.js"><link rel="prefetch" href="/assets/js/21.974849f7.js"><link rel="prefetch" href="/assets/js/22.581440cb.js"><link rel="prefetch" href="/assets/js/23.f2f97d63.js"><link rel="prefetch" href="/assets/js/24.fd3e290e.js"><link rel="prefetch" href="/assets/js/25.1617923d.js"><link rel="prefetch" href="/assets/js/26.d747b29d.js"><link rel="prefetch" href="/assets/js/27.0eef2c97.js"><link rel="prefetch" href="/assets/js/28.eaeede0c.js"><link rel="prefetch" href="/assets/js/29.1bc8721a.js"><link rel="prefetch" href="/assets/js/30.bba73f1f.js"><link rel="prefetch" href="/assets/js/31.40728564.js"><link rel="prefetch" href="/assets/js/32.d4200e6d.js"><link rel="prefetch" href="/assets/js/33.97618873.js"><link rel="prefetch" href="/assets/js/34.936b4f12.js"><link rel="prefetch" href="/assets/js/35.83879179.js"><link rel="prefetch" href="/assets/js/36.632f9737.js"><link rel="prefetch" href="/assets/js/37.83db277a.js"><link rel="prefetch" href="/assets/js/38.e2ec7210.js"><link rel="prefetch" href="/assets/js/39.9cbda4cd.js"><link rel="prefetch" href="/assets/js/4.d239bcd5.js"><link rel="prefetch" href="/assets/js/40.4797bb72.js"><link rel="prefetch" href="/assets/js/41.cdfa5cf5.js"><link rel="prefetch" href="/assets/js/42.114036f7.js"><link rel="prefetch" href="/assets/js/43.3197428f.js"><link rel="prefetch" href="/assets/js/44.8b77c85d.js"><link rel="prefetch" href="/assets/js/45.1e0f76b2.js"><link rel="prefetch" href="/assets/js/46.6f5ff131.js"><link rel="prefetch" href="/assets/js/47.f8b98931.js"><link rel="prefetch" href="/assets/js/48.93cb2d55.js"><link rel="prefetch" href="/assets/js/49.8b706328.js"><link rel="prefetch" href="/assets/js/5.09e77b44.js"><link rel="prefetch" href="/assets/js/50.1e945126.js"><link rel="prefetch" href="/assets/js/51.80450411.js"><link rel="prefetch" href="/assets/js/52.cf5b13b8.js"><link rel="prefetch" href="/assets/js/54.bfb9dd03.js"><link rel="prefetch" href="/assets/js/55.22bfe861.js"><link rel="prefetch" href="/assets/js/56.d008d0b0.js"><link rel="prefetch" href="/assets/js/57.ff4bfa59.js"><link rel="prefetch" href="/assets/js/58.44e4acc6.js"><link rel="prefetch" href="/assets/js/59.94e919b7.js"><link rel="prefetch" href="/assets/js/6.502a8d06.js"><link rel="prefetch" href="/assets/js/60.239a85cc.js"><link rel="prefetch" href="/assets/js/61.1d3e16a2.js"><link rel="prefetch" href="/assets/js/62.8aeb01da.js"><link rel="prefetch" href="/assets/js/63.26888f3b.js"><link rel="prefetch" href="/assets/js/64.b895c496.js"><link rel="prefetch" href="/assets/js/65.14ca213b.js"><link rel="prefetch" href="/assets/js/66.b3b72cf7.js"><link rel="prefetch" href="/assets/js/67.280942fe.js"><link rel="prefetch" href="/assets/js/68.ec896861.js"><link rel="prefetch" href="/assets/js/69.0ab230dc.js"><link rel="prefetch" href="/assets/js/7.f3e14624.js"><link rel="prefetch" href="/assets/js/70.6f4b7018.js"><link rel="prefetch" href="/assets/js/71.79d6f66a.js"><link rel="prefetch" href="/assets/js/72.37c8b669.js"><link rel="prefetch" href="/assets/js/73.ddf666bc.js"><link rel="prefetch" href="/assets/js/74.6b8d43e8.js"><link rel="prefetch" href="/assets/js/75.b1e6ee14.js"><link rel="prefetch" href="/assets/js/76.438c5bc7.js"><link rel="prefetch" href="/assets/js/77.4b5a1574.js"><link rel="prefetch" href="/assets/js/78.166eb31a.js"><link rel="prefetch" href="/assets/js/79.b7febe48.js"><link rel="prefetch" href="/assets/js/8.1d9bb765.js"><link rel="prefetch" href="/assets/js/80.6caf4b0a.js"><link rel="prefetch" href="/assets/js/81.82bca60a.js"><link rel="prefetch" href="/assets/js/82.e97ab62d.js"><link rel="prefetch" href="/assets/js/83.e29d7fa9.js"><link rel="prefetch" href="/assets/js/84.3e25d1a0.js"><link rel="prefetch" href="/assets/js/85.75739f0d.js"><link rel="prefetch" href="/assets/js/86.465c6dda.js"><link rel="prefetch" href="/assets/js/87.d02c8713.js"><link rel="prefetch" href="/assets/js/88.9df855a4.js"><link rel="prefetch" href="/assets/js/89.253ffaaf.js"><link rel="prefetch" href="/assets/js/9.4a4e5846.js"><link rel="prefetch" href="/assets/js/90.68332b85.js"><link rel="prefetch" href="/assets/js/91.9c4fe9e7.js"><link rel="prefetch" href="/assets/js/92.69901624.js"><link rel="prefetch" href="/assets/js/93.88c4cccc.js"><link rel="prefetch" href="/assets/js/94.fcd1b228.js"><link rel="prefetch" href="/assets/js/95.b1091e84.js"><link rel="prefetch" href="/assets/js/96.02bea6a9.js"><link rel="prefetch" href="/assets/js/97.430d783e.js"><link rel="prefetch" href="/assets/js/98.6101adeb.js"><link rel="prefetch" href="/assets/js/99.4141bdb1.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f4e18059.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/panda-waving.png" alt="前端小记" class="logo"> <span class="site-name can-hide">前端小记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/8309a5b876fc95e3/" class="nav-link">HTML</a></li><li class="dropdown-subitem"><a href="/pages/e226e1/" class="nav-link">CSS</a></li><li class="dropdown-subitem"><a href="/pages/38a70e/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/pages/14682d/" class="nav-link">Vue</a></li></ul></li><li class="dropdown-item"><h4>学习笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/9c81a3/" aria-current="page" class="nav-link router-link-exact-active router-link-active">《Vue》踩坑笔记</a></li><li class="dropdown-subitem"><a href="/pages/b7ccdb/" class="nav-link">TypeScript学习笔记</a></li><li class="dropdown-subitem"><a href="/note/wx-miniprogram/" class="nav-link">小程序笔记</a></li><li class="dropdown-subitem"><a href="/pages/4643cd/" class="nav-link">JavaScript设计模式笔记</a></li></ul></li><li class="dropdown-item"><!----> <a href="/pages/32a43d/" class="nav-link">工具</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><a href="/backend/" class="link-title">后端</a> <span class="title" style="display:none;">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/3cce56/" class="nav-link">CentOS</a></li><li class="dropdown-item"><!----> <a href="/pages/83ac6e/" class="nav-link">Java</a></li><li class="dropdown-item"><!----> <a href="/pages/5d483a/" class="nav-link">Docker</a></li><li class="dropdown-item"><!----> <a href="/pages/442a2f/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/pages/f6d635/" class="nav-link">Maven</a></li><li class="dropdown-item"><!----> <a href="/pages/b52295/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/pages/b8f905/" class="nav-link">其他</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术" class="dropdown-title"><a href="/technology/" class="link-title">技术</a> <span class="title" style="display:none;">技术</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/9a7ee40fc232253e/" class="nav-link">技术文档</a></li><li class="dropdown-item"><!----> <a href="/pages/cb910b/" class="nav-link">GitHub部署及推送</a></li><li class="dropdown-item"><!----> <a href="/pages/117708e0af7f0bd9/" class="nav-link">Nodejs</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">博客搭建</a></li><li class="dropdown-item"><!----> <a href="/pages/188fd0/" class="nav-link">Fullpage全屏轮播插件</a></li><li class="dropdown-item"><!----> <a href="/pages/d91022/" class="nav-link">svn</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><a href="/more/" class="link-title">其他</a> <span class="title" style="display:none;">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/c3f302a03c8daf79/" class="nav-link">学习</a></li><li class="dropdown-item"><!----> <a href="/pages/696f49/" class="nav-link">系统重装</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><div class="nav-item"><a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/gujunling/" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://gujunling.github.io/images/e0509e6cd38d4f819e469be71bd4b2a6.png"> <div class="blogger-info"><h3>sweetheart</h3> <span>前端小记</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/8309a5b876fc95e3/" class="nav-link">HTML</a></li><li class="dropdown-subitem"><a href="/pages/e226e1/" class="nav-link">CSS</a></li><li class="dropdown-subitem"><a href="/pages/38a70e/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/pages/14682d/" class="nav-link">Vue</a></li></ul></li><li class="dropdown-item"><h4>学习笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/9c81a3/" aria-current="page" class="nav-link router-link-exact-active router-link-active">《Vue》踩坑笔记</a></li><li class="dropdown-subitem"><a href="/pages/b7ccdb/" class="nav-link">TypeScript学习笔记</a></li><li class="dropdown-subitem"><a href="/note/wx-miniprogram/" class="nav-link">小程序笔记</a></li><li class="dropdown-subitem"><a href="/pages/4643cd/" class="nav-link">JavaScript设计模式笔记</a></li></ul></li><li class="dropdown-item"><!----> <a href="/pages/32a43d/" class="nav-link">工具</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><a href="/backend/" class="link-title">后端</a> <span class="title" style="display:none;">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/3cce56/" class="nav-link">CentOS</a></li><li class="dropdown-item"><!----> <a href="/pages/83ac6e/" class="nav-link">Java</a></li><li class="dropdown-item"><!----> <a href="/pages/5d483a/" class="nav-link">Docker</a></li><li class="dropdown-item"><!----> <a href="/pages/442a2f/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/pages/f6d635/" class="nav-link">Maven</a></li><li class="dropdown-item"><!----> <a href="/pages/b52295/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/pages/b8f905/" class="nav-link">其他</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术" class="dropdown-title"><a href="/technology/" class="link-title">技术</a> <span class="title" style="display:none;">技术</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/9a7ee40fc232253e/" class="nav-link">技术文档</a></li><li class="dropdown-item"><!----> <a href="/pages/cb910b/" class="nav-link">GitHub部署及推送</a></li><li class="dropdown-item"><!----> <a href="/pages/117708e0af7f0bd9/" class="nav-link">Nodejs</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">博客搭建</a></li><li class="dropdown-item"><!----> <a href="/pages/188fd0/" class="nav-link">Fullpage全屏轮播插件</a></li><li class="dropdown-item"><!----> <a href="/pages/d91022/" class="nav-link">svn</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><a href="/more/" class="link-title">其他</a> <span class="title" style="display:none;">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/c3f302a03c8daf79/" class="nav-link">学习</a></li><li class="dropdown-item"><!----> <a href="/pages/696f49/" class="nav-link">系统重装</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><div class="nav-item"><a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/gujunling/" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>学习笔记</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/9c81a3/" aria-current="page" class="active sidebar-link">《Vue》踩坑笔记</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_1-计算属性-computed-和监视-watch-的使用场景区分" class="sidebar-link">1. 计算属性（computed）和监视（watch）的使用场景区分</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_2-切换页码后将滚动条重新设置到顶部" class="sidebar-link">2. 切换页码后将滚动条重新设置到顶部</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/9c81a3/#_2-1-el-main-标签切换页码后将滚动条重置为顶部" class="sidebar-link">2.1  标签切换页码后将滚动条重置为顶部</a></li><li class="sidebar-sub-header level3"><a href="/pages/9c81a3/#_2-2-el-table-标签切换页码后将滚动条重置为顶部" class="sidebar-link">2.2 标签切换页码后将滚动条重置为顶部</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_3-el-form-表单中输入框回车事件导致刷新整个页面" class="sidebar-link">3. el-form 表单中输入框回车事件导致刷新整个页面</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_4-v-if-和-v-show-的区别" class="sidebar-link">4. v-if 和 v-show 的区别</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_5-elementui-中切换标签页之前阻止切换事件" class="sidebar-link">5. elementUI 中切换标签页之前阻止切换事件</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_6-通过calc设置宽度或高度时出现失效的问题" class="sidebar-link">6. 通过calc设置宽度或高度时出现失效的问题</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_7-element-ui-的下拉框有值却无法选中的问题-实际上已经选中了-只是数据没有及时刷新-显示的还是老的数据-刷新之后的数据就是新的数据" class="sidebar-link">7. element-ui 的下拉框有值却无法选中的问题（实际上已经选中了，只是数据没有及时刷新，显示的还是老的数据，刷新之后的数据就是新的数据）</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_8-当页面缩小时没有出现滚动条-需要出现滚动条的设置-只需要在需要出现滚动条的-css-样式中添加-min-width-属性为一个定值即可" class="sidebar-link">8. 当页面缩小时没有出现滚动条，需要出现滚动条的设置(只需要在需要出现滚动条的 css 样式中添加 min-width 属性为一个定值即可)</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_9-页面之间通过路由传值-vue-router" class="sidebar-link">9. 页面之间通过路由传值（vue-router）</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/9c81a3/#params-传值" class="sidebar-link">params 传值</a></li><li class="sidebar-sub-header level3"><a href="/pages/9c81a3/#query-传值" class="sidebar-link">query 传值</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_10-api-接口中通过-params-传参和-data-传参" class="sidebar-link">10. API 接口中通过 params 传参和 data 传参</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/9c81a3/#prams-传参" class="sidebar-link">prams 传参</a></li><li class="sidebar-sub-header level3"><a href="/pages/9c81a3/#data-传参" class="sidebar-link">data 传参</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_11-输入框前后去空格" class="sidebar-link">11. 输入框前后去空格</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_12-修改-elementui-的样式-使用-v-deep-修饰符" class="sidebar-link">12. 修改 elementui 的样式（使用 ::v-deep 修饰符 ）</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_13-当前页面数据未保存时点击侧边导航栏-切换路由页面-后给出提示信息" class="sidebar-link">13. 当前页面数据未保存时点击侧边导航栏（切换路由页面）后给出提示信息</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_14-让一定宽度中的文字溢出时显示省略号-css-实现" class="sidebar-link">14. 让一定宽度中的文字溢出时显示省略号(css 实现)</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/9c81a3/#_14-1-让溢出的文字在一行显示-超出的部分显示省略号" class="sidebar-link">14.1 让溢出的文字在一行显示，超出的部分显示省略号</a></li><li class="sidebar-sub-header level3"><a href="/pages/9c81a3/#_14-2-让溢出的文字在显示指定行后再显示省略号" class="sidebar-link">14.2 让溢出的文字在显示指定行后再显示省略号</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_15-定位相关知识" class="sidebar-link">15. 定位相关知识</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_16-去除元素中不希望出现的黑色边框" class="sidebar-link">16. 去除元素中不希望出现的黑色边框</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_17-判断字符串中是否包含字符-无-若包含-则替换为" class="sidebar-link">17. 判断字符串中是否包含字符 ' 无' ，若包含，则替换为 ''</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_18-当鼠标移动图片上方时-显示指定内容" class="sidebar-link">18. 当鼠标移动图片上方时，显示指定内容</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_19-使用-vuedraggable-组件时-会将所有的元素整体拖走的解决方案" class="sidebar-link">19. 使用 vuedraggable 组件时，会将所有的元素整体拖走的解决方案</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_20-element-ui-表单报错-cannot-read-property-clearvalidate-of-undefined" class="sidebar-link">20. element-ui 表单报错 Cannot read property ‘clearValidate’ of undefined</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_21-查看、添加、编辑使用同一个组件不想在查看页面中看到-form-表单的必填项前面的红色的-号" class="sidebar-link">21. 查看、添加、编辑使用同一个组件不想在查看页面中看到 form 表单的必填项前面的红色的 * 号</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_22-el-input-标签-修改-placeholder-字体的颜色和大小" class="sidebar-link">22. 标签 修改 placeholder 字体的颜色和大小</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_23-axios-下载文件" class="sidebar-link">23. axios 下载文件</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_24-el-tree-标签中-树节点的文字过长-需要显示省略号并在鼠标滑过时显示全部文字" class="sidebar-link">24. 标签中 树节点的文字过长，需要显示省略号并在鼠标滑过时显示全部文字</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_25-js-向一个数组的末尾中添加新的数组" class="sidebar-link">25. JS 向一个数组的末尾中添加新的数组</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_26-js-去除数组中存在的空值" class="sidebar-link">26. JS 去除数组中存在的空值</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_27-js-数组实现数组去重" class="sidebar-link">27. JS 数组实现数组去重</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_28-padstart-方法-padend-方法-用于字符串补全长度" class="sidebar-link">28. padStart()方法,padEnd()方法，用于字符串补全长度</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_29-浏览器强制使用-chromium-内核" class="sidebar-link">29. 浏览器强制使用 Chromium 内核</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_30-el-image-组件中使用图片的相对路径后加载图片失败" class="sidebar-link">30. el-image 组件中使用图片的相对路径后加载图片失败</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_31-el-form-组件在表单出现时就立刻触发校验的问题" class="sidebar-link">31. el-form 组件在表单出现时就立刻触发校验的问题</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_32-在使用-element-ui-时-如果-el-dialog-中嵌套了-el-tabs-当关闭-dialog-时-页面就会被卡死的解决方案" class="sidebar-link">32. 在使用 element-ui 时，如果 el-dialog 中嵌套了 el-tabs，当关闭 dialog 时，页面就会被卡死的解决方案</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_33-vue-中全局引入某些依赖-在组件中不需要再重复引入-可以直接引用" class="sidebar-link">33. Vue 中全局引入某些依赖，在组件中不需要再重复引入，可以直接引用</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_34-vue-项目配置-gzip-压缩" class="sidebar-link">34. Vue 项目配置 gzip 压缩</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_35-element-ui-2-15-9-版本中关于日期选择器-el-date-picker-存在-bug-使用后直接会在控制台出现错误信息" class="sidebar-link">35. Element-ui@2.15.9 版本中关于日期选择器(el-date-picker)存在 bug(使用后直接会在控制台出现错误信息)</a></li><li class="sidebar-sub-header level2"><a href="/pages/9c81a3/#_36-element-ui-中表格翻页后序号连续" class="sidebar-link">36. Element UI 中表格翻页后序号连续</a></li></ul></li><li><a href="/pages/052726/" class="sidebar-link">css中使用js的变量</a></li><li><a href="/pages/449f52/" class="sidebar-link">从0到1实现一个属于自己的VScode插件</a></li><li><a href="/pages/76404e/" class="sidebar-link">从0到1实现自己的埋点SDK</a></li><li><a href="/pages/b7ccdb/" class="sidebar-link">TypeScript学习笔记</a></li><li><a href="/pages/88a642/" class="sidebar-link">浏览器渲染原理解析</a></li><li><a href="/pages/cf6d51/" class="sidebar-link">Vue原理解析</a></li><li><a href="/pages/7bdd9d/" class="sidebar-link">前端性能优化</a></li><li><a href="/pages/ab345e/" class="sidebar-link">前端构建工具</a></li><li><a href="/pages/e9d25f/" class="sidebar-link">常用的前端工具库</a></li><li><a href="/pages/51afd6/" class="sidebar-link">TypeScript笔记</a></li><li><a href="/note/wx-miniprogram/" class="sidebar-link">小程序笔记</a></li><li><a href="/pages/4643cd/" class="sidebar-link">JavaScript设计模式总结笔记</a></li><li><a href="/pages/3b23e5/" class="sidebar-link">常用知识</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>其他</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06970110><div class="articleInfo" data-v-06970110><ul class="breadcrumbs" data-v-06970110><li data-v-06970110><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-06970110></a></li> <li data-v-06970110><a href="/web/#前端" data-v-06970110>前端</a></li><li data-v-06970110><a href="/web/#学习笔记" data-v-06970110>学习笔记</a></li></ul> <div class="info" data-v-06970110><div title="作者" class="author iconfont icon-touxiang" data-v-06970110><a href="https://gujunling.github.io/" target="_blank" title="作者" class="beLink" data-v-06970110>sweetheart</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06970110><a href="javascript:;" data-v-06970110>2021-03-24</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABH1JREFUSA3tVl1oHFUUPmdmd2ltklqbpJDiNnXFmgbFktho7YMPNiJSSZM0+CAYSkUELVhM6YuwIPpgoOKDqOBDC0XE2CQoNtQXBUFTTcCi+Wlh1V2TQExsUzcltd3M9Tt3ZjZzZ2fT+OJTL8yeM+eee757fmeJbq//KQL8X3DUSFOcfr7cRsRtxNQMWueeVzOkaITIGqQHNg5y8+jNW9ldM7A6nTpAjuolUikAwq7CE3WcM2RRDz+XGVgN3FptU/aUSlvq9Pa3iZ1+sgAqJyyAFqkipd9dqiwHF3P65YycLWc/6sqGrvoEoIp6DOFaX5h6+dnfjkWprwqsPk0dUGq5vySwDImC10KxFHgGL1SWoc92O3eVht09qdXNH11I2SsTsJYqMWzihqGMi+A+Garf3BAuuLI5oGlULyNfyB/HYNujwktOfRrMr5t77NmevqaUopx0grnKAyvVpmwUDB4x6FPXuGvYLTDwWsejwgtgkYKPqRJg8SV6xaiZ3ZTppGneS4yfH5/66fZSDHv+QZci/+h5c5UHtpy67JUqGppM0sh0Nc1dW6/N1W5Yoqat8/TU/VnadmdeW2PLLSyh0cvxBs3KbqTmwYPpxN4do/mzE8nEpvX/UMu2Wbp74zUAK5q6WkHns7V0eWkdPbPzd3rxkTGybadYySumVzhcaJFbs5UrEkQ/+CK8gF5dnh/6ciIZ73gwQ927L1IitoxKLXYP3SjYdOrHHfTZhRRlFyrorafPk20B3HPD1y2G3qKZME5Jcf3t/HUC13/8tSd++vqFveMUTwAUxSUFI1QekR1+bIze3D9MF2aq6cPvG72CgnldWCFqyRw3lwH8ZMerjTD9ElRO7Gv44wNpC90aASqGfVlz/Rx17srQ57/UU26hkhQqUB7dBR71WmzQhHUnblGmVOEw0jhbV1n9OlXUDCIRGaNV5Jp43N516fN7JmnTHdfp7Hgy0luO4aMhtkLL8Bi3bUWYvzh5Mn1dTxrL6QmGuRhGL/TiTTxRoEdTszSaq9GR0NGA3KdkOz3hqSV3MIDhQ5IVX/Ivx3umBti2es2h4eZby7x8br1rkf7Mo90AqC8aQ3sJeNzqFRu+vSANAQe3PL7l0HGOAdwDCeZYvNKeoZp1Qfs6Aipndh86HmFRi0LAnEO47wsqM6cdfjh3jBPUzhZy7nvlUfFsamED1VQt6aISHVymXZ/B2aCtIG8AI8xfobj2d3en1wWVhOeHELKmLQ1s211s88comkv4UCwWyF787mJdYXtNfhKAXVqnKTq8QZvGAGGOfaTo5pGZ/PwbUCr5+DPr/1J92JNHr9aOl/F3iI5+O1nfybsGxoimvZ3ViWSluDITw3P37mypheDIPY0tw7+O/5ApbkYw+zpfaUVu32Pi98+defdUhEpZkRFq0aqyNh9FuL9hpYbEm6iwi0z2REd09ZmyENEbuhjDWzKvZXTqKYaBIr3tt5kuPtQBZFvEUwHt60vfCNu41XsksH9Ij1BMMz1Y0OOunHNShFIP5868g5zeXmuLwL9T4b6Q2+KejgAAAABJRU5ErkJggg==">《Vue》踩坑笔记<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h1 id="《vue》踩坑笔记"><a href="#《vue》踩坑笔记" class="header-anchor">#</a> 《Vue》踩坑笔记</h1> <p>博主使用 Vue 开发项目中亲身经历，自己踩的坑，防止再次踩坑！！！博主使用 Vue 开发项目中亲身经历，自己踩的坑，防止再次踩坑！！！博主使用 Vue 开发项目中亲身经历，自己踩的坑，防止再次踩坑！！！</p> <p>若对本文内容有所异议欢迎指正讨论，若感兴趣，欢迎点赞收藏。</p> <div class="custom-block tip"><p class="custom-block-title">提示</p> <p>本章内容是博主自身在使用 Vue 开发项目过程中遇到的坑，并持续更新中，若有不足，欢迎指正。</p></div> <h2 id="_1-计算属性-computed-和监视-watch-的使用场景区分"><a href="#_1-计算属性-computed-和监视-watch-的使用场景区分" class="header-anchor">#</a> 1. 计算属性（computed）和监视（watch）的使用场景区分</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>computed： 是计算属性，依赖其它属性值,通过属性计算而得来的属性，并且 computed 的值在getter执行后是会缓存的，只有它依赖的属性值再次发生改变，下一次获取 computed 的值时才会重新计算 computed 的值；computed中的函数必须要用return返回最终的结果；computed 是一个新的属性，并且挂载到Vue实例上。computed不支持异步。
+
+watch： 更多的是「观察」的作用，类似于某些数据的监听回调 ，每当监听的数据变化时都会执行回调进行后续操作；watch的回调里面会传入监听属性的新旧值，通过这两个值可以做一些特定的操作，不是必须要用return返回结果。watch中的函数是不需要调用的。watch 是监听一个已经存在并且已经挂载到Vue实例上的属性，所以watch同样可以监听computed（计算属性）的变化，其他还有data,props。watch支持异步。
+
+使用场景：
+
+	当我们需要进行数值计算，并且依赖于其它数据时，应该使用 computed，因为可以利用 computed 的缓存特性，避免每次获取值时，都要重新计算；computed适用于一个属性被多个属性影响。
+
+	当我们需要在数据变化时执行异步或开销较大的操作时，应该使用 watch，使用 watch 选项允许我们执行异步操作 ( 访问一个 API )，限制我们执行该操作的频率，并在我们得到最终结果前，设置中间状态。这些都是计算属性无法做到的。watch 会生成一个watcher对象，在监视的属性每次变动时都会触发回调，watcher 更像是一个 data 的数据监听回调，当依赖的 data 的数据变化，执行回调，在方法中会传入 newVal 和 oldVal。可以提供输入值无效，提供中间值 特场景。Vue 实例将会在实例化时调用 $watch()，遍历 watch 对象的每一个属性。如果你需要在某个数据变化时做一些事情，使用watch。watch适用于一个属性影响多个属性。
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h2 id="_2-切换页码后将滚动条重新设置到顶部"><a href="#_2-切换页码后将滚动条重新设置到顶部" class="header-anchor">#</a> 2. 切换页码后将滚动条重新设置到顶部</h2> <h3 id="_2-1-el-main-标签切换页码后将滚动条重置为顶部"><a href="#_2-1-el-main-标签切换页码后将滚动条重置为顶部" class="header-anchor">#</a> 2.1 &lt; el-main&gt; 标签切换页码后将滚动条重置为顶部</h3> <p>在切换页码的方法中添加如下代码</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    this.$refs.webTabMain.$el.scrollTop = 0     //主要代码
+
+      &lt;el-main ref=&quot;webTabMain&quot; class=&quot;web-dialog-graphic&quot;&gt;
+
+          &lt;el-pagination
+                  class=&quot;pagination&quot;
+                  background
+                  :current-page.sync=&quot;pageNum&quot;
+                  @current-change=&quot;handleCurrentChange&quot;
+                  :page-sizes=&quot;[10]&quot;
+                  :page-size=&quot;pageSize&quot;
+                  layout=&quot;prev, pager, next, jumper&quot;
+                  :total=&quot;totalCount&quot;
+                &gt;
+            &lt;/el-pagination&gt;
+    &lt;/el-main&gt;
+      // 改变弹出框中页码的方法
+        handleCurrentChange(pageNum) {
+          this.$refs.webTabMain.$el.scrollTop = 0    //webTabMain为当前表格或其他显示的数据的标签中ref值。
+           //再重新获取当前列表
+        }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h3 id="_2-2-el-table-标签切换页码后将滚动条重置为顶部"><a href="#_2-2-el-table-标签切换页码后将滚动条重置为顶部" class="header-anchor">#</a> 2.2 &lt; el-table&gt;标签切换页码后将滚动条重置为顶部</h3> <p>在切换页码的方法中添加如下代码</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    this.$refs.staffTable.bodyWrapper.scrollTop = 0     //主要代码
+
+      &lt;el-table ref=&quot;staffTable&quot;&gt;
+
+          &lt;el-pagination
+                  class=&quot;pagination&quot;
+                  background
+                  :current-page.sync=&quot;pageNum&quot;
+                  @current-change=&quot;handleCurrentChange&quot;
+                  :page-sizes=&quot;[10]&quot;
+                  :page-size=&quot;pageSize&quot;
+                  layout=&quot;prev, pager, next, jumper&quot;
+                  :total=&quot;totalCount&quot;
+                &gt;
+            &lt;/el-pagination&gt;
+    &lt;/el-table&gt;
+      // 改变弹出框中页码的方法
+        handleCurrentChange(pageNum) {
+         this.$refs.staffTable.bodyWrapper.scrollTop = 0   // staffTable为当前表格或其他显示的数据的标签中ref值。
+             //再重新获取当前列表
+        }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h2 id="_3-el-form-表单中输入框回车事件导致刷新整个页面"><a href="#_3-el-form-表单中输入框回车事件导致刷新整个页面" class="header-anchor">#</a> 3. el-form 表单中输入框回车事件导致刷新整个页面</h2> <p>问题描述：当我们使用 elementUI 的 el-form 表单时，如果只有一个<code>el-form-item</code>标签，且这个 item 标签中是一个 input 输入框时，此时使用<code>@keyup.enter.native</code>为 input 输入框绑定回车事件，此时会出现一个问题：点击回车键后，浏览器会刷新整个页面，导致表单提交失败，不论这个回车事件绑定函数还是直接操作数据。</p> <p>原因：由于当表单只有一个文本框时，按下回车将会触发表单的提交事件， 导致页面的刷新。</p> <p>解决方案一：在 el-from 标签中 加上 <code>@submit.native.prevent</code></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;el-form
+    :model=&quot;groupForm&quot;
+    :rules=&quot;groupRules&quot;
+    ref=&quot;addGroupForm&quot;
+    class=&quot;demo-ruleForm&quot;
+    @submit.native.prevent
+  &gt;
+   &lt;el-form-item label=&quot;&quot; prop=&quot;name&quot;&gt;
+          &lt;el-input
+            type=&quot;text&quot;
+            placeholder=&quot;请输入名称&quot;
+            v-model=&quot;groupForm.name&quot;
+            maxlength=&quot;4&quot;
+            show-word-limit
+            @keyup.enter.native=&quot;saveGroupName('addGroupForm')&quot;&gt;
+          &lt;/el-input&gt;
+   &lt;/el-form-item&gt;
+   &lt;el-form-item&gt;
+       &lt;el-button type=&quot;primary&quot; @click=&quot;saveGroupName('addGroupForm')&quot;&gt;
+            确定
+       &lt;/el-button&gt;
+       &lt;el-button @click=&quot;closeDialog('addGroupForm')&quot;&gt;取消&lt;/el-button&gt;
+   &lt;/el-form-item&gt;
+ &lt;/el-form&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>解决方案二：加一个隐藏的文本框，即表单不只有一个文本框</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;el-form
+    :model=&quot;groupForm&quot;
+    :rules=&quot;groupRules&quot;
+    ref=&quot;addGroupForm&quot;
+    class=&quot;demo-ruleForm&quot;
+    @submit.native.prevent
+  &gt;
+    &lt;el-form-item label=&quot;&quot; prop=&quot;name&quot;&gt;
+       &lt;el-input
+           type=&quot;text&quot;
+           placeholder=&quot;请输入名称&quot;
+           v-model=&quot;groupForm.name&quot;
+           maxlength=&quot;4&quot;
+           show-word-limit
+           @keyup.enter.native=&quot;saveGroupName('addGroupForm')&quot;&gt;
+        &lt;/el-input&gt;
+    &lt;/el-form-item&gt;
+    &lt;!-- 添加一个不显示的文本框 --&gt;
+    &lt;el-form-item style=&quot;margin-bottom:0;display:none;&quot;&gt;
+      &lt;el-input&gt;&lt;/el-input&gt;
+    &lt;/el-form-item&gt;
+
+    &lt;el-form-item&gt;
+       &lt;el-button type=&quot;primary&quot; @click=&quot;saveGroupName('addGroupForm')&quot;&gt;
+       确定
+       &lt;/el-button&gt;
+       &lt;el-button @click=&quot;closeDialog('addGroupForm')&quot;&gt;取消&lt;/el-button&gt;
+    &lt;/el-form-item&gt;
+ &lt;/el-form&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><h2 id="_4-v-if-和-v-show-的区别"><a href="#_4-v-if-和-v-show-的区别" class="header-anchor">#</a> 4. v-if 和 v-show 的区别</h2> <ul><li><code>v-if</code>是&quot;真正&quot;的条件渲染，确保在切换过程中条件块内的事件监听器和子组件适当地被创建和销毁，即每次使用到都会重新创建，条件不满足的时候就会销毁，是根据判断条件动态的进行 DOM 元素的增加和删除。也是<strong>惰性的</strong>：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。</li> <li><code>v-show</code>只是简单的控制元素的 <code>display</code> 属性，不管初始条件是什么，元素总是被渲染，只是简单的控制了元素的显示与否，DOM 元素创建后在不满足条件时会被隐藏，而不是销毁。v-show 只是动态的更改样式而不需要增删 DOM 元素。</li> <li>v-if 可以与 v-else 连用，v-show 则不能与 v-else 连用。</li> <li>v-if 可以搭配 template 使用，而 v-show 不行</li></ul> <h2 id="_5-elementui-中切换标签页之前阻止切换事件"><a href="#_5-elementui-中切换标签页之前阻止切换事件" class="header-anchor">#</a> 5. elementUI 中切换标签页之前阻止切换事件</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;el-tabs
+        type=&quot;card&quot;
+        v-model=&quot;activeType&quot;
+        :before-leave=&quot;cutoverTab&quot;
+ &gt;
+&lt;/el-tabs&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code> methods: {
+    cutoverTab(activeName ,oldActiveName ) {
+      console.log('切换标签页')
+      console.log('activeName', activeName)  //为跳转到的标签页
+      console.log('oldActiveName', oldActiveName)  //为跳转之前的标签页
+      if (this.dragDisabled === false) {
+        return this.$confirm(
+          '页面未保存，离开将不保留数据，是否离开?',
+          '提示',
+          {
+            confirmButtonText: '离开',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }
+        )
+          .then(() =&gt; {
+            console.log('离开')
+            //可以在这里对跳转到的新的标签页进行处理
+          })
+          .catch(() =&gt; {
+            console.log('不离开')
+            throw new Error('阻止切换')
+          })
+      }
+    },
+  }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><h2 id="_6-通过calc设置宽度或高度时出现失效的问题"><a href="#_6-通过calc设置宽度或高度时出现失效的问题" class="header-anchor">#</a> 6. 通过<code>calc</code>设置宽度或高度时出现失效的问题</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>//失效的情况
+.test{
+width:calc(100% -70px)   //此种情况下设置的宽度会失效，原因是因为-70px之间没有空格
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>//正确的情况
+.test{
+width:calc(100% - 70px)//这种情况下设置的宽度才会生效，以后使用需要注意。
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="_7-element-ui-的下拉框有值却无法选中的问题-实际上已经选中了-只是数据没有及时刷新-显示的还是老的数据-刷新之后的数据就是新的数据"><a href="#_7-element-ui-的下拉框有值却无法选中的问题-实际上已经选中了-只是数据没有及时刷新-显示的还是老的数据-刷新之后的数据就是新的数据" class="header-anchor">#</a> 7. element-ui 的下拉框有值却无法选中的问题（实际上已经选中了，只是数据没有及时刷新，显示的还是老的数据，刷新之后的数据就是新的数据）</h2> <p>问题描述：在使用 Vue 框架和 element-ui 开发时，下拉框遇见一个问题，在函数中改变了页面中的某个值，在函数中查看是修改成功了，但在页面中没有及时刷新改变后的值，也就是下拉框值无法选中。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> &lt;el-select
+    class=&quot;select&quot;
+    size=&quot;small&quot;
+    v-model=&quot;updateVRForm.class&quot;
+    placeholder=&quot;请选择类型&quot;
+    @change=&quot;onChange&quot;
+  &gt;
+        &lt;el-option
+          v-for=&quot;item in classList&quot;
+          :key=&quot;item.value&quot;
+          :label=&quot;item.label&quot;
+          :value=&quot;item.value&quot;
+        &gt;
+        &lt;/el-option&gt;
+  &lt;/el-select&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>解决方式：出现这个问题好像是因为下拉框数据是循环掉别的接口得来的，因为数据层次太多，render 函数没有自动更新，需手动强制刷新所以我直接强制刷新了值，而 forceUpdate 就是重新 render。在 select 的 change 事件中调用此方法，运用 this.$forceUpdate()强制刷新，页面正常选值。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>methods: {
+   onChange() {
+      this.$forceUpdate()
+    },
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="_8-当页面缩小时没有出现滚动条-需要出现滚动条的设置-只需要在需要出现滚动条的-css-样式中添加-min-width-属性为一个定值即可"><a href="#_8-当页面缩小时没有出现滚动条-需要出现滚动条的设置-只需要在需要出现滚动条的-css-样式中添加-min-width-属性为一个定值即可" class="header-anchor">#</a> 8. 当页面缩小时没有出现滚动条，需要出现滚动条的设置(只需要在需要出现滚动条的 css 样式中添加 min-width 属性为一个定值即可)</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+&lt;div class=&quot;container&quot;&gt;
+xxxxxx
+&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style lang=&quot;scss&quot; scoped&gt;
+.container {
+  margin: 0;
+  padding: 0;
+  min-width: 1300px;
+  }
+&lt;/style&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h2 id="_9-页面之间通过路由传值-vue-router"><a href="#_9-页面之间通过路由传值-vue-router" class="header-anchor">#</a> 9. 页面之间通过路由传值（vue-router）</h2> <h3 id="params-传值"><a href="#params-传值" class="header-anchor">#</a> params 传值</h3> <p>（params 传值时，不能使用 path 进行跳转，params 只能用 name 来引入路由，如果只提供了 path，params 会自动被忽略，接收参数页面会是 undefined！）</p> <p>注意： params 传值时，刷新页面后会传的值会消失，params 传值时传的值不会在页面的地址栏中显示，相当于 post 请求。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>//传值
+this.$router.push({
+      name: 'vrList',
+      params: { type: vr.type }
+ })
+
+ //取值
+ this.$route.params.type
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="query-传值"><a href="#query-传值" class="header-anchor">#</a> query 传值</h3> <p>query 传值使用 path 和 name 均可以进行路由跳转的，相当于 get 请求，页面请求时会在地址栏中看到请求参数。刷新页面后传的值不会消失。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>//传值
+this.$router.push({
+    path: '/vr/update',
+    query: { type: this.activeType }
+  })
+
+  //取值
+  this.$route.query.type
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>参考链接：<a href="https://segmentfault.com/a/1190000012735168" target="_blank" rel="noopener noreferrer">https://segmentfault.com/a/1190000012735168<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="_10-api-接口中通过-params-传参和-data-传参"><a href="#_10-api-接口中通过-params-传参和-data-传参" class="header-anchor">#</a> 10. API 接口中通过 params 传参和 data 传参</h2> <p>通过 axios 来请求后台接口时传参的形式有 params 和 data 两种形式</p> <h3 id="prams-传参"><a href="#prams-传参" class="header-anchor">#</a> prams 传参</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>//通过prams传参，params是添加到url的请求字符串中的，用于get请求
+//此时axios会将请求的url自动转化为/xxx/deleteById?id=123466
+
+export const delVrData = id =&gt;
+  http({ url: `${prefix}/deleteById`,
+    params: { id },
+    method: 'DELETE'
+  })
+
+   //此时的vue页面中调用API接口为
+vrApi.delVrData(item.id).then(() =&gt; {
+        this.$message({
+          type: 'success',
+          message: '删除成功!'
+        })
+})
+  //此时axios会将请求的url自动转化为/xxx/selectLists?type=xxxxxxx
+export const getVrList = params =&gt;
+  http({ url: `${prefix}/selectLists`, params })
+
+//vue中调用API接口
+vrApi.getVrList({ type: type }).then(res =&gt; { console.log(res) })
+
+//两者的不同之处在于API接口的js文件中传值时是否是json对象，第一个API接口中params是一个json对象，所以调用的时候直接传递参数即可，第二个API接口中params只是一个参数，所以在调用第二个接口的使用需要传递的参数就是一个json对象。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h3 id="data-传参"><a href="#data-传参" class="header-anchor">#</a> data 传参</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 通过data传参，data是添加到请求体（body）中的， 用于post请求。
+// 如果我们将get方法中的params修改为data，显然是不能请求成功的，因为get请求中不存在data这个选项。
+// 此时axios会将请求的url自动转化为/xxx/update
+
+export const putUpdateVr = data =&gt;
+  http({ url: `${prefix}/xxx/update`, method: 'PUT', data })
+
+
+  //此时的vue页面中调用API接口为
+  //此时的请求后端接口时传递的参数vr为一个json对象
+
+vrApi.putUpdateVr(vr).then(() =&gt; {
+      this.$message({
+        message: '修改成功',
+        type: 'success'
+      })
+  })
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="_11-输入框前后去空格"><a href="#_11-输入框前后去空格" class="header-anchor">#</a> 11. 输入框前后去空格</h2> <p>输入框中可以随意进行输入，包括空格和特殊字符等，只是在鼠标的离焦事件中将空格去除，并将去除空格后的数据重新赋值给输入框绑定的数据，然后在鼠标离焦事件中对输入框数据进行校验。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> &lt;el-input
+      class=&quot;input&quot;
+      v-model=&quot;updateVRForm.url&quot;
+      type=&quot;url&quot;
+      inputmode=&quot;url&quot;
+      @blur=&quot;onBlurUrl(updateVRForm.url)&quot;&gt;
+&lt;/el-input&gt;
+
+&lt;script&gt;
+
+// 链接输入框的离焦事件中去掉首尾的空格
+    onBlurUrl(val) {
+      // 去掉首尾的空格
+      val = val.replace(/^\s+|\s+$/g, '')
+      // 去掉所有的空格
+      // value = val.replace(/\s+/g, '')
+      this.updateVRForm.url = val
+    }
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h2 id="_12-修改-elementui-的样式-使用-v-deep-修饰符"><a href="#_12-修改-elementui-的样式-使用-v-deep-修饰符" class="header-anchor">#</a> 12. 修改 elementui 的样式（使用 ::v-deep 修饰符 ）</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 修改elementUI中标签页的表头的字体的大小
+::v-deep .el-tabs__item {
+  font-size: 16px;
+}
+// 修改elementUI中的图片的圆角样式
+::v-deep .el-image {
+  border-radius: 5px;
+}
+//修改elementUI中的tab标签页中内容区的最左侧的卡片不显示边框的样式
+::v-deep .el-tabs__content {
+  overflow: visible;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="_13-当前页面数据未保存时点击侧边导航栏-切换路由页面-后给出提示信息"><a href="#_13-当前页面数据未保存时点击侧边导航栏-切换路由页面-后给出提示信息" class="header-anchor">#</a> 13. 当前页面数据未保存时点击侧边导航栏（切换路由页面）后给出提示信息</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code> beforeRouteLeave(to, from, next) {
+    if (this.submited) {
+      next()
+    } else {
+      this.$confirm('页面未保存，离开将不保留数据，是否离开?', '提示', {
+        confirmButtonText: '离开',
+        cancelButtonText: '取消',
+        type: 'warning'
+      })
+        .then(() =&gt; {
+          this.submited = true
+        })
+        .catch(() =&gt; {})
+        .finally(() =&gt; {
+          if (this.submited) {
+            next()
+          } else {
+            next(false)
+          }
+        })
+    }
+  },
+  //注意，此操作具有局限性，会导致在当前页面中切换所有的路由信息均会执行此方法，（若添加页面的保存方法中需要修改路由页面，则也会执行此方法，所以在弹出提示信息框之前需要先判断submited这个属性是否为true），此方法是需要通过elementUI的组件来进行提示信息才进行修改的，更合理的方法是通过window来调用执行，具体如下方代码。
+
+    beforeRouteLeave(to, from, next) {
+    if (this.submited || !this.editing) {
+      next()
+    } else {
+      const answer = window.confirm('您有信息未保存，确定返回吗？')
+      if (answer) {
+        next()
+      } else {
+        next(false)
+      }
+    }
+  },
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br></div></div><h2 id="_14-让一定宽度中的文字溢出时显示省略号-css-实现"><a href="#_14-让一定宽度中的文字溢出时显示省略号-css-实现" class="header-anchor">#</a> 14. 让一定宽度中的文字溢出时显示省略号(css 实现)</h2> <h3 id="_14-1-让溢出的文字在一行显示-超出的部分显示省略号"><a href="#_14-1-让溢出的文字在一行显示-超出的部分显示省略号" class="header-anchor">#</a> 14.1 让溢出的文字在一行显示，超出的部分显示省略号</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;div title=&quot;指定文字出现省略号时鼠标移入显示完整的文字（可以使用v-bind指令动态指定需要显示的内容）&quot;&gt;哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈&lt;/div&gt;
+/*这四个缺一不可 ，注意，此时只能是超出一行的文字显示省略号 */
+.test{
+        /* display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden; */
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="_14-2-让溢出的文字在显示指定行后再显示省略号"><a href="#_14-2-让溢出的文字在显示指定行后再显示省略号" class="header-anchor">#</a> 14.2 让溢出的文字在显示指定行后再显示省略号</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+&lt;div :title=&quot;指定文字出现省略号时鼠标移入显示完整的文字（可以使用v-bind指令动态指定需要显示的内容）&quot;&gt;哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈&lt;/div&gt;
+
+ /* 让两行以后溢出的文字显示省略号 */
+
+  /*  -webkit-line-clamp 是一个 不规范的属性（unsupported WebKit property），
+  它没有出现在 CSS 规范草案中。限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他外来的WebKit属性。
+      display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。
+      -webkit-box-orient 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。
+      text-overflow，可以用来多行文本的情况下，用省略号“...”隐藏超出范围的文本 。
+  */
+
+  .test{
+    display: -webkit-box;
+    /* 注意，此时不能设置display: block; ，设置为块级元素会导致下面的配置失效 */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /* -webkit-line-clamp: 行数;   */
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h2 id="_15-定位相关知识"><a href="#_15-定位相关知识" class="header-anchor">#</a> 15. 定位相关知识</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>相对定位参照与元素本来的位置来进行定位。
+
+绝对定位参照与元素的包含块来定位的。
+
+固定定位参照与浏览器的视口来进行定位的。
+
+没有定位就是参照的包含块进行排列的。
+
+初始包含块是一个视口大小的矩形，但不等于视口。
+
+定位的默认值为auto，即`left:auto;right:auto;top:auto;bottom:auto;，不可被继承`，
+
+width和height的默认值也是auto，不可被继承，margin和padding的默认值为0，
+
+border-width的默认值为中等大小，如果不存在border-style，则没有border-width这个说法。
+
+width的百分比参照与包含块的width，height参照与包含块的height，left参照与包含块的width，top参照与包含块的height
+
+margin和padding中的百分比参照的是当前元素的包含块的width的值。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h2 id="_16-去除元素中不希望出现的黑色边框"><a href="#_16-去除元素中不希望出现的黑色边框" class="header-anchor">#</a> 16. 去除元素中不希望出现的黑色边框</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>//设置元素的outline属性为0
+ &lt;style&gt;
+    * {
+        margin: 0;
+        padding: 0;
+     }
+    .test{
+    outline:none
+    }
+&lt;/style&gt;
+&lt;html&gt;
+&lt;p&gt;哈哈哈哈&lt;/p&gt;
+&lt;/html&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>参考链接：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/outline" target="_blank" rel="noopener noreferrer">https://developer.mozilla.org/zh-CN/docs/Web/CSS/outline<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="_17-判断字符串中是否包含字符-无-若包含-则替换为"><a href="#_17-判断字符串中是否包含字符-无-若包含-则替换为" class="header-anchor">#</a> 17. 判断字符串中是否包含字符 ' 无' ，若包含，则替换为 ''</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 方式一：使用indexOf来判断字符串中是否包含'无'这个字符，若包含，则使用replace来替换为''
+    if (res.data[0].list[i].name.indexOf('无') !== -1) {
+      res.data[0].list[i].name = res.data[0].list[i].name.replace(/无/, '')
+    } else if (res.data[0].list[i].name.indexOf('无') == -1) {
+    //若不存在无这个字符，则将字符串中通过、分割的最后的字符与之前的字符之间加上空格
+    //例如 字符串 （三室、两厅、一卫、复式） 替换后的结果为 （三室两厅一卫 复式）
+       let nameTemp = res.data[0].list[i].name.split('、')
+           nameTemp.splice(nameTemp.length - 1, 0, ' ')
+           nameTemp = nameTemp.toString()
+         res.data[0].list[i].name = nameTemp.replace(/,/g, '')
+      }
+
+ //方式二: 通过Unicode编码匹配汉字  无 ，若符合则替换为''
+  res.data[0].list[i].name = res.data[0].list[i].name.replace(/\u65e0/g, '')
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h2 id="_18-当鼠标移动图片上方时-显示指定内容"><a href="#_18-当鼠标移动图片上方时-显示指定内容" class="header-anchor">#</a> 18. 当鼠标移动图片上方时，显示指定内容</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>//当鼠标移动到图片上方时，显示编辑和删除按钮,鼠标不移动到图片上方时，默认只展示图片，不展示编辑和删除按钮
+&lt;templeate&gt;
+ &lt;div class=&quot;image&quot;&gt;
+        &lt;el-image :src=&quot;vr.image&quot;&gt; &lt;/el-image&gt;
+        &lt;div v-show=&quot;dragDisabled&quot; class=&quot;btngroup&quot;&gt;
+              &lt;el-button
+                type=&quot;primary&quot;
+                :disabled=&quot;!dragDisabled&quot;
+                size=&quot;mini&quot;
+                @click=&quot;onEdit(vr)&quot;
+                &gt;编辑&lt;/el-button
+              &gt;
+              &lt;el-button
+                type=&quot;danger&quot;
+                :disabled=&quot;!dragDisabled&quot;
+                size=&quot;mini&quot;
+                @click=&quot;onDel(vr, index)&quot;
+                &gt;删除&lt;/el-button
+              &gt;
+          &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/templeate&gt;
+
+/*html中将el-image和两个按钮所在的div放在同一个div（.image）的内部，即el-image和两个按钮是兄弟元素，在css样式中设置 .image:hover{ .btngroup {}},即当image元素hover时改变两个按钮的样式，让两个按钮由最初的默认不显示，改为通过定位显示在指定位置，若想根据最外层的div的位置来进行定位，则需要将最外层的div设置成相对定位，在鼠标hover图片的时候，设置按钮为参照最外层div的绝对定位，然后根据自己的需要，调整left、top等值即可。
+*/
+
+&lt;style lang=&quot;scss&quot; scoped&gt;
+.image {
+          width: 250px;
+          height: 188px;
+          cursor: pointer;
+          position: relative;
+}
+.image:hover {
+  .btngroup {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+.btngroup {
+  display: none;
+}
+&lt;/style&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><h2 id="_19-使用-vuedraggable-组件时-会将所有的元素整体拖走的解决方案"><a href="#_19-使用-vuedraggable-组件时-会将所有的元素整体拖走的解决方案" class="header-anchor">#</a> 19. 使用 vuedraggable 组件时，会将所有的元素整体拖走的解决方案</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;templeate&gt;
+  &lt;draggable
+      v-model=&quot;vrThreeList&quot;
+      class=&quot;list&quot;
+      chosen-class=&quot;chosen&quot;
+      :scroll=&quot;true&quot;
+      force-fallback=&quot;true&quot;
+      animation=&quot;100&quot;
+      :disabled=&quot;dragDisabled&quot;
+    &gt;
+       &lt;div v-for=&quot;(vr, index) in vrThreeList&quot; :key=&quot;index&quot; class=&quot;item&quot;&gt;
+           &lt;div class=&quot;image&quot;&gt;
+              &lt;el-image :src=&quot;vr.image&quot;&gt; &lt;/el-image&gt;
+           &lt;/div&gt;
+       &lt;/div&gt;
+  &lt;/draggable&gt;
+&lt;/templeate&gt;
+
+// draggable标签内应该紧跟着需要遍历元素的div，需要被遍历的元素不能再被div包裹，draggable组件默认会将其标签内部的第一个div当做一个整体进行拖拽。，如果需要给整体写样式，可以在draggable标签上写样式。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h2 id="_20-element-ui-表单报错-cannot-read-property-clearvalidate-of-undefined"><a href="#_20-element-ui-表单报错-cannot-read-property-clearvalidate-of-undefined" class="header-anchor">#</a> 20. element-ui 表单报错 Cannot read property ‘clearValidate’ of undefined</h2> <p>原因：因为 页面的 Dom 元素没有加载完成，导致获取不到 refs 元素，报错 Cannot read property ‘clearValidate’ of undefined。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>this.$nextTick(() =&gt; {
+          this.$refs.staffForm.clearValidate()
+        })
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="_21-查看、添加、编辑使用同一个组件不想在查看页面中看到-form-表单的必填项前面的红色的-号"><a href="#_21-查看、添加、编辑使用同一个组件不想在查看页面中看到-form-表单的必填项前面的红色的-号" class="header-anchor">#</a> 21. 查看、添加、编辑使用同一个组件不想在查看页面中看到 form 表单的必填项前面的红色的 * 号</h2> <p>当查看和添加、编辑等使用同一个组件时，若查看页面不想出现必填项前面的红色的 * 号，可以先定义一个空的校验规则，在添加和编辑页面中再将需要的校验规则赋值给原先初始化时定义的那个空的校验规则。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;el-dialog
+      :title=&quot;dialogTitle&quot;
+      :visible.sync=&quot;staffDialogVisible&quot;
+      width=&quot;550px&quot;
+      :append-to-body=&quot;true&quot;
+      :close-on-click-modal=&quot;false&quot;
+      :close-on-press-escape=&quot;false&quot;
+      :destroy-on-close=&quot;true&quot;
+      @open=&quot;checkTitle&quot;
+      @close=&quot;closeDialog&quot;
+    &gt;
+     &lt;el-form :model=&quot;staffForm&quot; :rules=&quot;staffRules&quot; ref=&quot;staffForm&quot;&gt;&lt;/el-form&gt;
+&lt;/el-dialog&gt;
+
+data(){
+  return{
+      staffRules: {}, // 表单校验规则
+      // 新增或编辑时使用的校验规则，用于解决查看的时候也显示必填项的那个*号的问题
+      staffRulesEdit: {
+        nickname: [
+          {
+            transform(value) {
+              return value.toString().trim()
+            },
+            trigger: 'change'
+          },
+          {
+            required: true,
+            message: '请输入员工姓名',
+            trigger: 'blur'
+          },
+          {
+            min: 2,
+            max: 15,
+            message: '请输入2-15个汉字、字母或数字',
+            trigger: 'change'
+          },
+          {
+            pattern: /^[\u4e00-\u9fa5a-z0-9]+$/gim,
+            message: '请输入正确的员工姓名',
+            trigger: 'change'
+          }
+        ]
+      }
+  }
+},
+methods:{
+      // 打开弹窗事件
+    checkTitle() {
+      if (this.isAdd) {
+        this.dialogTitle = '添加员工信息'
+        this.staffRules = this.staffRulesEdit
+        this.$nextTick(() =&gt; {
+          this.$refs.staffForm.clearValidate()
+        })
+      } else if (this.isEdit) {
+        this.dialogTitle = '编辑员工信息'
+        this.staffRules = this.staffRulesEdit
+        this.$nextTick(() =&gt; {
+          this.$refs.staffForm.clearValidate()
+        })
+      } else {
+        this.dialogTitle = '查看员工信息'
+        this.staffRules = {}
+      }
+    },
+    closeDialog() {
+      this.$nextTick(() =&gt; {
+         this.$refs.staffForm.resetFields()
+        })
+      this.staffRules = {}
+       this.isAdd = false
+      this.isEdit = false
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br></div></div><h2 id="_22-el-input-标签-修改-placeholder-字体的颜色和大小"><a href="#_22-el-input-标签-修改-placeholder-字体的颜色和大小" class="header-anchor">#</a> 22. &lt; el-input&gt;标签 修改 placeholder 字体的颜色和大小</h2> <p><strong>注意此时会导致全局生效,不能使用 scoped (使用 scope 会导致样式修改不成功)</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;style lang=&quot;scss&quot;&gt;
+  .el-input__inner,
+  .el-textarea__inner {
+      &amp;::placeholder {
+          color: red;
+      }
+
+      &amp;::-webkit-input-placeholder {
+          /* WebKit browsers 适配谷歌 */
+          color: red;
+      }
+
+      &amp;:-moz-placeholder {
+          /* Mozilla Firefox 4 to 18 适配火狐 */
+          color: red;
+      }
+
+      &amp;::-moz-placeholder {
+          /* Mozilla Firefox 19+ 适配火狐 */
+          color: red;
+      }
+
+      &amp;:-ms-input-placeholder {
+          /* Internet Explorer 10+  适配ie*/
+          color: red;
+      }
+  }
+&lt;/style&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><h2 id="_23-axios-下载文件"><a href="#_23-axios-下载文件" class="header-anchor">#</a> 23. axios 下载文件</h2> <p>JS 跳转页面常用的方式主要依赖于 window 对象的属性和方法，我们可以使用其进行文件下载，但会存在一些小问题，在某些情况下(不同源)还是可以使用的，下载文件推荐使用利用 JS 创建 <code>&lt;a&gt;&lt;/a&gt;</code> 标签的方式。</p> <ul><li><p>window.location 是 window 对象的属性，可用于获取当前页面地址（URL）并把浏览器重定向到新页面。</p> <ul><li>window.location.href 是用新的域名替换当前页， 也就是重新定位当前页，不会被窗口拦截</li> <li>window.location.replace 用新的文档替换当前文档，没有返回功能</li> <li>window.location.assign 加载新文档</li></ul></li> <li><p>window.open()是 window 对象的方法，打开一个新的浏览器窗口或查找一个已命名的窗口，可能会被浏览器拦截。</p></li></ul> <p>下载文件时使用 <code>window.location.href</code> 可能会导致一个文件下载两次且可能出现浏览器直接打开下载页面，显示一个空白页面等情况。</p> <p>此时就可以使用 <code>axios</code> 来向后端发送请求获取后端返回的二进制文件</p> <div class="language-javaScript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">// 后端返回的类型为 application/octet-stream;charset=UTF-8</span>
+  <span class="token function">axios</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'/goods/exportGoodList'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">method</span><span class="token operator">:</span> <span class="token string">'GET'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 注意，此处需要设置下载的文件的返回类型为二进制，即 blob</span>
+    <span class="token literal-property property">responseType</span><span class="token operator">:</span> <span class="token string">'blob'</span>
+
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// console.log('请求类型为', res.headers['content-type'])</span>
+
+    <span class="token keyword">const</span> contentTypeJson <span class="token operator">=</span> res<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'content-type'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>
+      <span class="token string">'application/json'</span>
+    <span class="token punctuation">)</span>
+    <span class="token comment">// 若 contentTypeJson 大于 1 ，则表明后端返回的是类型为json，则表明出错了，需要将请求时的二进制对象转化为json对象，然后显示后端返回的错误信息。</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>contentTypeJson <span class="token operator">&gt;</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token comment">// console.log('后台返回的是json对象，表明后台出现错误了')</span>
+      <span class="token comment">//  因为执行的是文件操作，是异步操作，所以需要使用promise解决异步请求问题</span>
+      <span class="token keyword">let</span> judgeType <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">reslove<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">//文件下载出错， 将上述转化为blob对象的数据转化为json对象，然后提示用户</span>
+        <span class="token keyword">let</span> reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        reader<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'loadend'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          res <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>reader<span class="token punctuation">.</span>result<span class="token punctuation">)</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>code <span class="token operator">&amp;&amp;</span> res<span class="token punctuation">.</span>code <span class="token operator">!=</span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 如果后台返回的是json对象，在将二进制对象转化完成后会得到一个json对象，包括{code,data,msg}等属性</span>
+            <span class="token function">reslove</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+          <span class="token punctuation">}</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>
+            <span class="token operator">!</span>res<span class="token punctuation">.</span>code <span class="token operator">&amp;&amp;</span>
+            res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>constructor <span class="token operator">&amp;&amp;</span>
+            res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>constructor<span class="token punctuation">.</span>name <span class="token operator">==</span> Blob
+          <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">'后台返回的是blob对象，此种情况不可能出现'</span><span class="token punctuation">)</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        reader<span class="token punctuation">.</span><span class="token function">readAsText</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      judgeType
+        <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">resData</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>$message<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>resData<span class="token punctuation">.</span>msg<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token keyword">return</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">let</span> blobUrl <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token constant">URL</span><span class="token punctuation">.</span><span class="token function">createObjectURL</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+    <span class="token comment">// 从请求头中获取文件名（文件名在请求头的content-disposition属性的filename属性中。）</span>
+    <span class="token comment">// 如果在请求头中获取不到 content-disposition 内容，需要后端在response的header中设置： Access-Control-Expose-Headers: Content-Disposition</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'content-disposition'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> disposition <span class="token operator">=</span> res<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'content-disposition'</span><span class="token punctuation">]</span>
+      <span class="token comment">// 使用indexOf并从  filename=  之后在加9是因为  filename= 占了九位字符</span>
+      <span class="token keyword">let</span> fileName <span class="token operator">=</span> disposition<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>
+        disposition<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'filename='</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">9</span><span class="token punctuation">,</span>
+        disposition<span class="token punctuation">.</span>length
+      <span class="token punctuation">)</span>
+      <span class="token comment">// 将iso8859-1的字符转化为中文字符</span>
+      fileName <span class="token operator">=</span> <span class="token function">decodeURI</span><span class="token punctuation">(</span><span class="token function">escape</span><span class="token punctuation">(</span>fileName<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+      <span class="token keyword">let</span> link <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span>
+      link<span class="token punctuation">.</span>href <span class="token operator">=</span> blobUrl
+      link<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'none'</span>
+      link<span class="token punctuation">.</span>download <span class="token operator">=</span> fileName
+      document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>link<span class="token punctuation">)</span>
+      link<span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      window<span class="token punctuation">.</span><span class="token constant">URL</span><span class="token punctuation">.</span><span class="token function">revokeObjectURL</span><span class="token punctuation">(</span>blobUrl<span class="token punctuation">)</span>
+      document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>link<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$message<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'抱歉，服务器获取组织名称异常，请稍后重试'</span><span class="token punctuation">)</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'没有找到文件名称'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br></div></div><h2 id="_24-el-tree-标签中-树节点的文字过长-需要显示省略号并在鼠标滑过时显示全部文字"><a href="#_24-el-tree-标签中-树节点的文字过长-需要显示省略号并在鼠标滑过时显示全部文字" class="header-anchor">#</a> 24. &lt; el-tree&gt;标签中 树节点的文字过长，需要显示省略号并在鼠标滑过时显示全部文字</h2> <p>el-tree 标签源码中有自定义节点的内容，只是源码中是使用点击事件实现的插入和删除节点，我们可以仿照着其使用鼠标悬浮事件实现我们的需求</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>  &lt;el-tree ref=&quot;tree&quot;&gt;
+      &lt;span class=&quot;span-ellipsis&quot; slot-scope=&quot;{ node }&quot;&gt;
+        &lt;span :title=&quot;node.label&quot;&gt;{{ node.label }}&lt;/span&gt;
+      &lt;/span&gt;
+  &lt;/el-tree&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>css 样式如下：（span-ellipsis 为 el-tree 标签中 span 标签的样式）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>  .span-ellipsis {
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p><a href="https://juejin.cn/post/6994729348741726215" target="_blank" rel="noopener noreferrer">参考链接<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="_25-js-向一个数组的末尾中添加新的数组"><a href="#_25-js-向一个数组的末尾中添加新的数组" class="header-anchor">#</a> 25. JS 向一个数组的末尾中添加新的数组</h2> <p>方式一：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let arr1 = [0,1,2,3]
+
+let arr2 = [4,5,6]
+
+const newArr = arr1.concat(arr2)
+
+concat()方法返回的是新数组，不会改变原数组
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>方式二：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let arr1 = [0,1,2,3]
+
+let arr2 = [4,5,6]
+
+arr1.push(...arr2)
+
+const newArr =  arr1
+
+push()方法是向一个数组的末尾添加元素，所以可以使用es6中的扩展运算符将数组展开，然后再添加；
+
+push()方法返回的数组的新长度，该方法会改变原来的数组
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="_26-js-去除数组中存在的空值"><a href="#_26-js-去除数组中存在的空值" class="header-anchor">#</a> 26. JS 去除数组中存在的空值</h2> <p>方式一：（es6 的过滤器 filter 方法）</p> <p>array.filter()方法从给定数组中创建一个新数组，该数组由所提供数组中满足参数函数条件的元素组成。filter()方法会改变原数组，它返回过滤后的新数组，如果没有元素复合条件则会返回空数组。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>array.filter( callback (cValue, index, arr), tValue )
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>filter()方法接受下面列出的两个参数</p> <ul><li><p>callback ：它包含三个参数</p> <ul><li><p>cValue：此参数是必需的，它是当前元素的值。</p></li> <li><p>index：该参数是可选的，它是当前元素的数组索引。</p></li> <li><p>arr：此参数是可选的，它是当前元素所属的数组对象。</p></li></ul></li> <li><p>tValue：此参数是可选的，该值将会被作为 callback 函数 被调用时的 “this” 值。如果为空，则 “this” 值在非严格模式下将是全局对象，严格模式下为 undefined。</p></li></ul> <p><code>filter</code> 为数组中的每个元素调用一次 <code>callback</code> 函数，并利用所有使得 <code>callback</code> 返回 <code>true</code> 或等价于 <code>true</code> 的值的元素创建一个新数组。<code>callback</code> 只会在已经赋值的索引上被调用，对于那些已经被删除或者从未被赋值的索引不会被调用。那些没有通过 callback 测试的元素会被跳过，不会被包含在新数组中。</p> <p><code>filter</code> 遍历的元素范围在第一次调用 <code>callback</code> 之前就已经确定了。在调用 <code>filter()</code> 之后被添加到数组中的元素不会被 <code>filter</code> 遍历到。如果已经存在的元素被改变了，则他们传入 <code>callback</code> 的值是 <code>filter</code> 遍历到它们那一刻的值。被删除或从来未被赋值的元素不会被遍历到。</p> <p>示例：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let arr = [1,2,'asdf','',4,5,'',6,'',qwer,'',1,,undefined,null,10]
+
+const newArr = arr.filter( n =&gt; n)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>方式二：（for 循环遍历结合 splice 方法）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let arr = [1,2,'asdf','',4,5,'',6,'',qwer,'',1,,undefined,null,10]
+
+  function removeEmpty(array){
+    for(let i = 0; i &lt; array.length; i++) {
+    if(array[i] == &quot;&quot; || typeof(array[i]) == &quot;undefined&quot;) {
+        array.splice(i,1)
+        i = i - 1 // i - 1 ,因为空元素之前在数组存在位置，删除空值之后，后面的元素要向前补位
+      }
+    }
+    return array
+  }
+removeEmpty(arr)
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h2 id="_27-js-数组实现数组去重"><a href="#_27-js-数组实现数组去重" class="header-anchor">#</a> 27. JS 数组实现数组去重</h2> <p>方式一：利用数组的 reduce()方法，去除对象数组中某个属性相同的元素</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 数组去重，包括对象数组
+clearDuplicate(arr, key) {
+  if (!Array.isArray(arr)) {
+    return
+  }
+  // 纯数组
+  if (key === undefined) return [...new Set(arr)]
+
+  // 对象数组
+  let newObj = {}
+  let newArr = arr.reduce(function(item, curr) {
+    newObj[curr[key]] ? '' : (newObj[curr[key]] = true &amp;&amp; item.push(curr))
+    return item
+  }, [])
+  return newArr
+}
+
+// 验证
+
+// 去除对象数组中 name属性相同的元素
+clearDuplicate(dataPool,'name')
+
+// 去除纯数组中重复元素
+clearDuplicate([1,2,1,4,5,6,2,5,8])
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>方式二：（es6 的 set 实现,但无法去除{}对象）</p> <p>向 Set 加入值的时候，不会发生类型转换，所以 3 和 &quot;3&quot; 是两个不同的值。Set 内部判断两个值是否不同，使用的算法叫做“Same-value-zero equality”，它类似于精确相等运算符（===）,主要的区别是 <code>NaN 等于自身</code>，而精确相等运算符认为 NaN 不等于自身。<code>在 Set 内部，两个NaN是相等，两个对象总是不相等的</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let arr = [1,2,1,2,1,5,6,3,6,4,5,&quot;3&quot;,&quot;acd&quot;]
+
+let unique = [...new Set(arr)]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>方式三：（for 循环遍历结合 indexOf 实现）</p> <p>该方法首先定义一个空数组 temp，然后调用 indexOf()方法对原来的数组进行遍历判断，如果元素不在 temp 中，则将其 push 进 temp 中，最后将 temp 返回即可获得去重的数组。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let arr = [1,2,1,2,1,5,6,3,6,4,5,&quot;3&quot;,&quot;acd&quot;]
+  function uniqe(arr){
+    if (!Array.isArray(arr)) {
+          console.log('type error!')
+          return
+      }
+      let temp = []
+      for(let i=0;i&lt;arr.length;i++){
+        //利用indexOf()检测元素在数组中第一次出现的位置是否和元素现在的位置相等，如果不等则说明该元素是重复元素
+          if(arr.indexOf(arr[i]) == i){
+              temp.push(arr[i])
+          }
+      }
+      return temp
+  }
+uniqe(arr)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>方式四：（双重 for 循环遍历实现）</p> <p>先定义一个包含原始数组第一个元素的数组，然后遍历原始数组，将原始数组中的每个元素与新数组中的每个元素进行比对，如果不重复则添加到新数组中，最后返回新数组；因为它的时间复杂度是 O(n^2)，如果数组长度很大，那么将会非常耗费内存</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let arr = [1,2,1,2,1,5,6,3,6,4,5,&quot;3&quot;,&quot;acd&quot;]
+
+function unique(arr){
+    if (!Array.isArray(arr)) {
+          console.log('type error!')
+          return
+    }
+    for(let i=0; i&lt;arr.length; i++){
+        for(let j=i+1; j&lt;arr.length; j++){
+            if(arr[i]==arr[j]){         //第一个等同于第二个，splice方法删除第二个
+                arr.splice(j,1)
+                j--
+            }
+        }
+    }
+return arr;
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p><a href="https://segmentfault.com/a/1190000016418021" target="_blank" rel="noopener noreferrer">数组去重的 12 种方式参考链接<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://juejin.cn/post/6844903602197102605" target="_blank" rel="noopener noreferrer">数组去重的参考链接 2<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="_28-padstart-方法-padend-方法-用于字符串补全长度"><a href="#_28-padstart-方法-padend-方法-用于字符串补全长度" class="header-anchor">#</a> 28. padStart()方法,padEnd()方法，用于字符串补全长度</h2> <p><strong>目前(2021-05-07)，微信 PC 端内置内核不支持（ES2017（es8）内容）padStart()方法，如有相关需求可采用原生的判断字符长度之后再为其添加相关内容。</strong></p> <p>ES2017 引入了字符串补全长度的功能。如果某个字符串不够指定长度，会在头部或尾部补全。padStart()用于头部补全，padEnd()用于尾部补全。</p> <p>padStart()和 padStart()一共接受两个参数，第一个参数用来指定字符串的最小长度，第二个参数是用来补全的字符串，若省略则默认使用空格补全长度。</p> <ul><li><p>如果原字符串的长度，等于或大于指定的最小长度，则返回原字符串，即补全后的字符串长度可以大于第一个参数指定的最小长度。</p></li> <li><p>如果用来补全的字符串与原字符串，两者的长度之和超过了指定的最小长度，则会截去超出位数的补全字符串。</p></li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>'x'.padStart(5, 'ab')   // 'ababx'
+
+'x'.padStart(4, 'ab')   // 'abax'
+
+'x'.padEnd(5, 'ab')    // 'xabab'
+
+'x'.padEnd(4, 'ab')    // 'xaba'
+
+'xxx'.padStart(2, 'ab')   // 'xxx'
+
+'xxx'.padEnd(2, 'ab') // 'xxx'
+
+'abc'.padStart(10, '0123456789')  // '0123456abc'
+
+'abc'.padEnd(10, '0123456789')  // 'abc0123456'
+
+'x'.padStart(4) // '   x'
+
+'x'.padEnd(4) // 'x   '
+
+'123456'.padStart(10, '0') // &quot;0000123456&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h2 id="_29-浏览器强制使用-chromium-内核"><a href="#_29-浏览器强制使用-chromium-内核" class="header-anchor">#</a> 29. 浏览器强制使用 Chromium 内核</h2> <p>在开发过程中需要考虑到兼容多种浏览器（某些浏览器低版本或非 webkit 内核模式下不兼容 css3 和 HTML5 的部分语法），</p> <p>解决方案一(推荐)：配置 babel，兼容低版本浏览器，</p> <p>解决方案二(不一定生效)：在一些简单的情况下也可以在项目的 index.html 中添加如下的 meta 标签来强制浏览器使用 chromium 内核来解决问题(注意，此种方式不一定生效，因为浏览器是用户选择的模式的优先级更高)</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 强制Chromium内核，作用于360浏览器、QQ浏览器等国产双核浏览器，在不是新版本的浏览器即没有chromium内核时先使用ie兼容内核（ie6-7版本，使用Trident内核，兼容性问题较少，但不支持HTML5及CSS3），如果还是没有再使用ie标准内核（IE9 / IE10 / IE11版本，兼容HTML5及CSS3）
+    &lt;meta name=&quot;renderer&quot; content=&quot;webkit|ie-comp|ie-stand&quot;/&gt;
+// 强制Chromium内核，作用于其他双核浏览器。
+    &lt;meta name=&quot;force-rendering&quot; content=&quot;webkit|ie-comp|ie-stand&quot;/&gt;
+// 如果有安装 Google Chrome Frame 插件则强制为Chromium内核，否则强制本机支持的最高版本IE内核，作用于IE浏览器。IE=Edge：Edge 模式告诉 IE 以最高级模式渲染文档，也就是任何 IE 版本都以当前版本所支持的最高级标准模式渲染，避免版本升级造成的影响。chrome=1：强制 IE 使用 Chrome Frame 渲染
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=Edge,chrome=1&quot;/&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h2 id="_30-el-image-组件中使用图片的相对路径后加载图片失败"><a href="#_30-el-image-组件中使用图片的相对路径后加载图片失败" class="header-anchor">#</a> 30. el-image 组件中使用图片的相对路径后加载图片失败</h2> <p>使用 elementui 中的组件 el-image 引入图片的相对路径后加载图片失败的主要原因是：在 assets 目录下的文件在使用 webpack 打包后图片的路径及文件名发生了变化(只有 public 目录下的文件是直接打包不会被改变的)。</p> <p>如果在使用中需要使用相对路径可以采用以下几种方式：</p> <p>方式一：使用 import 导入方式(具体使用方式参照下方代码)</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;el-image :src=&quot;testImageUrl&quot;&gt;
+  &lt;/el-image&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import testImage from '@/assets/test.png'  //引入文件并取别名，在下文data中赋值使用
+export default {
+  data(){
+    return {
+      testImageUrl: testImage
+    }
+  }
+}
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>方式二：使用 require 引入方式(具体使用方式参照下方代码)</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;el-image :src=&quot;require('@/assets/test.png')&quot;&gt;&lt;/el-image&gt;
+
+
+//或使用下面方式
+
+&lt;template&gt;
+  &lt;el-image :src=&quot;testImageUrl&quot;&gt;
+  &lt;/el-image&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+  data(){
+    return {
+      testImageUrl: require('@/assets/test.png')
+    }
+  }
+}
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h2 id="_31-el-form-组件在表单出现时就立刻触发校验的问题"><a href="#_31-el-form-组件在表单出现时就立刻触发校验的问题" class="header-anchor">#</a> 31. el-form 组件在表单出现时就立刻触发校验的问题</h2> <p><strong>出现此问题是因为设置的表单的校验的触发方式为 'change'，可能是因为在表单出现时为其赋值触发了表单的验证，若想解决此问题，只需将校验的触发方式改为 'blur'即可，若依旧想实现和触发方式为 'change'同样的效果，可以为表单中某个元素设置 change 事件，在表单中某个元素的值被改变时重新执行校验（调用 el-form 的 validateField 方法）即可。</strong></p> <p>示例：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;el-form
+      :model=&quot;memberForm&quot;
+      :rules=&quot;rules&quot;
+      ref=&quot;memberForm&quot;
+      label-width=&quot;100px&quot;
+    &gt;
+      &lt;el-form-item label=&quot;添加成员:&quot; prop=&quot;ids&quot;&gt;
+        &lt;el-select
+          filterable
+          multiple
+          :multiple-limit=&quot;10&quot;
+          :filter-method=&quot;filterMethod&quot;
+          :loading=&quot;selectLoading&quot;
+          v-model=&quot;memberForm.ids&quot;
+          placeholder=&quot;请选择添加成员&quot;
+          @focus=&quot;filterMethod('')&quot;
+          @change=&quot;onChangeMember&quot;
+        &gt;
+          &lt;el-option
+            v-for=&quot;item in memberOptions&quot;
+            :key=&quot;item.id&quot;
+            :label=&quot;item.label&quot;
+            :value=&quot;item.id&quot;
+          &gt;
+          &lt;/el-option&gt;
+        &lt;/el-select&gt;
+      &lt;el-input
+          clearable
+          minlength=&quot;11&quot;
+          maxlength=&quot;11&quot;
+          v-model=&quot;memberForm.phone&quot;
+          placeholder=&quot;请输入员工手机号&quot;
+          @input=&quot;onPhoneChange(memberForm.phone)&quot;
+      &gt;&lt;/el-input&gt;
+      &lt;/el-form-item&gt;
+  &lt;/el-form&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default {
+    data() {
+      return {
+        selectLoading: false,
+        memberForm: {}, //表单
+        memberOptions: [], //成员列表下拉选择框
+        rules: {
+          ids: [
+            {
+              required: true,
+              message: '请选择添加成员',
+              trigger: 'blur'
+            }
+          ]
+        }
+      }
+    },
+    methods:{
+      //在表单中元素被改变时对部分表单字段重新进行校验
+      onChangeMember() {
+        this.$refs.memberForm.validateField('ids')
+      },
+      onPhoneChange(){
+        this.$refs['memberForm'].validateField('phone')
+      }
+
+    }
+  }
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br></div></div><h2 id="_32-在使用-element-ui-时-如果-el-dialog-中嵌套了-el-tabs-当关闭-dialog-时-页面就会被卡死的解决方案"><a href="#_32-在使用-element-ui-时-如果-el-dialog-中嵌套了-el-tabs-当关闭-dialog-时-页面就会被卡死的解决方案" class="header-anchor">#</a> 32. 在使用 element-ui 时，如果 el-dialog 中嵌套了 el-tabs，当关闭 dialog 时，页面就会被卡死的解决方案</h2> <p><strong>原因：el-dialog 中的 :destroy-on-close=&quot;true&quot; 与 el-tabs 冲突，陷入死循环。</strong></p> <p>解决方案：</p> <ul><li>删去:destroy-on-close=&quot;true&quot;或改为:destroy-on-close=&quot;false&quot;。
+<ul><li>优点：不会有隐藏的其他问题。</li> <li>缺点：无法销毁该组件。</li></ul></li> <li>将:destroy-on-close=&quot;true&quot;改为 v-if=&quot;dialogVisible&quot;。
+<ul><li>优点：既可以销毁该组件，又可以解决错误。</li> <li>缺点：如果 dialog 为自定义的组件，而一个页面出现多个 dialog，在关闭一个后打开其他 dialog 会无法打开。</li></ul></li> <li>在使用 ref =&quot;xxx&quot; , 通过 $refs.xxx 来控制组件中的 dialog 打开或关闭的变量值。
+<ul><li>缺点： 在 dialog 组件为子组件时适用，当 dialog 和其他 html 在同一个页面时不适用。</li></ul></li></ul> <p>示例：(注意，在 Vue3 中 v-bind 指令上的.sync 修饰符已被弃用，如有类似需求，请使用 v-model)</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;el-dialog
+    v-if=&quot;dialogVisible&quot;
+    :visible=&quot;true&quot;
+    width=&quot;500px&quot;
+    :show-close=&quot;false&quot;
+    :append-to-body=&quot;true&quot;
+    :close-on-click-modal=&quot;false&quot;
+    :close-on-press-escape=&quot;false&quot;
+    :destroy-on-close=&quot;true&quot;
+  &gt;
+    &lt;el-tabs v-model=&quot;activeName&quot;&gt;
+       &lt;el-tab-pane label=&quot;第一个&quot; name=&quot;first&quot;&gt;
+          第一个标签页内容
+       &lt;/el-tab-pane&gt;
+       &lt;el-tab-pane label=&quot;第二个&quot; name=&quot;second&quot;&gt;
+          第二个标签页内容2222
+       &lt;/el-tab-pane&gt;
+    &lt;/el-tabs&gt;
+&lt;/el-dialog&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h2 id="_33-vue-中全局引入某些依赖-在组件中不需要再重复引入-可以直接引用"><a href="#_33-vue-中全局引入某些依赖-在组件中不需要再重复引入-可以直接引用" class="header-anchor">#</a> 33. Vue 中全局引入某些依赖，在组件中不需要再重复引入，可以直接引用</h2> <p><strong>通过 Vue-cli 创建的项目可以在 vue.config.js 中的 configureWebpack 的 plugins 中使用 ProvidePlugin 插件来全局引入某些依赖，注意，eslint 会报错，需要在 eslintrc.js 的 globals 中配置引入的依赖为 readonly。</strong></p> <ul><li><code>vue.config.js</code> 文件配置参考示例</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>configureWebpack: {
+    plugins: [
+      new webpack.ProvidePlugin({
+        // $: 'jquery',
+        // jQuery: 'jquery',
+        // 'windows.jQuery': 'jquery'
+        echarts: 'echarts',
+        elementResizeDetectorMaker: 'element-resize-detector'
+      })
+    ]
+ }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><ul><li><code>eslintrc.js</code>配置参考示例</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>module.exports = {
+  root: true,
+  env: {
+    node: true
+  },
+  extends: ['plugin:vue/essential', 'eslint:recommended'],
+  parserOptions: {
+    parser: 'babel-eslint'
+  },
+  rules: {
+    strict: 2,
+    'newline-per-chained-call': 0,
+    semi: ['error', 'never'],
+    'comma-dangle': ['error', 'never'],
+    'array-bracket-spacing': ['error', 'never'],
+    'space-before-function-paren': ['error', 'never']
+  },
+  globals: {
+    // $: 'readonly',
+    // jQuery: 'readonly',
+    // 'windows.jQuery': 'readonly',
+    echarts: 'readonly',
+    elementResizeDetectorMaker: 'readonly'
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h2 id="_34-vue-项目配置-gzip-压缩"><a href="#_34-vue-项目配置-gzip-压缩" class="header-anchor">#</a> 34. Vue 项目配置 gzip 压缩</h2> <p><strong>通过 Vue-cli 创建的项目可以在 vue.config.js 中的 configureWebpack 的 plugins 中使用 CompressionWebpackPlugin 插件来压缩项目文件，同时需要在服务器端对 nginx 配置，支持 gzip 压缩。</strong></p> <ul><li><code>vue.config.js</code>配置示例</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const productionGzipExtensions = ['js', 'css']
+
+module.exports = {
+  configureWebpack: {
+    plugins: [
+      // 配置compression-webpack-plugin压缩
+      new CompressionWebpackPlugin({
+        algorithm: 'gzip',
+        test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
+        threshold: 10240,
+        minRatio: 0.8
+      })
+    ]
+  }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><ul><li><code>nginx.conf</code>文件配置示例</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>http {
+
+  # 开启gzip
+    gzip on;
+  # # 禁用IE 6 gzip
+    gzip_disable &quot;MSIE [1-6]\.&quot;;
+  # # 是否在http header中添加Vary: Accept-Encoding，建议开启
+    gzip_vary on;
+  # # gzip 压缩级别，1-9，数字越大压缩的越好，也越占用CPU时间
+    gzip_comp_level 6;
+  # # 设置压缩所需要的缓冲区大小
+    gzip_buffers 32 4k;
+  # # 启用gzip压缩的最小文件，小于设置值的文件将不会压缩
+    gzip_min_length 32;
+  # # 进行压缩的文件类型。javascript有多种形式。其中的值可以在 mime.types 文件中找到。
+    gzip_types application/atom+xml application/geo+json application/javascript application/x-javascript application/json application/ld+json application/manifest+json application/rdf+xml application/rss+xml application/xhtml+xml application/xml font/eot font/otf font/ttf image/svg+xml text/css text/javascript text/plain text/xml;
+
+  server{
+    location / {
+      root   html;
+      index  index.html index.htm;
+     }
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h2 id="_35-element-ui-2-15-9-版本中关于日期选择器-el-date-picker-存在-bug-使用后直接会在控制台出现错误信息"><a href="#_35-element-ui-2-15-9-版本中关于日期选择器-el-date-picker-存在-bug-使用后直接会在控制台出现错误信息" class="header-anchor">#</a> 35. Element-ui@2.15.9 版本中关于日期选择器(el-date-picker)存在 bug(使用后直接会在控制台出现错误信息)</h2> <ul><li><p>Element-ui@2.15.9 版本中使用日期选择器会直接在控制台出现错误信息，截止目前(2022-08-08)仍未修复。</p></li> <li><p>目前的解决方案是对 Element-ui 版本降级，可降级为 2.15.8 及以下版本。</p></li> <li><p>注意：不能直接在 <code>package.json</code> 文件中直接修改版本号降级，需要先在控制台执行命令 <code>npm uninstall element-ui</code> 移除 element-ui 依赖，然后执行命令 <code>npm i element-ui@2.15.8</code> 重新安装 2.15.8 版本的 element-ui。</p></li></ul> <h2 id="_36-element-ui-中表格翻页后序号连续"><a href="#_36-element-ui-中表格翻页后序号连续" class="header-anchor">#</a> 36. Element UI 中表格翻页后序号连续</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;el-table
+  :data=&quot;pageList&quot;
+  highlight-current-row
+  v-loading=&quot;loading&quot;
+&gt;
+  &lt;el-table-column
+    label=&quot;序号&quot;
+    width=&quot;60&quot;
+    type=&quot;index&quot;
+    :index=&quot;indexMethod&quot;
+  &gt;
+&lt;/el-table&gt;
+
+&lt;script&gt;
+export default {
+  data(){
+    return {
+      pageList: [], //表格数据
+      pageNum: 1,   //页码
+      pageSize: 10,  //每页条数
+      totalCount: 0, //总记录数
+    }
+  },
+  method:{
+    // 表格翻页后序号连续
+    indexMethod(index){
+      return (this.pageNum - 1) * this.pageSize + index + 1
+    }
+  }
+}
+&lt;/script&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div></div></div> <!----> <div class="page-edit"><div class="edit-link"><a href="https://github.com/gujunling/edit/master/docs/01.前端/40.学习笔记/21.《vue》踩坑笔记.md" target="_blank" rel="noopener noreferrer">完善页面</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2024-11-28 17:23:47</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/42d301/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">Vue组件的单元测试</div></a> <a href="/pages/052726/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">css中使用js的变量</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/42d301/" class="prev">Vue组件的单元测试</a></span> <span class="next"><a href="/pages/052726/">css中使用js的变量</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/cb910b/"><div>
+            git常用操作手册
+            <!----></div></a> <span class="date">12-26</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/e9d25f/"><div>
+            常用的前端工具库
+            <!----></div></a> <span class="date">12-19</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/ab345e/"><div>
+            前端构建工具
+            <!----></div></a> <span class="date">12-19</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:gujunq1998@163.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/gujunling" title="GitHub" target="_blank" class="iconfont icon-github"></a></div> <div style="display:flex;justify-content: center;">
+    前端小记 版权所有 | Copyright © 2021-2024
+    <span></span></div></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"><div></div></div></div>
+    <script src="/assets/js/app.1265737e.js" defer></script><script src="/assets/js/2.6236b5eb.js" defer></script><script src="/assets/js/3.bb90c5fd.js" defer></script><script src="/assets/js/53.913b0913.js" defer></script>
+  </body>
+</html>

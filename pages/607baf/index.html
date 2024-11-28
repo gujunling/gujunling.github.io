@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mysql配置&amp;&amp;使用 | 前端小记</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/img/favicon.ico">
+    <meta name="description" content="web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown">
+    <meta name="baidu-site-verification" content="code-53yMawG36P">
+    <meta name="google-site-verification" content="C6GIWT5zHwhVsd3ufgcZIlut2hsQwK6P4MSuHLz2SyA">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/assets/css/0.styles.f4e18059.css" as="style"><link rel="preload" href="/assets/js/app.1265737e.js" as="script"><link rel="preload" href="/assets/js/2.6236b5eb.js" as="script"><link rel="preload" href="/assets/js/3.bb90c5fd.js" as="script"><link rel="preload" href="/assets/js/96.02bea6a9.js" as="script"><link rel="prefetch" href="/assets/js/10.88c7173d.js"><link rel="prefetch" href="/assets/js/100.f628d507.js"><link rel="prefetch" href="/assets/js/101.219131b9.js"><link rel="prefetch" href="/assets/js/102.de091301.js"><link rel="prefetch" href="/assets/js/103.6627f136.js"><link rel="prefetch" href="/assets/js/104.74e65451.js"><link rel="prefetch" href="/assets/js/105.d9d0c4ee.js"><link rel="prefetch" href="/assets/js/106.90218201.js"><link rel="prefetch" href="/assets/js/107.809ac1aa.js"><link rel="prefetch" href="/assets/js/108.fcc755bf.js"><link rel="prefetch" href="/assets/js/109.b3412349.js"><link rel="prefetch" href="/assets/js/11.7049daa4.js"><link rel="prefetch" href="/assets/js/110.b34e0b63.js"><link rel="prefetch" href="/assets/js/111.04347e7a.js"><link rel="prefetch" href="/assets/js/112.4f636a02.js"><link rel="prefetch" href="/assets/js/113.d6bcf52e.js"><link rel="prefetch" href="/assets/js/114.f53ee42b.js"><link rel="prefetch" href="/assets/js/115.944cf157.js"><link rel="prefetch" href="/assets/js/116.ea250060.js"><link rel="prefetch" href="/assets/js/117.342ddae1.js"><link rel="prefetch" href="/assets/js/118.5bca91db.js"><link rel="prefetch" href="/assets/js/119.c9daff3a.js"><link rel="prefetch" href="/assets/js/12.67bcab6d.js"><link rel="prefetch" href="/assets/js/120.ec90e1c7.js"><link rel="prefetch" href="/assets/js/121.5b14ce7e.js"><link rel="prefetch" href="/assets/js/122.a3f55cb4.js"><link rel="prefetch" href="/assets/js/123.eca6230c.js"><link rel="prefetch" href="/assets/js/124.d580b10a.js"><link rel="prefetch" href="/assets/js/125.2b23a5f0.js"><link rel="prefetch" href="/assets/js/126.a371e191.js"><link rel="prefetch" href="/assets/js/127.962896e6.js"><link rel="prefetch" href="/assets/js/128.a349db06.js"><link rel="prefetch" href="/assets/js/129.2c1f0ded.js"><link rel="prefetch" href="/assets/js/13.f9dbc824.js"><link rel="prefetch" href="/assets/js/130.9b11c42b.js"><link rel="prefetch" href="/assets/js/131.86bb31b7.js"><link rel="prefetch" href="/assets/js/14.ca4065ea.js"><link rel="prefetch" href="/assets/js/15.6fffb72a.js"><link rel="prefetch" href="/assets/js/16.a1e54987.js"><link rel="prefetch" href="/assets/js/17.ef1dbbac.js"><link rel="prefetch" href="/assets/js/18.562b27d3.js"><link rel="prefetch" href="/assets/js/19.1b177474.js"><link rel="prefetch" href="/assets/js/20.ea3e9c87.js"><link rel="prefetch" href="/assets/js/21.974849f7.js"><link rel="prefetch" href="/assets/js/22.581440cb.js"><link rel="prefetch" href="/assets/js/23.f2f97d63.js"><link rel="prefetch" href="/assets/js/24.fd3e290e.js"><link rel="prefetch" href="/assets/js/25.1617923d.js"><link rel="prefetch" href="/assets/js/26.d747b29d.js"><link rel="prefetch" href="/assets/js/27.0eef2c97.js"><link rel="prefetch" href="/assets/js/28.eaeede0c.js"><link rel="prefetch" href="/assets/js/29.1bc8721a.js"><link rel="prefetch" href="/assets/js/30.bba73f1f.js"><link rel="prefetch" href="/assets/js/31.40728564.js"><link rel="prefetch" href="/assets/js/32.d4200e6d.js"><link rel="prefetch" href="/assets/js/33.97618873.js"><link rel="prefetch" href="/assets/js/34.936b4f12.js"><link rel="prefetch" href="/assets/js/35.83879179.js"><link rel="prefetch" href="/assets/js/36.632f9737.js"><link rel="prefetch" href="/assets/js/37.83db277a.js"><link rel="prefetch" href="/assets/js/38.e2ec7210.js"><link rel="prefetch" href="/assets/js/39.9cbda4cd.js"><link rel="prefetch" href="/assets/js/4.d239bcd5.js"><link rel="prefetch" href="/assets/js/40.4797bb72.js"><link rel="prefetch" href="/assets/js/41.cdfa5cf5.js"><link rel="prefetch" href="/assets/js/42.114036f7.js"><link rel="prefetch" href="/assets/js/43.3197428f.js"><link rel="prefetch" href="/assets/js/44.8b77c85d.js"><link rel="prefetch" href="/assets/js/45.1e0f76b2.js"><link rel="prefetch" href="/assets/js/46.6f5ff131.js"><link rel="prefetch" href="/assets/js/47.f8b98931.js"><link rel="prefetch" href="/assets/js/48.93cb2d55.js"><link rel="prefetch" href="/assets/js/49.8b706328.js"><link rel="prefetch" href="/assets/js/5.09e77b44.js"><link rel="prefetch" href="/assets/js/50.1e945126.js"><link rel="prefetch" href="/assets/js/51.80450411.js"><link rel="prefetch" href="/assets/js/52.cf5b13b8.js"><link rel="prefetch" href="/assets/js/53.913b0913.js"><link rel="prefetch" href="/assets/js/54.bfb9dd03.js"><link rel="prefetch" href="/assets/js/55.22bfe861.js"><link rel="prefetch" href="/assets/js/56.d008d0b0.js"><link rel="prefetch" href="/assets/js/57.ff4bfa59.js"><link rel="prefetch" href="/assets/js/58.44e4acc6.js"><link rel="prefetch" href="/assets/js/59.94e919b7.js"><link rel="prefetch" href="/assets/js/6.502a8d06.js"><link rel="prefetch" href="/assets/js/60.239a85cc.js"><link rel="prefetch" href="/assets/js/61.1d3e16a2.js"><link rel="prefetch" href="/assets/js/62.8aeb01da.js"><link rel="prefetch" href="/assets/js/63.26888f3b.js"><link rel="prefetch" href="/assets/js/64.b895c496.js"><link rel="prefetch" href="/assets/js/65.14ca213b.js"><link rel="prefetch" href="/assets/js/66.b3b72cf7.js"><link rel="prefetch" href="/assets/js/67.280942fe.js"><link rel="prefetch" href="/assets/js/68.ec896861.js"><link rel="prefetch" href="/assets/js/69.0ab230dc.js"><link rel="prefetch" href="/assets/js/7.f3e14624.js"><link rel="prefetch" href="/assets/js/70.6f4b7018.js"><link rel="prefetch" href="/assets/js/71.79d6f66a.js"><link rel="prefetch" href="/assets/js/72.37c8b669.js"><link rel="prefetch" href="/assets/js/73.ddf666bc.js"><link rel="prefetch" href="/assets/js/74.6b8d43e8.js"><link rel="prefetch" href="/assets/js/75.b1e6ee14.js"><link rel="prefetch" href="/assets/js/76.438c5bc7.js"><link rel="prefetch" href="/assets/js/77.4b5a1574.js"><link rel="prefetch" href="/assets/js/78.166eb31a.js"><link rel="prefetch" href="/assets/js/79.b7febe48.js"><link rel="prefetch" href="/assets/js/8.1d9bb765.js"><link rel="prefetch" href="/assets/js/80.6caf4b0a.js"><link rel="prefetch" href="/assets/js/81.82bca60a.js"><link rel="prefetch" href="/assets/js/82.e97ab62d.js"><link rel="prefetch" href="/assets/js/83.e29d7fa9.js"><link rel="prefetch" href="/assets/js/84.3e25d1a0.js"><link rel="prefetch" href="/assets/js/85.75739f0d.js"><link rel="prefetch" href="/assets/js/86.465c6dda.js"><link rel="prefetch" href="/assets/js/87.d02c8713.js"><link rel="prefetch" href="/assets/js/88.9df855a4.js"><link rel="prefetch" href="/assets/js/89.253ffaaf.js"><link rel="prefetch" href="/assets/js/9.4a4e5846.js"><link rel="prefetch" href="/assets/js/90.68332b85.js"><link rel="prefetch" href="/assets/js/91.9c4fe9e7.js"><link rel="prefetch" href="/assets/js/92.69901624.js"><link rel="prefetch" href="/assets/js/93.88c4cccc.js"><link rel="prefetch" href="/assets/js/94.fcd1b228.js"><link rel="prefetch" href="/assets/js/95.b1091e84.js"><link rel="prefetch" href="/assets/js/97.430d783e.js"><link rel="prefetch" href="/assets/js/98.6101adeb.js"><link rel="prefetch" href="/assets/js/99.4141bdb1.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f4e18059.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/panda-waving.png" alt="前端小记" class="logo"> <span class="site-name can-hide">前端小记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/8309a5b876fc95e3/" class="nav-link">HTML</a></li><li class="dropdown-subitem"><a href="/pages/e226e1/" class="nav-link">CSS</a></li><li class="dropdown-subitem"><a href="/pages/38a70e/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/pages/14682d/" class="nav-link">Vue</a></li></ul></li><li class="dropdown-item"><h4>学习笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/9c81a3/" class="nav-link">《Vue》踩坑笔记</a></li><li class="dropdown-subitem"><a href="/pages/b7ccdb/" class="nav-link">TypeScript学习笔记</a></li><li class="dropdown-subitem"><a href="/note/wx-miniprogram/" class="nav-link">小程序笔记</a></li><li class="dropdown-subitem"><a href="/pages/4643cd/" class="nav-link">JavaScript设计模式笔记</a></li></ul></li><li class="dropdown-item"><!----> <a href="/pages/32a43d/" class="nav-link">工具</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><a href="/backend/" class="link-title">后端</a> <span class="title" style="display:none;">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/3cce56/" class="nav-link">CentOS</a></li><li class="dropdown-item"><!----> <a href="/pages/83ac6e/" class="nav-link">Java</a></li><li class="dropdown-item"><!----> <a href="/pages/5d483a/" class="nav-link">Docker</a></li><li class="dropdown-item"><!----> <a href="/pages/442a2f/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/pages/f6d635/" class="nav-link">Maven</a></li><li class="dropdown-item"><!----> <a href="/pages/b52295/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/pages/b8f905/" class="nav-link">其他</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术" class="dropdown-title"><a href="/technology/" class="link-title">技术</a> <span class="title" style="display:none;">技术</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/9a7ee40fc232253e/" class="nav-link">技术文档</a></li><li class="dropdown-item"><!----> <a href="/pages/cb910b/" class="nav-link">GitHub部署及推送</a></li><li class="dropdown-item"><!----> <a href="/pages/117708e0af7f0bd9/" class="nav-link">Nodejs</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">博客搭建</a></li><li class="dropdown-item"><!----> <a href="/pages/188fd0/" class="nav-link">Fullpage全屏轮播插件</a></li><li class="dropdown-item"><!----> <a href="/pages/d91022/" class="nav-link">svn</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><a href="/more/" class="link-title">其他</a> <span class="title" style="display:none;">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/c3f302a03c8daf79/" class="nav-link">学习</a></li><li class="dropdown-item"><!----> <a href="/pages/696f49/" class="nav-link">系统重装</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><div class="nav-item"><a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/gujunling/" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://gujunling.github.io/images/e0509e6cd38d4f819e469be71bd4b2a6.png"> <div class="blogger-info"><h3>sweetheart</h3> <span>前端小记</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/8309a5b876fc95e3/" class="nav-link">HTML</a></li><li class="dropdown-subitem"><a href="/pages/e226e1/" class="nav-link">CSS</a></li><li class="dropdown-subitem"><a href="/pages/38a70e/" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/pages/14682d/" class="nav-link">Vue</a></li></ul></li><li class="dropdown-item"><h4>学习笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/9c81a3/" class="nav-link">《Vue》踩坑笔记</a></li><li class="dropdown-subitem"><a href="/pages/b7ccdb/" class="nav-link">TypeScript学习笔记</a></li><li class="dropdown-subitem"><a href="/note/wx-miniprogram/" class="nav-link">小程序笔记</a></li><li class="dropdown-subitem"><a href="/pages/4643cd/" class="nav-link">JavaScript设计模式笔记</a></li></ul></li><li class="dropdown-item"><!----> <a href="/pages/32a43d/" class="nav-link">工具</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><a href="/backend/" class="link-title">后端</a> <span class="title" style="display:none;">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/3cce56/" class="nav-link">CentOS</a></li><li class="dropdown-item"><!----> <a href="/pages/83ac6e/" class="nav-link">Java</a></li><li class="dropdown-item"><!----> <a href="/pages/5d483a/" class="nav-link">Docker</a></li><li class="dropdown-item"><!----> <a href="/pages/442a2f/" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/pages/f6d635/" class="nav-link">Maven</a></li><li class="dropdown-item"><!----> <a href="/pages/b52295/" class="nav-link">MySQL</a></li><li class="dropdown-item"><!----> <a href="/pages/b8f905/" class="nav-link">其他</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术" class="dropdown-title"><a href="/technology/" class="link-title">技术</a> <span class="title" style="display:none;">技术</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/9a7ee40fc232253e/" class="nav-link">技术文档</a></li><li class="dropdown-item"><!----> <a href="/pages/cb910b/" class="nav-link">GitHub部署及推送</a></li><li class="dropdown-item"><!----> <a href="/pages/117708e0af7f0bd9/" class="nav-link">Nodejs</a></li><li class="dropdown-item"><!----> <a href="/pages/41f87d890d0a02af/" class="nav-link">博客搭建</a></li><li class="dropdown-item"><!----> <a href="/pages/188fd0/" class="nav-link">Fullpage全屏轮播插件</a></li><li class="dropdown-item"><!----> <a href="/pages/d91022/" class="nav-link">svn</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><a href="/more/" class="link-title">其他</a> <span class="title" style="display:none;">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/c3f302a03c8daf79/" class="nav-link">学习</a></li><li class="dropdown-item"><!----> <a href="/pages/696f49/" class="nav-link">系统重装</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><div class="nav-item"><a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/gujunling/" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>centos</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>java</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>docker</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>maven</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>MySQL</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/b52295/" class="sidebar-link">JDBC</a></li><li><a href="/pages/607baf/" aria-current="page" class="active sidebar-link">Mysql配置&amp;&amp;使用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/pages/607baf/#sql-分类" class="sidebar-link">SQL 分类</a></li><li class="sidebar-sub-header level2"><a href="/pages/607baf/#启动、停止服务" class="sidebar-link">启动、停止服务</a></li><li class="sidebar-sub-header level2"><a href="/pages/607baf/#登录、退出" class="sidebar-link">登录、退出</a></li><li class="sidebar-sub-header level2"><a href="/pages/607baf/#注释" class="sidebar-link">注释</a></li><li class="sidebar-sub-header level2"><a href="/pages/607baf/#向数据库中插入数据时出现中文乱码的解决方案" class="sidebar-link">向数据库中插入数据时出现中文乱码的解决方案</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/607baf/#_1-找到-my-ini-文件" class="sidebar-link">1.找到 my.ini 文件</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#_2-进入-my-ini-配置文件对其进行修改" class="sidebar-link">2.进入 my.ini 配置文件对其进行修改</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/607baf/#对数据库操作" class="sidebar-link">对数据库操作</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/607baf/#创建数据库" class="sidebar-link">创建数据库</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#修改数据库" class="sidebar-link">修改数据库</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#删除数据库" class="sidebar-link">删除数据库</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#使用数据库" class="sidebar-link">使用数据库</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/607baf/#数据库表的操作" class="sidebar-link">数据库表的操作</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/607baf/#数据库表的查询操作" class="sidebar-link">数据库表的查询操作</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/607baf/#数据库表中的数据的操作" class="sidebar-link">数据库表中的数据的操作</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/607baf/#基础查询" class="sidebar-link">基础查询</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#条件查询" class="sidebar-link">条件查询</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#模糊查询" class="sidebar-link">模糊查询</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#排序查询" class="sidebar-link">排序查询</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#聚合函数-将一列数据作为一个整体-进行纵向的计算" class="sidebar-link">聚合函数：将一列数据作为一个整体，进行纵向的计算</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#分组查询" class="sidebar-link">分组查询</a></li><li class="sidebar-sub-header level4"><a href="/pages/607baf/#where-和-having-的区别" class="sidebar-link">where 和 having 的区别？</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#分页查询" class="sidebar-link">分页查询</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/607baf/#约束" class="sidebar-link">约束</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/607baf/#主键约束并使其自动增长" class="sidebar-link">主键约束并使其自动增长</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#非空约束" class="sidebar-link">非空约束</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#唯一性约束" class="sidebar-link">唯一性约束</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#外键约束" class="sidebar-link">外键约束</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/607baf/#多表操作" class="sidebar-link">多表操作</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/607baf/#多表查询" class="sidebar-link">多表查询</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#多表查询练习" class="sidebar-link">多表查询练习</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/607baf/#数据库范式" class="sidebar-link">数据库范式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/607baf/#分类" class="sidebar-link">分类</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/607baf/#数据库的备份还原" class="sidebar-link">数据库的备份还原</a></li><li class="sidebar-sub-header level2"><a href="/pages/607baf/#事务" class="sidebar-link">事务</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/607baf/#_1-事务的基本介绍" class="sidebar-link">1. 事务的基本介绍</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#事务的四大特征" class="sidebar-link">事务的四大特征</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#事务的隔离级别-了解" class="sidebar-link">事务的隔离级别（了解）</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/607baf/#dcl-管理用户-授权" class="sidebar-link">DCL --&gt; 管理用户，授权</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/607baf/#mysql-中忘记-root-用户的密码解决方案" class="sidebar-link">mysql 中忘记 root 用户的密码解决方案</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#管理用户" class="sidebar-link">管理用户</a></li><li class="sidebar-sub-header level3"><a href="/pages/607baf/#权限管理" class="sidebar-link">权限管理</a></li></ul></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>其他</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06970110><div class="articleInfo" data-v-06970110><ul class="breadcrumbs" data-v-06970110><li data-v-06970110><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-06970110></a></li> <li data-v-06970110><a href="/backend/#后端" data-v-06970110>后端</a></li><li data-v-06970110><a href="/backend/#MySQL" data-v-06970110>MySQL</a></li></ul> <div class="info" data-v-06970110><div title="作者" class="author iconfont icon-touxiang" data-v-06970110><a href="https://gujunling.github.io/" target="_blank" title="作者" class="beLink" data-v-06970110>sweetheart</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06970110><a href="javascript:;" data-v-06970110>2019-08-02</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABGpJREFUSA3tVVtoXFUU3fvOI53UlmCaKIFmwEhsE7QK0ipFEdHEKpXaZGrp15SINsXUWvBDpBgQRKi0+KKoFeJHfZA+ED9KKoIU2gYD9UejTW4rVIzm0VSTziPzuNu1z507dibTTjL4U/DAzLn3nL3X2o91ziX6f9wMFdh6Jvbm9nNSV0msViVO6tN1Rm7NMu2OpeJ9lWBUTDxrJbYTS0hInuwciu9eLHlFxCLCZEk3MegsJmZ5K/JD6t7FkFdEvGUo1g7qJoG3MHImqRIn8/nzY1K9UPKKiJmtnUqHVE3Gbuay6vJE/N2FEmuxFjW2nUuE0yQXRRxLiTUAzs36zhZvOXJPdX850EVnnLZkB8prodQoM5JGj7Xk2mvC7JB8tG04Ef5PiXtG0UtxupRQSfTnBoCy554x18yJHI6I+G5Eru4LHmPJZEQsrvPUbMiA8G/WgMK7w7I+ez7++o2ANfbrjvaOl1tFMs+htG3IrZH9/hDX1Pr8Tc0UvH8tcX29KzAgIGcEkINyW5BF9x891hw6VYqgJHEk0huccS7vh3C6gTiODL+26huuBtbct8eZnqLML8PkxGYpuPZBqtqwkSjgc4mB5gbgig5i+y0UDK35LMxXisn9xQtK+nd26gTIHsHe/oblK/b29fUmN/8Y+9jAQrnBp56m1LcDlDp9irKTExSKduXJVWSqdBMA08pEJnEIOB3FPPMybu/oeV8zFeYN3xx576Q6RH+VmplE4ncQV5v+5rzSoyOU7PuEAg8g803PwBJ0CExno/jcMbN8tONYeOmHiuUNryvm3fRUy4tMPVLdAGkUhNWuggGrJcXPv+ouCjz0MKUHz1J2/E8IC9nqTabcxgaBYM0hPhD5Y65FsbxRQKxCQrDjDctW7PUM3HuZunFyifSAqEfuzCp48Il24luWUWZoyJCaPR82jE0+kFA643wRFVni4RYSq3ohJO2pZ7B5dO4xkDWbEpossJPLSrPjYID8rS2UHTlvyNxqIGsg674XJJ7vnh5L7PNwC4hh2sjCI96mzszOTpxLF0T7l88Yz7lAuK6OnL8gXLOnTvpzSb22YG8W7us3jSebFHeeqnXRG1vt+MoUM84LQIBmMsCTAcOauTh0T0l0neQK7m2bLMt2mGxU3HYssS0J2cdv5wljlPsrIuZLAG/2DOZIXgCYT8uMGZN+e2kSirfxZOPCsC0f24nTZzspnVn9VePS1Z5vubmAGGXG8ZFno9Hel0yfA5ZPhF7Dh972BQJ2qCpgH67lmWtBYbvk6sz02wjky2vXyz0XErP/kFB619js1BtwfOV4OPRqOQBjy3Qbk18vigUPPSD5ceHnwck7W9bhAqZdd7SuG7w4/P2F/GaJh8c7e9qgow+Q7cGBo+98WsLkuktFqiZabtXuQTu/Y5ETbR0v7tNSFnvrmu6pjdoan2KjMu8q/Hmj1EfCO2ZGfEIbIXKUlw8qaX9/b2oeSJmFksSeT/Fn0V3nSypChh4Gjh74ybO9aeZ/AN2dwciu2/MhAAAAAElFTkSuQmCC">Mysql配置&amp;&amp;使用<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h1 id="mysql-配置-使用"><a href="#mysql-配置-使用" class="header-anchor">#</a> Mysql 配置&amp;&amp;使用</h1> <h2 id="sql-分类"><a href="#sql-分类" class="header-anchor">#</a> SQL 分类</h2> <ul><li>DDL：操作数据库和表</li> <li>DML：增删改表中数据</li> <li>DQL：查询表中数据</li> <li>DCL：管理用户，授权</li></ul> <h2 id="启动、停止服务"><a href="#启动、停止服务" class="header-anchor">#</a> 启动、停止服务</h2> <p>1.启动命令：</p> <div class="language- extra-class"><pre><code>net start mysql
+</code></pre></div><p>2.停止服务命令：</p> <div class="language- extra-class"><pre><code>net stop  mysql
+</code></pre></div><h2 id="登录、退出"><a href="#登录、退出" class="header-anchor">#</a> 登录、退出</h2> <p>1.登录命令：</p> <div class="language- extra-class"><pre><code>mysql -uroot -proot //-u后面是用户的登录的用户名，-p是用户登录密码，方式一，使用此方式在mysql5.6以后会出现警告，但是并没有什么影响，还是能成功进入数据库进行操作。
+mysql -uroot -p //按下回车键后输入密码，此时的密码是密文显示的，更安全，方式二
+</code></pre></div><p>2.退出命令：</p> <div class="language- extra-class"><pre><code>直接关闭cmd窗口  //方式一
+exit      //方式二
+quit     //方式三
+</code></pre></div><p>3.远程连接 mysql 命令</p> <div class="language- extra-class"><pre><code>mysql -h127.0.0.1 -uroot -proot //-h后面输入想要远程连接的ip，-p后面输入的是想要连接的ip的mysql的密码。方式一
+mysql --host=127.0.0.1 --user=root --password=root     //方式二，当然也可以选择按下回车键再输入密码。127.0.0.1表示想要远程连接的目标的ip地址，password后面写的是想要远程连接的目标的mysql密码。
+</code></pre></div><h2 id="注释"><a href="#注释" class="header-anchor">#</a> 注释</h2> <blockquote><p>方式一：/使用-- 来添加注释</p></blockquote> <div class="language- extra-class"><pre><code>select * from student; -- 这是一个注释示例
+//在sql语句后使用--表示注释，--后必须要空一格，否则会报错，然后写自己想要添加的注释内容。
+</code></pre></div><blockquote><p>方式二：使用#来添加注释</p></blockquote> <div class="language- extra-class"><pre><code>select * from student # 这是一个注释示例2
+//使用#来添加注释，在sql语句后使用#，#后面是自己想要添加的注释内容，#后面有无空格都可以。
+</code></pre></div><blockquote><p>方式三：使用/* */表示多行注释</p></blockquote> <div class="language- extra-class"><pre><code>select * from student
+    /*
+    这是
+    多行
+    注释。
+    */
+;
+</code></pre></div><h2 id="向数据库中插入数据时出现中文乱码的解决方案"><a href="#向数据库中插入数据时出现中文乱码的解决方案" class="header-anchor">#</a> 向数据库中插入数据时出现中文乱码的解决方案</h2> <h3 id="_1-找到-my-ini-文件"><a href="#_1-找到-my-ini-文件" class="header-anchor">#</a> 1.找到 my.ini 文件</h3> <p>找到安装目录的根目录下的 my.ini 文件，如果此目录下没有，可以进入 ProgramData 文件夹，注意此文件夹是隐藏文件夹，一般情况下 my.ini 文件就在这两个文件夹的根目录下，如果没有，自己在这两个文件夹中寻找，找不到的话，可以自己去创建。</p> <h3 id="_2-进入-my-ini-配置文件对其进行修改"><a href="#_2-进入-my-ini-配置文件对其进行修改" class="header-anchor">#</a> 2.进入 my.ini 配置文件对其进行修改</h3> <p>修改下方三个地方：</p> <div class="language- extra-class"><pre><code>  [client]
+   default-character-set=utf8
+  [mysql]
+   default-character-set=utf8
+  [mysqld]
+  default-character-set=utf8
+</code></pre></div><p>以上 3 个 section 都要加 default-character-set=utf8，平时我们可能只加了 mysqld 一项。如果没有完全修改可以依旧会出现中文乱码问题。<br>
+然后重启 mysql，执行 SQL 语句。</p> <div class="language- extra-class"><pre><code>SHOW VARIABLES LIKE 'character%';
+</code></pre></div><p>确保所有的 Value 项都是 utf8 即可，再向数据库中插入数据就不会出现中文乱码问题了。<br>
+如果再出现中文乱码，可以直接进入命令行界面，直接写 sql 语句，查看插入中文数据是否会出现乱码，如果再次出现乱码可能是数据库创建时没有使用 utf8 的编码字符集，修改数据的编码字符集为 utf8 一般就可以了。</p> <h2 id="对数据库操作"><a href="#对数据库操作" class="header-anchor">#</a> 对数据库操作</h2> <h3 id="创建数据库"><a href="#创建数据库" class="header-anchor">#</a> 创建数据库</h3> <p>创建数据库命令：</p> <div class="language- extra-class"><pre><code>create database test1;    //此时创建的数据库名为test1
+ /*
+此时可能会出现错误，即数据库本来存在，可以在创建数据库之前进行判断数据库是否存在，使用下面的语句可以避免出现上述错误。
+ */
+
+create database if not exists test1;
+</code></pre></div><p>查询数据库中存在的数据库命令：</p> <div class="language- extra-class"><pre><code>show databases;   //使用此命令会把所有的数据库查询结果显示出来。
+</code></pre></div><p>创建数据库时指定数据库的编码字符集命令：</p> <div class="language- extra-class"><pre><code>create database test2 character set utf8; //此时创建的数据库名为test2
+
+create database if not exists test2 character set utf8;//在创建数据库之前判断数据库是否存在。
+
+show create database test2 ;  //查看数据库test2的编码字符集
+</code></pre></div><h3 id="修改数据库"><a href="#修改数据库" class="header-anchor">#</a> 修改数据库</h3> <p>修改数据库的字符集命令：</p> <div class="language- extra-class"><pre><code>alter database test2 character set gbk; //修改数据库test2的字符集为gbk
+</code></pre></div><h3 id="删除数据库"><a href="#删除数据库" class="header-anchor">#</a> 删除数据库</h3> <p>删除数据库命令：</p> <div class="language- extra-class"><pre><code> drop database test2; //删除数据库名为test2的数据库
+
+ drop database if exists test2; //在删除数据库之前判断数据库是否存在，存在则删除，不存在该语句也不会报错。
+</code></pre></div><h3 id="使用数据库"><a href="#使用数据库" class="header-anchor">#</a> 使用数据库</h3> <p>修改正在使用的数据库的命令：</p> <div class="language- extra-class"><pre><code>use test1 ； //修改当前使用的数据库为test1
+</code></pre></div><p>查询当前正在使用的数据库名称的命令：</p> <div class="language- extra-class"><pre><code>select database(); //使用此命令查询显示出当前正在使用的数据库名称。
+</code></pre></div><h2 id="数据库表的操作"><a href="#数据库表的操作" class="header-anchor">#</a> 数据库表的操作</h2> <h3 id="数据库表的查询操作"><a href="#数据库表的查询操作" class="header-anchor">#</a> 数据库表的查询操作</h3> <p>查询所有表的命令：</p> <div class="language- extra-class"><pre><code>show tables;  //注意使用此命令前需要先使用数据库的命令    ---&gt;   use  数据库名称，确保当前有数据库正在使用。
+</code></pre></div><p>查询表结构命令：</p> <div class="language- extra-class"><pre><code>desc student;  //student 为表名
+</code></pre></div><p>创建表命令：</p> <div class="language- extra-class"><pre><code>create table 表名(
+ 列名1   数据类型1,
+ 列名2   数据类型2,
+ 列名3   数据类型3,
+   ......
+ 列名n   数据类型n
+);
+//注意，前面的（不是最后一个）列名和数据类型后需要写一个逗号，最后一个列名和数据类型写完以后，不能再加逗号，加了的话会出错。
+例如：
+ create table student(
+-&gt; id int,
+-&gt; name varchar(32),
+-&gt; age int,
+-&gt; birthday date,
+-&gt; insert_time timestamp
+-&gt; );
+</code></pre></div><p>删除表命令：</p> <div class="language- extra-class"><pre><code>drop table 表名;
+例如：
+drop table student;   //这样可以会出现错误，即表不存在，可以在删除之前进行判断。
+示例二：
+drop table if exists student;
+</code></pre></div><p>复制表命令：</p> <div class="language- extra-class"><pre><code>create table 表名 like 被复制的表名;
+示例：
+create table stu like student;
+</code></pre></div><p>修改表命令：<br>
+修改表名命令：</p> <div class="language- extra-class"><pre><code>alter table student rename to stu; //将表student 重命名为stu
+</code></pre></div><p>修改表的字符集命令：</p> <div class="language- extra-class"><pre><code>alter table stu character set utf8;  //将表stu的字符集修改为utf8
+</code></pre></div><p>添加一列命令：</p> <div class="language- extra-class"><pre><code>alter table 要修改表名 add  列名 数据类型;
+alter table stu add salary double;
+</code></pre></div><p>修改列名称、类型命令:</p> <div class="language- extra-class"><pre><code>同时修改列名和数据类型：
+alter table 要修改表名 change 被修改列名  新的列名 新的数据类型;
+示例：
+alter table stu change salary sex varchar(10);
+只修改数据类型：
+alter table 要修改的表名 modify 被修改列名 新的数据类型;
+示例：
+alter table stu modify sex  varchar(20);
+</code></pre></div><p>删除列命令：</p> <div class="language- extra-class"><pre><code>alter table 表名 drop 要删除的列名;
+示例：
+alter table stu drop sex;
+</code></pre></div><h2 id="数据库表中的数据的操作"><a href="#数据库表中的数据的操作" class="header-anchor">#</a> 数据库表中的数据的操作</h2> <p>添加数据命令：</p> <div class="language- extra-class"><pre><code>insert into 表名(列名1，列名2,...列名n) values(值1,值2,...值n);
+示例一：
+insert into stu (id,name,age,birthday) values(1,'小明',21,19991011);
+示例二：
+insert into stu  values(2,'小红',20,'1999-10-11',null);
+/*
+注意，
+1.此时的日期不能写成1999-10-11，会出错，日期之间不能加-。如果想要添加-可以在日期之前使用单或双引号(''或&quot;&quot;)包裹。
+2.列名和数据值应该一一对应。
+3.如果表名之后不定义列名，则默认给所有的列赋值。如果不想给某个数据赋值，可以使用null代替，但是如果缺少数据值（列名和值不对应），则会报错。
+4.除了数字类型，其他类型的数据值需要使用单或双引号(''或&quot;&quot;)包裹。
+5.sql语句中除了中文的数据值之外，其他的都要使用英文格式下的符号。
+*/
+</code></pre></div><p>修改表中数据的命令：</p> <div class="language- extra-class"><pre><code>update 表名 set 列名1 = 值1 ,列名2 = 值2; ... where条件
+示例：
+update stu set name = '小王' ,age = 23 where id = 1;
+//注意，如果不加任何条件，会把表中所有的数据全部修改。
+</code></pre></div><p>删除表中的数据命令：<br>
+删除表中指定数据的命令：</p> <div class="language- extra-class"><pre><code>delete from 表名 where 条件
+示例：
+delete from stu where id = 3;  //删除stu表中id为3的数据
+</code></pre></div><p>删除表中所有数据的命令：</p> <div class="language- extra-class"><pre><code>delete  from 表名;   //方式一
+TRUNCATE table 表名;   //方式二
+方式一示例：
+delete  from stu;  //删除stu表中的所有数据，不推荐使用，效率较低。
+方式二示例：
+TRUNCATE table stu;  //删除stu表，然后再创建一个一模一样的空表。
+</code></pre></div><h3 id="基础查询"><a href="#基础查询" class="header-anchor">#</a> 基础查询</h3> <p>查询表中所有数据命令：</p> <div class="language- extra-class"><pre><code>select * from 表名;
+示例：
+select * from stu;  //查询stu表中的所有数据。
+</code></pre></div><p>查询部分数据命令：</p> <div class="language- extra-class"><pre><code>select 列名1,列名2,... from 表名;
+示例：
+select name,age,address from student;  //在student表中查询姓名、年龄、地址
+</code></pre></div><p>去除重复数据命令：</p> <div class="language- extra-class"><pre><code>select distinct 列名1,列名2 ... from 表名;
+示例：
+select distinct address from student;
+</code></pre></div><p>练习：计算数学和英语的成绩之和,显示出姓名、数学成绩、英语成绩和数学英语成绩之和</p> <div class="language- extra-class"><pre><code>select name, math,english ,math + english from student; //当出现某个数据为null时，数据之和也会为null的情况，是不合理的。
+select name, math,english ,ifnull (math,0) + ifnull (english,0) from student;   //如果数学成绩或者英语成绩为null的话将其数据改为0进行计算。
+
+给数据取别名，例如，将math + english 取别名为 总分
+select name, math,english ,ifnull (math,0) + ifnull (english,0) as 总分 from student;  //方式一
+select name 姓名, math 数学,english 英语,ifnull (math,0) + ifnull (english,0) 总分 from student;  //方式二，不使用as，直接加一个空格，再写别名也可以。
+</code></pre></div><h3 id="条件查询"><a href="#条件查询" class="header-anchor">#</a> 条件查询</h3> <div class="language- extra-class"><pre><code>示例一：查询student表中年龄大于20岁的数据
+select * from student where age &gt; 20;  //注意：此时查询的数据不包括年龄等于20的数据。
+
+示例二：查询student表中年龄等于20岁的数据
+select * from student where age = 20;
+
+示例三：查询student表中年龄不等于20岁的数据
+select * from student where age != 20; //方式一
+select * from student where age &lt;&gt; 20; //方式二
+
+示例三：查询student表中年龄大于20岁，小于25岁的数据
+select * from student where age &gt; 20 and age &lt; 25 ; //方式一
+select * from student where age between 20 and 25 ; //方式二，此方式包括20岁和25岁的数据。
+select * from student where age &gt; 20 &amp;&amp; age &lt; 25 ; //方式三 ，不推荐使用
+
+示例四：查询student表中年龄为20岁、22岁的数据
+select * from student where age = 20 or age = 22 ; //方式一
+select * from student where age in (20 , 22) ; //方式二
+
+示例五：查询student表中英语成绩为null的数据
+select * from student where english is null; //注意，查询数据为null时不能使用等号。需要使用is。
+
+示例六：查询student表中英语成绩不为null的数据
+select * from student where english is  not null;
+</code></pre></div><h3 id="模糊查询"><a href="#模糊查询" class="header-anchor">#</a> 模糊查询</h3> <div class="language- extra-class"><pre><code>示例一：查询student表中姓为 小 的数据
+select * from student where name like '小%' ; // % 号表示任意字符，下划线(_)表示单个字符。
+
+示例二：查询student表中姓名中第二个字为 三 的数据
+select * from student where name like '_三%' ;
+
+示例三：查询student表中姓名为两个字的数据
+select * from student where name like '__' ;   //在引号内写上两个英文格式下的_即可。
+
+示例一：查询student表中姓名中包含 小 的数据
+select * from student where name like '%小%' ;
+</code></pre></div><h3 id="排序查询"><a href="#排序查询" class="header-anchor">#</a> 排序查询</h3> <div class="language- extra-class"><pre><code>select * from 表名 order by 需要排序的列名1 排序方式,需要排序的列名2 排序方式2 ... ;
+注意，默认情况下，即不写排序方式或者写成 asc ，按照升序进行排序，使用desc来表示降序的排序方式。当有多个字段进行排序时，只有前面需要排序的字段的的数据相同时，才会去判断后面的数据。
+
+示例一：将student表中的数据按照math的成绩进行升序排序
+select * from student order by math ;
+
+示例二：将student表中的数据按照math的成绩进行降序排序
+select * from student order by math desc ;
+
+示例三：将student表中的数据按照math的成绩进行升序排序，如果数学成绩相同，则按照英语成绩进行降序排序。
+select * from student order by math , english desc ;
+
+示例四：将student表中的数据按照math的成绩进行降序排序，如果数学成绩相同，则按照英语成绩进行降序排序。
+select * from student order by math desc , english desc ;
+</code></pre></div><h3 id="聚合函数-将一列数据作为一个整体-进行纵向的计算"><a href="#聚合函数-将一列数据作为一个整体-进行纵向的计算" class="header-anchor">#</a> 聚合函数：将一列数据作为一个整体，进行纵向的计算</h3> <ol><li>count：计算数量</li> <li>max:计算最大值</li> <li>min: 计算最小值</li> <li>sum：计算和</li> <li>avg：计算平均值。</li></ol> <p>注意：聚合函数的计算排除了字段为 null 的值。</p> <div class="language- extra-class"><pre><code>示例一：计算student表中name字段的总数量。
+select count(name) 学生总数 from student;
+
+示例二：计算student表中english字段的总数量，解决count计算数量时排除字段为null的问题。
+select count(ifnull (english,0)) from student;
+
+示例三：计算student表中math字段的最大值。
+select max(math)  from student;
+
+示例四：计算student表中math字段的最小值。
+select min(math)  from student;
+
+示例五：计算student表中math字段的和。
+select sum(math)  from student;
+
+示例六：计算student表中english字段的和(english字段中存在数据值为null的数据)。
+select sum(english)  from student;  //默认会排除数据值为null的数据值
+
+示例七：计算student表中math字段的平均值。
+select avg(math)  from student;
+</code></pre></div><h3 id="分组查询"><a href="#分组查询" class="header-anchor">#</a> 分组查询</h3> <p><strong>注意：分组之后查询的数据只能是聚合函数或者分组字段，加上其他的字段没有任何意义。</strong></p> <div class="language- extra-class"><pre><code>示例一：按照性别分组，分别查询男、女同学的英语成绩的平均分。
+select sex , avg(english) from student group by sex;
+
+示例二：按照性别分组，分别查询男、女同学的英语成绩的平均分和人数。
+select sex , avg(english),count(id) from student group by sex;
+
+示例三：按照性别分组，分别查询男、女同学的英语成绩的平均分和人数，英语成绩低于60分的同学不参与分组。
+select sex , avg(english),count(id) from student where english &gt; 60 group by sex;
+
+示例四：按照性别分组，分别查询男、女同学的英语成绩的平均分和人数，英语成绩低于60分的同学不参与分组，要求分组后的成员数量要大于2人。
+select sex , avg(english),count(id) from student where english &gt; 60 group by sex having count(id) &gt; 2;
+</code></pre></div><h4 id="where-和-having-的区别"><a href="#where-和-having-的区别" class="header-anchor">#</a> where 和 having 的区别？</h4> <ul><li><p>where 在分组之前进行限定，如果不满足分组，则不参与分组，having 在分组之后进行限定，如果不满足条件，数据不会显示出来。</p></li> <li><p>where 后不可以进行聚合函数的判断，having 后可以进行聚合函数的判断。</p></li></ul> <h3 id="分页查询"><a href="#分页查询" class="header-anchor">#</a> 分页查询</h3> <p>select from 表名 limit 开始的索引，每页要显示的数量</p> <p>开始的索引计算方式： 开始的索引 = (当前的页码 -1 ) * 每页要显示的数量</p> <div class="language- extra-class"><pre><code>示例一：
+select * from student limit 0,5; -- 第一页  //当前为第一页，每页要显示5条数据。
+</code></pre></div><p>limit 是 mysql 的分页显示数据的语法。其他的数据库则不是 limit</p> <h2 id="约束"><a href="#约束" class="header-anchor">#</a> 约束</h2> <p>概念：对数据库表中的数据进行限定，保证数据的正确性、完整性、有效性。</p> <p>分类：</p> <ol><li><p>主键约束 --&gt; primary key</p></li> <li><p>非空约束 --&gt; not null</p></li> <li><p>唯一性约束 --&gt; unique</p></li> <li><p>外键约束 --&gt; foreign key</p></li></ol> <h3 id="主键约束并使其自动增长"><a href="#主键约束并使其自动增长" class="header-anchor">#</a> 主键约束并使其自动增长</h3> <p>注意：<br>
+1.包含主键约束的字段非空且唯一。<br>
+2.一张表中只能有一个字段作为主键。<br>
+3.主键是表中记录的唯一性标识。</p> <div class="language- extra-class"><pre><code>示例一：在创建表时为字段id添加主键约束，创建表的SQL语句如下：
+create table stu(
+id int primary key ,
+name varchar(20)
+);
+
+示例二：在创建表时为字段id添加主键约束并使其自动增长，创建表的SQL语句如下：
+create table stu(
+id int primary key auto_increment ,
+name varchar(20)
+);
+
+示例三：删除字段的主键约束
+alter table stu drop primary key ;
+
+示例四：删除字段的自动增长，并不能删除主键约束：
+alter table stu modify id int;  //方式一
+alter table stu change id id int;  //方式二
+
+示例五：创建表完成之后再为字段添加主键约束
+alter table stu modify id int primary key;  //方式一
+alter table stu change id id int primary key;  //方式二
+
+
+示例六：创建表完成之后再为字段添加自动增长
+alter table stu modify id int auto_increment;  //方式一
+alter table stu change id id int auto_increment;  //方式二
+</code></pre></div><h3 id="非空约束"><a href="#非空约束" class="header-anchor">#</a> 非空约束</h3> <div class="language- extra-class"><pre><code>示例一：在创建表时为字段name添加非空约束，创建表的SQL语句如下：
+create table stu(
+id int,
+name varchar(20) not null
+);
+
+示例二：删除字段name的非空约束
+alter table stu modify name varchar(20);  //方式一
+alter table stu change name  name varchar(20);  //方式二
+
+示例三：创建表完成之后再为字段name添加非空约束
+alter table stu modify name varchar(20) not null;  //方式一
+alter table stu change name  name varchar(20) not null;  //方式二
+</code></pre></div><h3 id="唯一性约束"><a href="#唯一性约束" class="header-anchor">#</a> 唯一性约束</h3> <p>注意：mysql 中，在没有非空约束的字段下，唯一性约束的字段的数据中可以有多个 null,不会报错。</p> <div class="language- extra-class"><pre><code>示例一：在创建表时为字段name添加唯一性约束，创建表的SQL语句如下：
+create table stu(
+id int,
+name varchar(20) not null,unique
+);
+
+示例二：删除字段name的唯一性约束
+alter table stu drop index name ;
+
+示例三：创建表完成之后再为字段name添加唯一性约束
+alter table stu modify name varchar(20) unique ;  //方式一
+alter table stu change name  name varchar(20) unique ;  //方式二
+</code></pre></div><h3 id="外键约束"><a href="#外键约束" class="header-anchor">#</a> 外键约束</h3> <p>外键约束：让表与表之间产生关系，从而保证了数据的正确性。</p> <div class="language- extra-class"><pre><code>create table 表名(
+  ......
+外键列名 外键列数据类型,
+constraint 外键名称 foreign key (外键列名) references 需要关联的主表名(需要关联的主表的列名)
+);
+
+示例一：在创建表时添加外键约束，
+create table employee(
+id int primary key auto_increment ,
+name varchar(20),
+age int ,
+dep_id int ,
+constraint emp_dept_fk foreign key (dep_id) references department(id)
+);
+
+示例二：删除表的外键约束
+alter table employee drop foreign key emp_dept_fk;  //emp_dept_fk外外键名称。
+
+示例三：创建表完成之后再添加外键约束
+alter table employee add constraint emp_dept_fk foreign key (dep_id) references department(id);
+
+示例四：添加外键，并设置级联更新
+alter table employee add constraint emp_dept_fk foreign key (dep_id) references department(id) on update cascade;
+
+示例五：添加外键，并设置级联更新，级联删除 ,一般不会设置级联删除。
+alter table employee add constraint emp_dept_fk foreign key (dep_id) references department(id) on update cascade on delete cascade;
+</code></pre></div><h2 id="多表操作"><a href="#多表操作" class="header-anchor">#</a> 多表操作</h2> <p>多表之间的关系：<br>
+      一对一<br>
+      一对多<br>
+      多对多</p> <h3 id="多表查询"><a href="#多表查询" class="header-anchor">#</a> 多表查询</h3> <p>笛卡尔积：有两个集合 A,B .取这两个集合的所有组成情况。要完成多表查询，需要消除无用的数据。<br>
+多表查询的分类：<br>
+  1. 内连接查询<br>
+      1.隐式内连接<br>
+      2.显式内连接</p> <div class="language- extra-class"><pre><code>内连接查询需要明确的：
+1. 想要从哪些表中查询数据？
+2. 查询的条件是什么？
+3. 需要查询哪些字段
+
+示例一(隐式内连接)：查询所有的员工信息及其对应的部门信息：
+ select * from emp,dept where emp.dept_id = dept.id;
+
+示例二(隐式内连接)：查询员工表的姓名、性别、工资及其对应的部门名称：
+ select
+ emp.name,
+ emp.gender,
+ emp.salary,
+ dept.name
+ from
+ emp,dept
+ where
+ emp.dept_id = dept.id;
+
+ 示例三(隐式内连接)：查询员工表的姓名、性别、工资及其对应的部门名称，为表取别名，简化sql语句：
+ select
+ e.name,
+ e.gender,
+ e.salary,
+ d.name
+ from
+ emp e,dept d
+ where
+ e.dept_id = d.id;
+
+//显式内连接： select 字段列表 from 表名1 inner join 表名2 on 条件
+    //注意 inner 可以省略不写
+示例四(显式内连接)：查询所有的员工信息及其对应的部门信息：
+ select * from emp inner join dept on emp.dept_id = dept.id;
+ select * from emp join dept on emp.dept_id = dept.id;
+
+ 示例五(显式内连接)：查询员工表的姓名、性别、工资及其对应的部门名称，为表取别名，简化sql语句：
+ select
+ e.name,
+ e.gender,
+ e.salary,
+ d.name
+ from
+ emp e
+ join
+ dept d
+ on
+ e.dept_id = d.id;
+</code></pre></div><p>  2. 外连接查询<br>
+      1.左外连接<br>
+      2.右外连接</p> <div class="language- extra-class"><pre><code>左外连接查询：select 字段列表 from 表1 left [outer] join 表2 on 条件；
+查询的是左表所有数据以及其交集部分。
+
+示例一(左外连接)：查询所有的员工信息，如果员工有部门显示出部门名称，没有部门则不显示部门名称。
+select
+e.*,
+d.name
+from
+emp e
+left join
+dept d
+on
+e.dept_id = d.id;
+
+示例二(左外连接)：查询员工表中员工的姓名、性别、工资，如果员工有部门显示出部门名称，没有部门则不显示部门名称。
+select
+e.name,
+e.gender,
+e.salary,
+d.name
+from
+emp e
+left join
+dept d
+on
+e.dept_id = d.id;
+
+右外连接：select 字段列表 from 表1 right [outer] join 表2 on 条件；
+查询的是右表所有数据以及其交集部分。
+
+示例一(右外连接)：查询员工表中员工的姓名、性别、工资，如果员工有部门显示出部门名称，没有部门则不显示部门名称。
+select
+d.name,
+e.name,
+e.gender,
+e.salary
+from
+dept d
+right join
+emp e
+on
+e.dept_id = d.id;
+</code></pre></div><p>  3. 子查询</p> <p>   1. 子查询的结果是单行单列的：</p> <p>      子查询可以作为条件，使用运算符 &gt; &gt;= &lt; &lt;= = 去判断。<br>
+   2. 子查询的结果是多行单列的：</p> <p>      子查询可以作为条件，使用运算符 in 来判断。<br>
+   3. 子查询的结果是多行多列的：</p> <p>      子查询可以作为一张虚拟表参与查询。</p> <div class="language- extra-class"><pre><code>示例一（结果是单行单列的）：查询工资最高的员工的信息：
+select * from emp where salary = (
+    select max(salary) from emp
+    );
+示例二（结果是单行单列的）：查询员工工资小于平均工资的员工信息
+select * from emp where salary &lt; (select avg(salary) from emp);
+
+示例三（结果是多行单列的）：查询财务部和市场部的所有员工信息
+select * from emp where dept_id in (select id from dept where name = '财务部' or name = '市场部');
+
+示例四（结果是多行多列的）：查询员工的入职时间在2011年11月11日之后的员工信息和部门信息
+select * from dept  d ,(select * from emp where join_date &gt; 20111111) e1 where e1.dept_id = d.id ;   //方式一，使用子查询
+select * from dept d , emp e where e.dept_id = d.id and join_date &gt; '2011-11-11' ;   //方式二，使用普通内连接查询
+</code></pre></div><h3 id="多表查询练习"><a href="#多表查询练习" class="header-anchor">#</a> 多表查询练习</h3> <div class="language- extra-class"><pre><code>练习1：查询所有员工信息。查询员工编号，员工姓名，工资，职务名称，职务描述
+select
+e.id,
+e.ename,
+e.salary,
+j. jname,
+j.description
+from
+emp e,
+job j
+where
+e.job_id = j.id;
+
+练习2：查询员工编号，员工姓名，工资，职务名称，职务描述，部门名称，部门位置
+select
+e.id ,
+e.ename ,
+e.salary ,
+j.jname,
+j.description,
+d.dname,
+d.loc
+from
+emp e,
+job j,
+dept d
+where
+e.job_id = j.id
+and
+e.dept_id = d.id;
+
+练习3：查询员工姓名，工资，工资等级
+select
+e.ename ,
+e.salary ,
+s.grade
+from
+emp e ,
+salarygrade s
+where
+e.salary
+between
+losalary
+and
+hisalary;
+
+练习4：查询员工姓名，工资，职务名称，职务描述，部门名称，部门位置，工资等级
+select
+e.ename ,
+e.salary ,
+j.jname,
+j.description ,
+d.loc ,
+s.grade
+from
+emp e,
+job j,
+dept d,
+salarygrade s
+where
+e.job_id = j.id
+and
+e.dept_id = d.id
+and
+e.salary
+between
+losalary
+and
+hisalary ;
+
+练习5：查询出部门编号、部门名称、部门位置、部门人数
+select
+d.id,
+d.dname,
+d.loc ,
+t.total
+from
+dept d ,
+(select dept_id , count(id) total from emp group by dept_id ) t
+where
+dept_id = d.id ;
+
+练习6：查询所有员工的姓名及其直接上级的姓名,没有领导的员工也需要查询。
+//emp表中mgr 和emp表中的id进行自关联，为emp表取别名查询两次，相当于是两个表
+select
+e1.ename 姓名,  -- 员工姓名
+e1.mgr ,    -- 员工的管理者 ，可以不查询
+e2.id ,     -- 员工的id  ，可以不查询
+e2.ename 管理者    -- 管理者姓名
+from
+emp e1
+left
+join
+emp e2
+on
+e1.mgr = e2.id;
+</code></pre></div><h2 id="数据库范式"><a href="#数据库范式" class="header-anchor">#</a> 数据库范式</h2> <p>设计关系数据库时，遵从不同的规范要求，设计出合理的关系型数据库，这些不同的规范要求被称为不同的范式，各种范式呈递次规范，越高的范式数据库冗余越小。<br>
+目前关系数据库有六种范式：第一范式（1NF）、第二范式（2NF）、第三范式（3NF）、巴斯-科德范式（BCNF）、第四范式(4NF）和第五范式（5NF，又称完美范式）。</p> <h3 id="分类"><a href="#分类" class="header-anchor">#</a> 分类</h3> <ol><li>第一范式(1NF):即数据库表的每一列都是不可分割的原子数据项，而不能是集合，数组，记录等非原子数据项，第一范式就是无重复的域。在任何一个关系数据库中，第一范式（1NF）是对关系模式的设计基本要求，一般设计中都必须满足第一范式（1NF）。</li> <li>第二范式(2NF):在 1NF 的基础上，非码属性必须完全依赖于候选码（在 1NF 基础上消除非主属性对主码的部分函数依赖）。</li> <li>第三范式(3NF):在 2NF 基础上，任何非主属性不依赖于其它非主属性（在 2NF 基础上消除传递依赖）。</li> <li>巴斯-科德范式(BCNF)：在 3NF 基础上，任何非主属性不能对主键子集依赖（在 3NF 基础上消除对主码子集的依赖）</li></ol> <p><a href="https://www.baidu.com/link?url=zbW7paFY43R2sRPQFqgPJ5E7D9jXhCluHv9iqdqA1f9jITD-pr3g4ngqEbhNSv_vka2IqGWTIxWxnmApBX-Lej9Rpk51bAHL9Jd-R6PjRwdfQpKw4SBc_MdnYRtc-a9t&amp;wd=&amp;eqid=8975e0bd000959ef000000025d44eb91" target="_blank" rel="noopener noreferrer"><u>参考：函数依赖百度百科</u><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://www.baidu.com/link?url=71t7ToBccg29ukb34TRUaNb5uPR6q5l-muxwFhpiJtHBBX973H26_56oHdvNF3NpMmm8AC0xjJ72pG9YO59Rwba-jMMkjqcAmOSlkii2-CK2IbVAJ7F73-ytNox_y5dk43-HPI5omufINA2wETErIK&amp;wd=&amp;eqid=88deb1a7000e7986000000025d44e248" target="_blank" rel="noopener noreferrer"><u>参考：数据库范式百度百科</u><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="数据库的备份还原"><a href="#数据库的备份还原" class="header-anchor">#</a> 数据库的备份还原</h2> <p>1.命令行的方式：</p> <div class="language- extra-class"><pre><code>备份：mysqldump -u用户名 -p用户密码  需要备份的数据库名称 &gt; 保存的文件路径
+还原：
+     1.登录mysql数据库
+     2.创建数据库
+     3.使用数据库
+     4.执行保存的原数据库文件 命令：source 保存的文件路径。
+示例：
+    数据库备份 ：mysqldump -uroot -proot  test &gt; e://DataBase//haha.sql
+    数据库还原： 1. mysql -uroot -proot
+                2. create database haha;
+                3. use haha;
+                4. source  e://DataBase//haha.sql
+</code></pre></div><p>2.图形化工具的方式</p> <div class="language- extra-class"><pre><code>此处以使用Navicat for MySQL 图形化界面为例:
+        1.选择要备份的数据库名称，
+        2.右键，选择 --&gt;转储SQL文件
+        3.选择要保存的路径
+        4.新建数据库
+        5.在新建的数据库右键选择 ---&gt;运行SQL文件
+        6.在弹出的界面选择转储sql文件保存的文件路径，点击开始
+        7.在新建的数据库中进行刷新，数据库还原成功。
+</code></pre></div><h2 id="事务"><a href="#事务" class="header-anchor">#</a> 事务</h2> <h3 id="_1-事务的基本介绍"><a href="#_1-事务的基本介绍" class="header-anchor">#</a> 1. 事务的基本介绍</h3> <p>1.概念：
+事务是用户定义的一个数据库操作序列，这些操作要么全做，要么全不做，是一个不可分割的工作单位。</p> <p>2.操作：</p> <p>  1. 开启事务： start transaction;</p> <p>  2. 回滚：rollback;</p> <p>  3. 提交：commit;</p> <p>3.事务提交的两种方式</p> <p>  1. 自动提交：<br>
+      MySQL 数据库中事务默认自动提交。<br>
+      一条 DML(增删改)语句会自动提交一次事务。</p> <p>  2. 手动提交：<br>
+      Oracle 数据库默认是手动提交事务<br>
+      需要先开启事务，再提交</p> <p>  3. 修改事务的默认提交方式：<br>
+      查看事务的默认提交方式：SELECT @@autocommit; -- 1 代表自动提交 0 代表手动提交<br>
+      改默认提交方式： set @@autocommit = 0;</p> <h3 id="事务的四大特征"><a href="#事务的四大特征" class="header-anchor">#</a> 事务的四大特征</h3> <ol><li>原子性：事务是数据库的逻辑单位，事务中的操作要么全做，要么全不做。</li> <li>持久性：一个事务一旦提交，它对数据库中数据的改变就是永久性的，接下来的其他操作或故障不应该对其执行结果有任何影响。</li> <li>隔离性：一个事务的执行不能被其他事务干扰，即一个事务的内部操作及使用的数据对其他并发事务是隔离的，并发执行的各个事务之间不能互相干扰。</li> <li>一致性：事务执行的结果必须是使数据库从一个一致性状态变到另一个一致性状态。当数据库只包含成功事务提交的结果时，就说数据库处于一致性状态。</li></ol> <h3 id="事务的隔离级别-了解"><a href="#事务的隔离级别-了解" class="header-anchor">#</a> 事务的隔离级别（了解）</h3> <p>概念：多个事务之间隔离的，相互独立的。但是如果多个事务操作同一批数据，则会引发一些问题，设置不同的隔离级别就可以解决这些问题。
+存在问题：</p> <ol><li>读“脏”数据：一个事务，读取到另一个事务中没有提交的数据</li> <li>不可重复读(虚读)：在同一个事务中，两次读取到的数据不一样。</li> <li>丢失修改：一个事务操作(DML)数据表中所有记录，另一个事务添加了一条数据，则第一个事务查询不到自己的修改。</li></ol> <p>隔离级别：</p> <ol><li>read uncommitted：读未提交。
+产生的问题：脏读、不可重复读、幻读</li> <li>read committed：读已提交 （Oracle）
+产生的问题：不可重复读、幻读</li> <li>repeatable read：可重复读 （MySQL 默认）
+产生的问题：幻读</li> <li>serializable：串行化
+可以解决所有的问题
+注意：隔离级别从小到大安全性越来越高，但是效率越来越低
+数据库查询隔离级别：
+select @@tx_isolation;
+数据库设置隔离级别：
+set global transaction isolation level 级别字符串;</li></ol> <h2 id="dcl-管理用户-授权"><a href="#dcl-管理用户-授权" class="header-anchor">#</a> DCL --&gt; 管理用户，授权</h2> <h3 id="mysql-中忘记-root-用户的密码解决方案"><a href="#mysql-中忘记-root-用户的密码解决方案" class="header-anchor">#</a> mysql 中忘记 root 用户的密码解决方案</h3> <div class="language- extra-class"><pre><code>1. 使用管理员权限打开cmd -- &gt; net stop mysql 停止mysql服务
+2. 使用无验证方式启动mysql服务： mysqld --skip-grant-tables
+3. 打开新的cmd窗口,直接输入mysql命令，敲回车键。就可以登录成功
+4. use mysql;
+5. update user set password = password('新密码') where user = 'root';
+6. 关闭两个cmd窗口
+7. 打开任务管理器，手动结束mysqld.exe 的进程
+8. 启动mysql服务
+9. 使用新密码登录。
+</code></pre></div><h3 id="管理用户"><a href="#管理用户" class="header-anchor">#</a> 管理用户</h3> <div class="language- extra-class"><pre><code>1.添加用户：
+语法：CREATE USER '用户名'@'主机名' IDENTIFIED BY '密码';
+示例：CREATE USER 'asd'@'localhost' IDENTIFIED BY 'asd';
+
+2. 删除用户：
+语法：DROP USER '用户名'@'主机名';
+示例：DROP USER 'asd'@'localhost';
+
+3. 修改用户密码：
+方式一： UPDATE USER SET PASSWORD = PASSWORD('新密码') WHERE USER = '用户名';
+方式二： SET PASSWORD FOR '用户名'@'主机名' = PASSWORD('新密码');
+示例一：UPDATE USER SET PASSWORD = PASSWORD('abc') WHERE USER = 'lisi';
+示例二：SET PASSWORD FOR 'root'@'localhost' = PASSWORD('123');
+
+4. 查询用户：
+-- 1. 切换到mysql数据库
+USE myql;
+-- 2. 查询user表
+SELECT * FROM USER;
+</code></pre></div><h3 id="权限管理"><a href="#权限管理" class="header-anchor">#</a> 权限管理</h3> <div class="language- extra-class"><pre><code>1. 查询权限：
+SHOW GRANTS FOR '用户名'@'主机名';
+示例： SHOW GRANTS FOR 'root'@'localhost';
+
+2. 授予权限：
+grant 权限列表 on 数据库名.表名 to '用户名'@'主机名';
+示例一：给asd用户授予所有权限。
+GRANT ALL ON *.* TO 'asd'@'localhost';
+示例二：给asd用户授予查询test数据库中student表的权限。
+ GRANT SELECT ON test.student TO 'asd'@'localhost';
+
+3. 撤销权限：
+revoke 权限列表 on 数据库名.表名 from '用户名'@'主机名';
+示例：撤销asd用户对test数据库中student表的权限
+REVOKE UPDATE ON test.`student` FROM 'asd'@'localhost';
+</code></pre></div></div></div> <!----> <div class="page-edit"><div class="edit-link"><a href="https://github.com/gujunling/edit/master/docs/02.后端/06.MySQL/02.Mysql配置&amp;&amp;使用.md" target="_blank" rel="noopener noreferrer">完善页面</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2024-11-28 17:23:47</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/b52295/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">JDBC</div></a> <a href="/pages/b8f905/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">HashMap的底层原理及扩容过程</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/b52295/" class="prev">JDBC</a></span> <span class="next"><a href="/pages/b8f905/">HashMap的底层原理及扩容过程</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/cb910b/"><div>
+            git常用操作手册
+            <!----></div></a> <span class="date">12-26</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/e9d25f/"><div>
+            常用的前端工具库
+            <!----></div></a> <span class="date">12-19</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/ab345e/"><div>
+            前端构建工具
+            <!----></div></a> <span class="date">12-19</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:gujunq1998@163.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/gujunling" title="GitHub" target="_blank" class="iconfont icon-github"></a></div> <div style="display:flex;justify-content: center;">
+    前端小记 版权所有 | Copyright © 2021-2024
+    <span></span></div></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"><div></div></div></div>
+    <script src="/assets/js/app.1265737e.js" defer></script><script src="/assets/js/2.6236b5eb.js" defer></script><script src="/assets/js/3.bb90c5fd.js" defer></script><script src="/assets/js/96.02bea6a9.js" defer></script>
+  </body>
+</html>
