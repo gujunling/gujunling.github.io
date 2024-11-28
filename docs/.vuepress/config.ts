@@ -213,7 +213,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     footer: {
       createYear: 2021, // 博客创建年份
       copyrightInfo:
-      '<div style="display:flex;text-decoration:none;height:20px;line-height:20px;margin:0 5px;"><img src="/img/beian.png" /><p style="height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤公网安备 44040202001285号 | <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">豫ICP备2021003461号-2</a></p></div>', // 博客版权信息，支持a标签
+       ''
+      // '<div style="display:flex;text-decoration:none;height:20px;line-height:20px;margin:0 5px;"><img src="/img/beian.png" /><p style="height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤公网安备 44040202001285号 | <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">豫ICP备2021003461号-2</a></p></div>', // 博客版权信息，支持a标签
     },
 
     // 扩展自动生成frontmatter。（当md文件的frontmatter不存在相应的字段时将自动添加。不会覆盖已有的数据。）
