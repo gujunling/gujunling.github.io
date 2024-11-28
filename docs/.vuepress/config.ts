@@ -8,7 +8,7 @@ import dayjs from 'dayjs'
 import baiduCode from './config/baiduCode' // 百度统计hm码
 import htmlModules from './config/htmlModules' // 自定义插入的html块
 
-const DOMAIN_NAME = 'sweetheartjq.cn' // 域名 (不带https)
+const DOMAIN_NAME = 'gujunling.github.io' // 域名 (不带https)
 const WEB_SITE = `https://${DOMAIN_NAME}` // 网址
 
 export default defineConfig4CustomTheme<VdoingThemeConfig>({
@@ -182,7 +182,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       // 博主信息，显示在首页侧边栏
       avatar:
         // "https://gitee.com/gujunling/pic-go-image/raw/master/blog/20211221085456.png",
-        "https://sweetheartjq.cn/images/e0509e6cd38d4f819e469be71bd4b2a6.png",
+        "https://gujunling.github.io/images/e0509e6cd38d4f819e469be71bd4b2a6.png",
       name: "sweetheart",
       slogan: "前端小记",
     },
@@ -220,7 +220,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     extendFrontmatter: {
       author: {
         name: 'sweetheart',
-        link: 'https://sweetheartjq.cn/'
+        link: 'https://gujunling.github.io/'
       }
     },
 
@@ -345,9 +345,9 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           repo: "gujunling.github.io", // GitHub 仓库,github.io域名
         // 不同的域名需要更换不同的评论系统的id及评论存在的仓库
 
-          // clientID: "1229f90ccdd99b9bea84", //  sweetheartjq.cn
-          // clientSecret: "5d8699282be89aeded2b4cf41d29dda9c0fcd83f", //  sweetheartjq.cn
-          // repo: "myblog-gitalk-comment", // GitHub 仓库，sweetheartjq.cn域名
+          // clientID: "1229f90ccdd99b9bea84", //  gujunling.github.io
+          // clientSecret: "5d8699282be89aeded2b4cf41d29dda9c0fcd83f", //  gujunling.github.io
+          // repo: "myblog-gitalk-comment", // GitHub 仓库，gujunling.github.io域名
           owner: 'gujunling', // GitHub仓库所有者
           admin: ['gujunling'], // 对仓库有写权限的人
           // distractionFreeMode: true,

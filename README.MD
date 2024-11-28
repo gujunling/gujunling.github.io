@@ -1,5 +1,5 @@
 <!-- <p align="center"><a href="https://xugaoyi.com/" target="_blank" rel="noopener noreferrer"><img width="180" src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200409124835.png" alt="logo"></a></p> -->
-<p align="center"><a href="https://xugaoyi.com/" target="_blank" rel="noopener noreferrer"><img width="180" src="http://sweetheartjq.cn/images/5919490a86af425998ef2a61669ca000.png" alt="logo"></a></p>
+<p align="center"><a href="https://xugaoyi.com/" target="_blank" rel="noopener noreferrer"><img width="180" src="http://gujunling.github.io/images/5919490a86af425998ef2a61669ca000.png" alt="logo"></a></p>
 
 <p align="center">
   <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/actions?query=workflow%3ACI"><img src="https://github.com/xugaoyi/vuepress-theme-vdoing/workflows/CI/badge.svg" alt="CI"></a>
@@ -13,7 +13,7 @@
 
 <h2 align="center">vuepress-theme-vdoing</h2>
 
-- [我的博客：前端小记](https://sweetheartjq.cn/)
+- [我的博客：前端小记](https://gujunling.github.io/)
 
 - [文档 (国内源)](https://doc.xugaoyi.com/)
 
